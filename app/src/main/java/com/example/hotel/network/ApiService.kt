@@ -1,6 +1,6 @@
 package com.example.hotel.network
 
-import com.example.hotel.model.HotelDetailsResponse
+import HotelDetailsResponse
 import com.example.hotel.model.HotelListResponse
 import com.example.hotel.model.HotelPhotosResponse
 import com.example.hotel.model.SearchResponse
