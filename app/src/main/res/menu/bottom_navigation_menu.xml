@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuSearchFragment"
+        android:title="Search"
+        android:icon="@drawable/ic_search_bottom_navigation_24dp"/>
+    <item
+        android:id="@+id/menuFavoritesFragment"
+        android:title="Favorites"
+        android:icon="@drawable/ic_favorite_bottom_navigation_24dp"/>
+    <item
+        android:id="@+id/menuRewardsFragment"
+        android:title="Rewards"
+        android:icon="@drawable/ic_card_giftcard_bottom_navigation_24dp"/>
+    <item
+        android:id="@+id/menuBookingsFragment"
+        android:title="Bookings"
+        android:icon="@drawable/ic_booking_bottom_navigation_24dp"/>
+    <item
+        android:id="@+id/menuMoreFragment"
+        android:title="More"
+        android:icon="@drawable/ic_more_vert_bottom_navigation_24dp"/>
+</menu>
