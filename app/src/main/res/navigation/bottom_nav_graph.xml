@@ -8,21 +8,26 @@
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.hotel.view.Fragments.SearchFragment"
+        android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.example.hotel.view.Fragments.FavoritesFragment"
+        android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" />
     <fragment
         android:id="@+id/rewardsFragment"
         android:name="com.example.hotel.view.Fragments.RewardsFragment"
+        android:label="fragment_rewards"
         tools:layout="@layout/fragment_rewards" />
     <fragment
         android:id="@+id/booksFragment"
         android:name="com.example.hotel.view.Fragments.BooksFragment"
+        android:label="fragment_books"
         tools:layout="@layout/fragment_books" />
     <fragment
         android:id="@+id/moreFragment"
         android:name="com.example.hotel.view.Fragments.MoreFragment"
+        android:label="fragment_more"
         tools:layout="@layout/fragment_more" />
 </navigation>

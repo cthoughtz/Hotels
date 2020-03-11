@@ -26,18 +26,7 @@ class HomeScreen : AppCompatActivity() {
         var navController = findNavController(R.id.fragNavHost)
 
 
-        var appBarConfiguration = AppBarConfiguration(
-
-            topLevelDestinationIds = setOf(
-                R.id.searchFragment,
-                R.id.favoritesFragment,
-                R.id.rewardsFragment,
-                R.id.booksFragment,
-                R.id.moreFragment
-            )
-        )
-
-        setupWithNavController(toolbar,navController,appBarConfiguration)
+        bottomNavView.setupWithNavController(navController)
 
 
     }
