@@ -1,12 +1,13 @@
-package com.example.hotel
+package com.example.hotel.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.hotel.R
 
-class MainActivity : AppCompatActivity() {
+class HomeScreen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.homescreen_main)
     }
 }
