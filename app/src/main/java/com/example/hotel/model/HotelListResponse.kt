@@ -5,7 +5,7 @@ data class HotelListResponse(
     @SerializedName("result")
     val result: String?,
     @SerializedName("data")
-    val `data`: Data?
+    val data: Data?
 ) {
     data class Data(
         @SerializedName("body")

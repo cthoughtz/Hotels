@@ -1,10 +1,11 @@
+package com.example.hotel.model
 
 import com.google.gson.annotations.SerializedName
 data class HotelDetailsResponse(
     @SerializedName("result")
     val result: String?,
     @SerializedName("data")
-    val `data`: Data?,
+    val data: Data?,
     @SerializedName("transportation")
     val transportation: Transportation?,
     @SerializedName("neighborhood")
