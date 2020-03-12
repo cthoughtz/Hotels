@@ -5,4 +5,5 @@
     <color name="colorAccent">#FFD32F2F</color>
     <color name="colorBeigeBackground">#FFE5DFCE</color>
     <color name="colorPurple">#FF8623AE</color>
+    <color name="colorRewardsBackgroundPurple">#FFFAEDFC</color>
 </resources>
