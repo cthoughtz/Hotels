@@ -23,7 +23,7 @@ class BooksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as HomeScreen).toolbar.title = "Booking"
+//        (activity as HomeScreen).toolbar.title = "Booking"
     }
 
 }

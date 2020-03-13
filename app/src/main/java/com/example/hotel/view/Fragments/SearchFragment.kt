@@ -23,7 +23,7 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as HomeScreen).toolbar.title = "Search"
+//        (activity as HomeScreen).toolbar.title = "Search"
     }
 
 }

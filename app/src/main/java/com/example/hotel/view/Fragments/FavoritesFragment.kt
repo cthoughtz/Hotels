@@ -24,6 +24,6 @@ class FavoritesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as HomeScreen).toolbar.title = "Favorites"
+//        (activity as HomeScreen).toolbar.title = "Favorites"
     }
 }

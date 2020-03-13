@@ -23,7 +23,7 @@ class MoreFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as HomeScreen).toolbar.title = "More"
+//        (activity as HomeScreen).toolbar.title = "More"
     }
 
 }

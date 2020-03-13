@@ -23,7 +23,7 @@ class RewardsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as HomeScreen).toolbar.title = "Rewards"
+//        (activity as HomeScreen).toolbar.title = "Rewards"
     }
 
 }
