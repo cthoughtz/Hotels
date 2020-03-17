@@ -97,13 +97,13 @@
                     android:layout_height="450dp"
                     android:background="@color/colorPurple">
 
-                    <include
-                        layout="@layout/snippet_rewards_nights"
+                    <ImageView
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         android:layout_height="wrap_content"
                         android:layout_width="0dp"
+                        android:background="@drawable/rewards_moon_image"
                         android:layout_marginTop="30dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"/>
