@@ -1,6 +1,921 @@
 <resources>
-    <string name="app_name">Hotle</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="BTN_COMMON_CANCEL">Cancel</string>
+    <string name="BTN_COMMON_SET">Set</string>
+    <string name="ab_general_home">Home</string>
+    <string name="ab_general_menu">Menu</string>
+    <string name="ab_refresh">Refresh</string>
+    <string name="additional_details_next_button">Next</string>
+    <string name="apac_loc_p_screen_title">Call Us</string>
+    <string name="apac_loc_p_toll_free">Toll Free</string>
+    <string name="app_indexing_guest_reviews_text_few">guest reviews</string>
+    <string name="app_indexing_guest_reviews_text_many">guest reviews</string>
+    <string name="app_indexing_guest_reviews_text_one">guest review</string>
+    <string name="app_indexing_guest_reviews_text_other">guest reviews</string>
+    <string name="app_indexing_guest_reviews_text_two">guest reviews</string>
+    <string name="app_indexing_guest_reviews_text_zero">guest reviews</string>
+    <string name="app_indexing_pdp_description">
+Book %1$s in %2$s on %3$s and earn Rewards nights. Collect 10 nights get 1 free*. Read %4$d genuine %5$s for %1$s
+</string>
+    <string name="app_indexing_srp_description">Exclusive deals in %s</string>
+    <string name="app_indexing_srp_name">Property in %s</string>
+    <string name="app_name">Hotels.com Duplicate</string>
+    <string name="aut_sig_p_signin_actionbar_text">Account</string>
+    <string name="aut_sig_p_signin_btn_sign_in_text">Sign in</string>
+    <string name="aut_sig_p_signin_btn_sign_up_text">Sign up</string>
+    <string name="aut_sig_p_signin_create_account_text">Create an account</string>
+    <string name="aut_sig_p_signin_email_hint_text">Email</string>
+    <string name="aut_sig_p_signin_password_hint_text">Password</string>
+    <string name="aut_sig_p_signin_separator_text">or</string>
+    <string name="book_without_card_details">Book without card details</string>
+    <string name="booking_state_cancelled_text">Cancelled booking</string>
+    <string name="booking_state_completed_text">Completed booking</string>
+    <string name="booking_state_upcoming_text">Upcoming booking</string>
+    <string name="brand_name">Hotels.com</string>
+    <string name="btn_common_get_started">Get started</string>
+    <string name="btn_common_no">No</string>
+    <string name="btn_common_ok">OK</string>
+    <string name="btn_common_undo">Undo</string>
+    <string name="btn_common_yes">Yes</string>
+    <string name="btn_continue">Continue</string>
+    <string name="btn_try_again">Try again</string>
+    <string name="cal_choose_check_in">Choose your check-in date</string>
+    <string name="cal_choose_check_out">Choose your check-out date</string>
+    <string name="calendar_dialog_abbreviation_friday">FRI</string>
+    <string name="calendar_dialog_abbreviation_monday">MON</string>
+    <string name="calendar_dialog_abbreviation_saturday">SAT</string>
+    <string name="calendar_dialog_abbreviation_sunday">SUN</string>
+    <string name="calendar_dialog_abbreviation_thursday">THU</string>
+    <string name="calendar_dialog_abbreviation_tuesday">TUE</string>
+    <string name="calendar_dialog_abbreviation_wednesday">WED</string>
+    <string name="calendar_dialog_now">Now</string>
+    <string name="calendar_dialog_today">Today</string>
+    <string name="calendar_dialog_tomorrow">Tomorrow</string>
+    <string name="calendar_dialog_until_5am">Until 5am</string>
+    <string name="checkInToOutDate">%1$s to %2$s</string>
+    <string name="check_in_instructions_title">Check-in instructions</string>
+    <string name="chp_bg_hotel_1_location">Trou d\'Eau Douce, Mauritius</string>
+    <string name="chp_bg_hotel_1_name">Troue Delau</string>
+    <string name="chp_bg_hotel_2_location">Shanghai, China</string>
+    <string name="chp_bg_hotel_2_name">Banyan Tree Shanghai On The Bund</string>
+    <string name="chp_bg_hotel_3_location">Honolulu, United States of America</string>
+    <string name="chp_bg_hotel_3_name">The Modern Honolulu</string>
+    <string name="chp_bg_hotel_4_location">Marrakech, Morocco</string>
+    <string name="chp_bg_hotel_4_name">Le Sultana Marrakech</string>
+    <string name="chp_bg_hotel_5_location">Barcelona, Spain</string>
+    <string name="chp_bg_hotel_5_name">Ohla Hotel</string>
+    <string name="chp_deals_p_tonights_local_deals">Tonight\'s Local Deals</string>
+    <string name="chp_def_scr_greetings">Hello</string>
+    <string name="chp_def_scr_greetings_descr">
+Take a look around. If you haven\'t switched on Location Services in your mobile settings, just use our menu options to find what you\'re looking for.
+</string>
+    <string name="chp_nav_p_booking_and_account">BOOKINGS and ACCOUNT</string>
+    <string name="chp_nav_p_settings">Settings</string>
+    <string name="chp_nav_p_sign_in">Sign in</string>
+    <string name="chp_nav_p_sign_out">Sign out</string>
+    <string name="chp_no_con_scr_descr">
+You appear to be offline, we will reload relevant content when we detect a connection
+</string>
+    <string name="chp_no_con_scr_title">No connection</string>
+    <string name="chp_p_lnc_immediate_check_5am_text">Immediate check-in up to 5 am</string>
+    <string name="chp_p_lnc_need_hotel_right_away_text">Looking to stay right away?</string>
+    <string name="chp_p_lnc_need_hotel_tonight_text">Looking to stay tonight?</string>
+    <string name="chp_p_lnc_search_button_text">Destination, property, or address</string>
+    <string name="chp_res_p_current_reservation">Current booking</string>
+    <string name="chp_res_p_upcoming_reservation">Upcoming booking</string>
+    <string name="chp_ser_p_title">Where are you going?</string>
+    <string name="chp_welcome_p_we_are_busy_loading2">
+We are busy loading relevant content for you, please stand by…
+</string>
+    <string name="com_facebook_loginview_log_in_button">Sign in with Facebook</string>
+    <string name="com_wid_datapickerdialog_cancel_btn">Cancel</string>
+    <string name="com_wid_datapickerdialog_set_btn">Set</string>
+    <string name="common_alert_message">Something went wrong</string>
+    <string name="common_alert_title">Oops</string>
+    <string name="common_auto_signin_dialog_message">You\'ve been logged out - please sign in again</string>
+    <string name="common_com_p_force_update_dialog_no">Later</string>
+    <string name="common_com_p_force_update_dialog_yes">Update</string>
+    <string name="common_location_error_message">Currently unable to retrieve location information.</string>
+    <string name="common_network_error_message">Please check your connection and try again.</string>
+    <string name="common_network_error_title">Sorry, unable to connect</string>
+    <string name="common_progress_dialog_loading_message">Loading. Please wait...</string>
+    <string name="common_seek_bubble_selected">Selected: %1$s</string>
+    <string name="compression_messaging_progress_booked_text_bottom">booked</string>
+    <string name="compression_messaging_progress_booked_text_top">%1$s%%</string>
+    <string name="contact_us_call_the_property">Call the property</string>
+    <string name="contact_us_call_us">Call us</string>
+    <string name="contact_us_need_help">Need help?</string>
+    <string name="contact_us_please_note">
+<b>Please note:</b> Calls may be charged at local/international rate
+</string>
+    <string name="coupon_badge_text">Coupon-friendly</string>
+    <string name="create_account">Create account</string>
+    <string name="create_account_page_title">Create account</string>
+    <string name="deals_near_me">Deals near me</string>
+    <string name="deals_pay_less_with_secret_prices">Pay less with Secret Prices</string>
+    <string name="drawer_menu_item_your_properties">List your property</string>
+    <string name="drive_direct_message">
+As a valued customer, you\'ll pay the lower price every time you see \'Your Secret Price\'
+</string>
+    <string name="drive_direct_message_header">Look out for \'Your Secret Price\'</string>
+    <string name="drive_direct_secret_price_msg">Your Secret Price</string>
+    <string name="drive_direct_srp_banner_text">
+By using our app, you\'ll pay less on select properties. Just look out for \'Your Secret Price.\'
+</string>
+    <string name="drive_direct_title">
+Great news! By using our app, you\'ve already unlocked Secret Prices on select properties.
+</string>
+    <string name="embedded_sign_in_error_msg">
+We can\'t sign you in right now. Please try again later.
+</string>
+    <string name="etp_cant_use_coupon">You can\'t use coupons if paying at property</string>
+    <string name="etp_coupon_information">
+You won\'t collect or redeem Hotels.com Rewards™ nights with this coupon
+</string>
+    <string name="evergreen_coupon_code_copied">Coupon code copied</string>
+    <string name="evergreen_coupon_copied">Copied</string>
+    <string name="evergreen_coupon_get_code">GET CODE</string>
+    <string name="evergreen_coupon_pop_up_copy_code">copy code: %s</string>
+    <string name="evergreen_coupon_pop_up_look_for_the_symbol">
+Look for this symbol for coupon-friendly properties
+</string>
+    <string name="evergreen_coupon_pop_up_no_i_want_to_collect_nights">No. I want to collect nights</string>
+    <string name="evergreen_coupon_pop_up_off_on_our_app">%1$d%% OFF on our app</string>
+    <string name="evergreen_coupon_pop_up_paste_this_coupon">
+Paste this coupon code at checkout and tap \'Apply\'
+</string>
+    <string name="evergreen_coupon_pop_up_you_wont_collect_or_redeem">
+You won\'t collect or redeem Hotels.com Rewards nights with this coupon
+</string>
+    <string name="favourite_feature_discovery_description">Tap the heart to add to your %1$s.</string>
+    <string name="favourite_feature_discovery_favourites">Favorites</string>
+    <string name="favourite_feature_discovery_title">See something you like?</string>
+    <string name="feedback_dialog_option_maybe">Maybe later</string>
+    <string name="feedback_dialog_option_no">No, thanks</string>
+    <string name="feedback_dialog_option_yes">Yes, rate it now</string>
+    <string name="feedback_dialog_title">Ready to rate our app?</string>
+    <string name="feedback_dialog_we_would_love_to_hear_your_feedback">We\'d love to hear your feedback.</string>
+    <string name="feedback_page_title">Feedback</string>
+    <string name="filter_page_sorted_by_label">SORTED BY</string>
+    <string name="find_booking_page_title">Find a booking</string>
+    <string name="force_update_app_button">Go</string>
+    <string name="force_update_app_text">To get the latest features, please update your app</string>
+    <string name="force_update_web_button">Hotels.com website</string>
+    <string name="force_update_web_description">Please use our website</string>
+    <string name="force_update_web_text">
+This app is no longer available on this version of Android
+</string>
+    <string name="form_card_number">Card number</string>
+    <string name="form_check_out_date">Check-out date</string>
+    <string name="form_confirmation_number">Confirmation number</string>
+    <string name="form_first_name">First name</string>
+    <string name="form_last_name">Last name</string>
+    <string name="get_instant_savings_with_secret_prices">Get instant savings on top destinations</string>
+    <string name="getting_around">Getting around</string>
+    <string name="guest_review_read_more">Read more</string>
+    <string name="guest_reviews_no_summary_message">This guest did not leave a comment.</string>
+    <string name="guest_reviews_same_local_title">Individual Guest Reviews</string>
+    <string name="hcom_guest_reviews_title">Hotels.com reviews</string>
+    <string name="hero_card_about_this_hotel_title">About this property</string>
+    <string name="hero_card_cancellation_status_message">Your booking has been partially canceled</string>
+    <string name="homepage_coupon_module_coupon_copy">Tap to copy</string>
+    <string name="homepage_evergreen_coupon_copy">TAP TO COPY</string>
+    <string name="homepage_evergreen_coupon_toast_message">Copied to clipboard</string>
+    <string name="hot_det_p_cancellation">Cancellation Policy</string>
+    <string name="hot_map_p_hotelmap_nearby_neighborhood">Neighborhood</string>
+    <string name="hot_map_p_hotelmap_nearby_poi">Points of interest</string>
+    <string name="hot_p_details_book">Book</string>
+    <string name="hot_p_invalid_hotelid">
+Sorry, the property you were looking for is not available. Please start a new search.
+</string>
+    <string name="hotel_details_couldnt_be_retrieved_error_msg">
+Sorry, we couldn\'t get details for the property you selected. Please try again later.
+</string>
+    <string name="hotelratings_title">Reviews</string>
+    <string name="hp_cant_decide_2_or_more_destinations">Can\'t decide between 2 or more destinations?</string>
+    <string name="hp_completed_reservation_header_text">How was your stay?</string>
+    <string name="hp_hcom_rewards_collect_nights_text_few">Collect %1$d more nights, get 1 reward* night</string>
+    <string name="hp_hcom_rewards_collect_nights_text_many">Collect %1$d more nights, get 1 reward* night</string>
+    <string name="hp_hcom_rewards_collect_nights_text_one">Collect %1$d more night, get 1 reward* night</string>
+    <string name="hp_hcom_rewards_collect_nights_text_other">Collect %1$d more nights, get 1 reward* night</string>
+    <string name="hp_hcom_rewards_collect_nights_text_two">Collect %1$d more nights, get 1 reward* night</string>
+    <string name="hp_hcom_rewards_collect_nights_text_zero">Collect %1$d more nights, get 1 reward* night</string>
+    <string name="hp_hcom_rewards_create_account_button_text">Create account</string>
+    <string name="hp_hcom_rewards_find_out_more_button_text">Find out more</string>
+    <string name="hp_hcom_rewards_nights_text_few">You have <b>%1$d reward* nights</b> to redeem</string>
+    <string name="hp_hcom_rewards_nights_text_many">You have <b>%1$d reward* nights</b> to redeem</string>
+    <string name="hp_hcom_rewards_nights_text_one">You have <b>%1$d reward* night</b> to redeem</string>
+    <string name="hp_hcom_rewards_nights_text_other">You have <b>%1$d reward* nights</b> to redeem</string>
+    <string name="hp_hcom_rewards_nights_text_two">You have <b>%1$d reward* nights</b> to redeem</string>
+    <string name="hp_hcom_rewards_nights_text_zero">You have <b>%1$d reward* nights</b> to redeem</string>
+    <string name="hp_hcom_rewards_redeem_text">redeem</string>
+    <string name="hp_hcom_rewards_view_activity_button_text">View activity</string>
+    <string name="hp_inspiration_destination_text_first">Not sure where to go?</string>
+    <string name="hp_inspiration_destination_text_second">We\'ll inspire you</string>
+    <string name="hp_need_a_hotel_button">Find deals near me</string>
+    <string name="hp_offline_with_reservations">
+You are not connected. You can still view your bookings.
+</string>
+    <string name="hp_offline_without_reservations">You are not connected.</string>
+    <string name="hp_recent_hotels_header">Recently viewed</string>
+    <string name="hp_recent_searches_header">Recent searches</string>
+    <string name="hp_recommended_destinations_header">Recommended for you</string>
+    <string name="hp_secret_prices_unlocked">You\'ve unlocked Secret Prices!</string>
+    <string name="hp_sign_in_book_faster">Book faster</string>
+    <string name="hp_sign_in_find_all_your_bookings">Find all your bookings</string>
+    <string name="hp_sign_in_in_one_place">in one place</string>
+    <string name="hp_sign_in_message">You\'re signed in.</string>
+    <string name="hp_sign_in_on_any_device">on any device</string>
+    <string name="hp_sign_in_pick_up_where_you_left_off">Pick up where you left off</string>
+    <string name="hp_sign_in_sign_in">Sign in</string>
+    <string name="hp_sign_in_to_get_even_more">Sign in to get even more ...</string>
+    <string name="hp_upcoming_reservation_header_link_text">more</string>
+    <string name="hp_we_can_help">We can help</string>
+    <string name="inf_p_information_menu_privacy_policy_link">Privacy</string>
+    <string name="inf_p_information_menu_terms_and_conditions_link">Terms and conditions</string>
+    <string name="info_page_about_our_hotel_sort">About our property sort</string>
+    <string name="info_page_about_our_hotel_sort_text_part_1">
+Travelers have many options on Hotels.com to help them find the perfect stay. The “sort” settings allow travelers to order search results to their preference, whether based on price, verified review score, or other criteria. The “filter” settings also allow travelers to include or exclude various options to suit their travel needs. If no options are selected, Hotels.com will show a range of relevant options in the search results, based on the criteria outlined below.
+</string>
+    <string name="info_page_about_our_hotel_sort_text_part_2">
+In our default sort of “Featured”, the sort order reflects the relevance of properties to your search criteria, as we want to make sure you are able to quickly and easily find the offer that is right for you. We measure relevance by taking into account factors like a property\'s location, its review scores, the popularity of the property (measured by how many travelers on our sites make bookings for that property), the quality of the content provided by the property, and the competitiveness of the property\'s rates and availability. All these factors are relative to other properties meeting your chosen search criteria. In addition, the compensation we earn when you book a property (and such booking is completed and not subsequently canceled within any cancellation window) is one of the factors taken into consideration when determining the relative order of properties with similar offers in our search results listings. The compensation we earn recognizes the part we play in listing the property on our site, facilitating the booking, and facilitating your stay at the property. Where we display properties with a similar offer, a booking from which we earn more compensation will feature higher in our search results listings compared to other properties with similar offers where we are paid less compensation on the booking. On our non-default sorts (e.g., by price or by star rating), properties with similar results will be ordered based on the factors above.
+</string>
+    <string name="info_page_about_our_hotel_sort_text_part_3">
+Additionally, Hotels.com continually optimizes its service to provide the best experience to travelers. Accordingly, we may test different default sort order algorithms from time to time.
+</string>
+    <string name="info_page_about_our_hotel_sort_title">How we display products and services on Hotels.com</string>
+    <string name="info_page_title">Info</string>
+    <string name="last_updated_hours_label_few">%1$d hours ago</string>
+    <string name="last_updated_hours_label_many">%1$d hours ago</string>
+    <string name="last_updated_hours_label_one">%1$d hour ago</string>
+    <string name="last_updated_hours_label_other">%1$d hours ago</string>
+    <string name="last_updated_hours_label_two">%1$d hours ago</string>
+    <string name="last_updated_hours_label_zero">%1$d hours ago</string>
+    <string name="last_updated_label">Last updated</string>
+    <string name="last_updated_minutes_label_few">%1$d minutes ago</string>
+    <string name="last_updated_minutes_label_many">%1$d minutes ago</string>
+    <string name="last_updated_minutes_label_one">%1$d minute ago</string>
+    <string name="last_updated_minutes_label_other">%1$d minutes ago</string>
+    <string name="last_updated_minutes_label_two">%1$d minutes ago</string>
+    <string name="last_updated_minutes_label_zero">%1$d minutes ago</string>
+    <string name="last_updated_more_than_a_day_ago_label">Last updated more than a day ago</string>
+    <string name="leave_a_review_page_title">Leave a review</string>
+    <string name="loc_not_bookings_message">
+Access your booking details and other useful information for your trip at any time.
+</string>
+    <string name="loc_not_bookings_title">Take your booking with you</string>
+    <string name="loc_not_deals_message">
+Looking to stay tonight? Choose from hundreds of thousands of properties and book on the go.
+</string>
+    <string name="loc_not_deals_title">Mobile exclusive deals</string>
+    <string name="loc_not_get_started_btn_label">LET\'S GET STARTED</string>
+    <string name="loc_not_get_started_message_with_wr">
+Book faster and collect Hotels.com® Rewards nights by signing in or creating an account.
+</string>
+    <string name="loc_not_get_started_message_without_wr">Book faster by signing in or creating an account.</string>
+    <string name="loc_not_get_started_title">Are you ready to use our latest app?</string>
+    <string name="loc_not_notifications_message">
+Want to receive important updates about your trip and exclusive content? Be sure to allow notifications in the app settings.
+</string>
+    <string name="loc_not_notifications_title">Receive useful updates on the go</string>
+    <string name="loc_not_sign_in_message_with_wr">
+Sign in to the app to ensure your reservations are saved and you collect Hotels.com® Rewards nights when you book.
+</string>
+    <string name="loc_not_sign_in_message_without_wr">
+Sign in to the app to ensure your reservations are saved.
+</string>
+    <string name="loc_not_sign_in_title">Sign in with your %1$s account</string>
+    <string name="loc_not_title">
+Welcome to the latest update. Here\'s how to get the most out of the %1$s app.
+</string>
+    <string name="loc_not_wr_disclaimer">*Taxes and fees excluded</string>
+    <string name="loc_not_wr_message">
+It\'s free to join Hotels.com® Rewards. For every 10 nights you collect, we\'ll give you 1 reward* night.
+</string>
+    <string name="loc_not_wr_title">Collect 10 nights, get 1 reward* night</string>
+    <string name="local_notification_ticker_text">Your upcoming booking</string>
+    <string name="local_services_recommended_activities_and_services">Recommended activities and services in %1$s</string>
+    <string name="local_services_see_all">SEE ALL</string>
+    <string name="local_services_title">Local services</string>
+    <string name="lowest_priced_more_room_information_text">More information</string>
+    <string name="map_about_this_location_action_bar_title">About this location</string>
+    <string name="men_p_menu_initial_notification_setting_popup_allow">OK</string>
+    <string name="men_p_menu_initial_notification_setting_popup_not_allow">Don\'t allow</string>
+    <string name="men_p_menu_push_notification_message">
+%1$s would like to send you push notifications, including important information about your booking.
+</string>
+    <string name="men_p_menu_txt_welcome_text">Welcome</string>
+    <string name="merch_p_long_search_snackbar_message">We are finding the top destinations for you...</string>
+    <string name="more_menu_manage_your_account">Manage your account</string>
+    <string name="more_menu_manage_your_cards">Manage your payment cards</string>
+    <string name="more_menu_update_your_account_settings">Update your account settings</string>
+    <string name="more_menu_your_reviews">Your reviews</string>
+    <string name="msg_sign_in_email_address_prompt_message">Email address</string>
+    <string name="msg_sign_in_empty_email_address_message">Email field must not be empty.</string>
+    <string name="msg_sign_in_empty_email_password_message">Email and Password fields must not be empty.</string>
+    <string name="msg_sign_in_empty_password_message">Password field must not be empty.</string>
+    <string name="msg_sign_in_password_prompt_message">Password</string>
+    <string name="msg_signin_fb_description_text">
+It\'s easy to join and we\'ll never post to Facebook without your permission.
+</string>
+    <string name="msg_signin_same_email_prompt_message">
+You\'ve already used the same email address to create an account with %1$s. Sign in and we\'ll connect it with your Facebook account.
+</string>
+    <string name="navbar_label_bookings">Bookings</string>
+    <string name="navbar_label_favourites">Favorites</string>
+    <string name="navbar_label_more">More</string>
+    <string name="navbar_label_rewards">Rewards</string>
+    <string name="navbar_label_search">Search</string>
+    <string name="offline_dialog_text">
+You\'re offline. Please connect to your network or WiFi.
+</string>
+    <string name="offline_dialog_title">Just a moment!</string>
+    <string name="onboard_screen_approve_button">ok, sure</string>
+    <string name="onboard_screen_description">
+Enable notifications to get important updates about your trips
+</string>
+    <string name="onboard_screen_negative_button">no, thanks</string>
+    <string name="onboard_screen_title">Be travel-ready</string>
+    <string name="past_resent_search_add_new_dates">Add new dates</string>
+    <string name="pay_now_or_pay_later_page_title">Choose when to pay</string>
+    <string name="pde_title_hotel_size">Property size</string>
+    <string name="pde_title_internet">Internet</string>
+    <string name="pde_title_parking">Parking</string>
+    <string name="pde_title_transportation">Transport</string>
+    <string name="pdp_comparison_secret_price">Secret Price</string>
+    <string name="pdp_comparison_secret_price_message">
+Shhh! This is a %s that isn\'t available on comparison sites.
+</string>
+    <string name="pdp_feel_at_home">Feel at home</string>
+    <string name="pdp_guest_revies_score_breakdown">Score breakdown</string>
+    <string name="pdp_hero_card_no_guest_reviews">No %1$s guest reviews yet</string>
+    <string name="pdp_key_facts_additional_info_see_small_prints_message">
+*See small print for additional details or extra charges
+</string>
+    <string name="pdp_map_card_get_directions_from">Get directions from</string>
+    <string name="pdp_map_card_kilometer">km</string>
+    <string name="pdp_map_card_mile">mi</string>
+    <string name="pdp_map_card_miles_few">miles</string>
+    <string name="pdp_map_card_miles_many">miles</string>
+    <string name="pdp_map_card_miles_one">mile</string>
+    <string name="pdp_map_card_miles_other">miles</string>
+    <string name="pdp_map_card_miles_two">miles</string>
+    <string name="pdp_map_card_miles_zero">miles</string>
+    <string name="pdp_map_card_see_and_do">See what\'s nearby</string>
+    <string name="pdp_map_card_your_location">Your current location</string>
+    <string name="pdp_mrp_cancellation_policy_info">
+This booking has two parts, each with its own cancellation policy
+</string>
+    <string name="pdp_mrp_cancellation_policy_part">Part %1$d</string>
+    <string name="pdp_p_about_this_hotel_in_the_hotel">IN THE PROPERTY</string>
+    <string name="pdp_p_about_this_hotel_in_the_room">IN THE ROOM</string>
+    <string name="pdp_p_about_this_hotel_key_facts">KEY FACTS</string>
+    <string name="pdp_p_about_this_hotel_small_print">SMALL PRINT</string>
+    <string name="pdp_p_address_formatter">%1$s, %2$s, %3$s, %4$s</string>
+    <string name="pdp_p_address_formatter_without_zip_code">%1$s, %2$s, %3$s</string>
+    <string name="pdp_p_best_value_room_title">Best value</string>
+    <string name="pdp_p_cheapest_with_breakfast">Cheapest with breakfast</string>
+    <string name="pdp_p_etp_page_pay_coupons_supported_message">
+You can use your coupons here (usual restrictions apply)
+</string>
+    <string name="pdp_p_etp_page_pay_later_charged_when_property">
+You won\'t be charged until you check in or check out of the property
+</string>
+    <string name="pdp_p_etp_page_pay_later_directly">
+Pay the property directly, Hotels.com will not charge you
+</string>
+    <string name="pdp_p_etp_page_pay_now_onlyhotels_message">Only %1$s will process your payment details</string>
+    <string name="pdp_p_etp_page_title">Choose when to pay</string>
+    <string name="pdp_p_etp_pay_at_hotel">Pay at the property</string>
+    <string name="pdp_p_guest_review_card_read_all_review_text">Read all reviews</string>
+    <string name="pdp_p_guest_reviews_title">Guest reviews</string>
+    <string name="pdp_p_hero_card_add_button_text">Add</string>
+    <string name="pdp_p_hero_card_added_button_text">Added</string>
+    <string name="pdp_p_hero_card_book_now_button_text">Book Now</string>
+    <string name="pdp_p_hero_card_call_button_text">Call</string>
+    <string name="pdp_p_hero_card_change_dates_button_text">Change dates</string>
+    <string name="pdp_p_hero_card_families">For families</string>
+    <string name="pdp_p_hero_card_hotels_com_review_text">%1$s %2$s</string>
+    <string name="pdp_p_hero_card_main_amenities">Main Amenities</string>
+    <string name="pdp_p_hero_card_see_full_details_text">More details</string>
+    <string name="pdp_p_hero_card_share_button_text">Share</string>
+    <string name="pdp_p_lowest_priced_less_room_information_text">Show less</string>
+    <string name="pdp_p_lowest_priced_no_room_available">
+There is no accommodation available on Hotels.com for your travel dates.
+</string>
+    <string name="pdp_p_lowest_priced_room_card_free_cancellation">Free cancellation</string>
+    <string name="pdp_p_lowest_priced_room_card_occupancy_maximum">Maximum</string>
+    <string name="pdp_p_lowest_priced_room_card_see_all_rooms_text">See all options</string>
+    <string name="pdp_p_lowest_priced_room_title">Lowest price</string>
+    <string name="pdp_p_map_card_distance_from_your_current_location">%1$s %2$s from your current location</string>
+    <string name="pdp_p_map_card_location_header_text">Location</string>
+    <string name="pdp_p_map_card_more_about_this_location">More about this location</string>
+    <string name="pdp_p_map_card_tel">Tel:</string>
+    <string name="pdp_p_map_card_whats_around">What\'s around</string>
+    <string name="pdp_p_night_amount_text_few">%1$s nights</string>
+    <string name="pdp_p_night_amount_text_many">%1$s nights</string>
+    <string name="pdp_p_night_amount_text_one">%1$s night</string>
+    <string name="pdp_p_night_amount_text_other">%1$s nights</string>
+    <string name="pdp_p_night_amount_text_two">%1$s nights</string>
+    <string name="pdp_p_night_amount_text_zero">%1$s nights</string>
+    <string name="pdp_p_pay_now">Pay now</string>
+    <string name="pdp_p_pay_now_or_at_hotel">Pay now or at the property</string>
+    <string name="pdp_p_rooms_more_room_bed_choice_text">Bed Choices</string>
+    <string name="pdp_p_rooms_more_room_extra_bed_choice_text">Extra beds available</string>
+    <string name="pdp_p_rooms_non_refundable">Non Refundable</string>
+    <string name="pdp_p_rooms_welcome_rewards_collect_and_redeem_new">Collect and redeem</string>
+    <string name="pdp_p_rooms_welcome_rewards_collect_only">Collect only</string>
+    <string name="pdp_p_rooms_welcome_rewards_redeem_only">Redeem only</string>
+    <string name="pdp_p_see_all_rooms_button_label">see all</string>
+    <string name="pdp_p_share_check_out_this_hotel">Check out this property I found on %1$s:</string>
+    <string name="pdp_p_share_check_out_this_hotel_email_subject">%1$s property details - %2$s</string>
+    <string name="pdp_p_share_chooser_email">Share via mail</string>
+    <string name="pdp_p_share_chooser_other">Share via...</string>
+    <string name="pdp_p_share_email">Mail</string>
+    <string name="pdp_p_share_facebook">Facebook</string>
+    <string name="pdp_p_share_other">Other</string>
+    <string name="pdp_p_subpage_footer_lowest_price">Lowest price</string>
+    <string name="pdp_save_hotel_snackbar_action_text">See now</string>
+    <string name="pdp_save_hotel_snackbar_text">Added to Favorites</string>
+    <string name="pdp_search_recap_card_check_in">Check-in</string>
+    <string name="pdp_search_recap_card_check_out">Check-out</string>
+    <string name="pdp_search_recap_card_title_edit_your_search">Edit your search</string>
+    <string name="pdp_travel_ads_label">More great choices</string>
+    <string name="pdp_trust_you_card_footer_title">all reviews</string>
+    <string name="pdp_trust_you_card_header_title">What guests say</string>
+    <string name="pdp_verified_guest_review_text_few">Verified guest reviews</string>
+    <string name="pdp_verified_guest_review_text_many">Verified guest reviews</string>
+    <string name="pdp_verified_guest_review_text_one">Verified guest review</string>
+    <string name="pdp_verified_guest_review_text_other">Verified guest reviews</string>
+    <string name="pdp_verified_guest_review_text_two">Verified guest reviews</string>
+    <string name="pdp_verified_guest_review_text_zero">Verified guest reviews</string>
+    <string name="phone_apply_filter_button_text">Apply</string>
+    <string name="popup_menu_copy_to_clipboard">Copy to clipboard</string>
+    <string name="popup_menu_open_map">Open map</string>
+    <string name="popup_menu_open_with">Open with…</string>
+    <string name="propertydetails_paymentpreference_approxprice">(approx.)</string>
+    <string name="propertydetails_paymentpreference_cancelforfree">
+Cancel for free right up until the property\'s cancellation window
+</string>
+    <string name="propertydetails_paymentpreference_chargeinusd">You will be charged in USD</string>
+    <string name="propertydetails_paymentpreference_paylater_payinhotelcurrency">Pay the property in their currency</string>
+    <string name="propertydetails_paymentpreference_paynow_payinlocalcurrency">We\'ll process your payment in your local currency</string>
+    <string name="rate_app_in_the_opinion_lab">Please send us your feedback</string>
+    <string name="rate_app_in_the_store">Please rate us in the App store</string>
+    <string name="rate_this_app_question">Do you like the %1$s app?</string>
+    <string name="reboard_reward_description">
+We really do give you a reward night; you just pay taxes and fees
+</string>
+    <string name="recommended_by_this_property">Recommended by this property</string>
+    <string name="reg_st2_p_registrationstep2_btn_privacy_text">Privacy Policy</string>
+    <string name="reg_st2_p_registrationstep2_btn_tc_text">Terms and Conditions</string>
+    <string name="res_det_p_reservationdetails_btn_view_map_text">View map</string>
+    <string name="res_for_p_last_name_lbl_text">Last name of billing name*</string>
+    <string name="res_for_p_reservationform_btn_sign_in_text">Existing members sign in</string>
+    <string name="res_for_p_reservationform_lbl_confirmation_number_missing_error_text">Confirmation number is needed.</string>
+    <string name="res_for_p_reservationform_lbl_empty_last_name_field_error_text">Please give your last name.</string>
+    <string name="res_for_p_reservationform_lbl_text">Enter your details to retrieve your booking:</string>
+    <string name="res_for_p_submit_btn_text">Submit</string>
+    <string name="res_form_find_book_button">Find reservation</string>
+    <string name="res_lis_p_listener_reservation_sync_offline_dialog_text">
+This action requires network access. Please, enable mobile network or Wi-Fi.\10Would you like to set it now?
+</string>
+    <string name="res_lis_p_listener_reservation_sync_offline_dialog_title">Connection failed</string>
+    <string name="res_lis_p_reservationlist_txt_cancelled_reservation_text">Canceled</string>
+    <string name="res_lis_p_reservationlist_txt_completed_reservation_text">Completed</string>
+    <string name="res_lis_p_reservationlist_txt_upcoming_reservation_text">Upcoming</string>
+    <string name="reservation_details_not_stored_offline">
+The details of the chosen reservation cannot be reached off-line, please connect to the internet.
+</string>
+    <string name="reservation_details_welcome_rewards_completed_text_few">You have collected %1$d nights for your stay</string>
+    <string name="reservation_details_welcome_rewards_completed_text_many">You have collected %1$d nights for your stay</string>
+    <string name="reservation_details_welcome_rewards_completed_text_one">You have collected %1$d night for your stay</string>
+    <string name="reservation_details_welcome_rewards_completed_text_other">You have collected %1$d nights for your stay</string>
+    <string name="reservation_details_welcome_rewards_completed_text_two">You have collected %1$d nights for your stay</string>
+    <string name="reservation_details_welcome_rewards_completed_text_zero">You have collected %1$d nights for your stay</string>
+    <string name="reservation_details_welcome_rewards_upcoming_text_few">You will collect %1$d nights after your stay</string>
+    <string name="reservation_details_welcome_rewards_upcoming_text_many">You will collect %1$d nights after your stay</string>
+    <string name="reservation_details_welcome_rewards_upcoming_text_one">You will collect %1$d night after your stay</string>
+    <string name="reservation_details_welcome_rewards_upcoming_text_other">You will collect %1$d nights after your stay</string>
+    <string name="reservation_details_welcome_rewards_upcoming_text_two">You will collect %1$d nights after your stay</string>
+    <string name="reservation_details_welcome_rewards_upcoming_text_zero">You will collect %1$d nights after your stay</string>
+    <string name="reservation_sign_in_activity_find_book_label">Find a reservation using your details</string>
+    <string name="reservation_sign_in_activity_sign_in_label">Sign in to see your reservations</string>
+    <string name="rev_sub_p_submit_error">Something went wrong. Please try again later.</string>
+    <string name="rev_sub_p_submit_feedback">Send feedback</string>
+    <string name="rev_sub_p_submit_review">Send review</string>
+    <string name="rev_sub_p_type_of_trip_default_value">Select one</string>
+    <string name="room_choices_page_title">See options</string>
+    <string name="sales_terms_and_conditions">
+Book by {BookBy} for travel dates between {TravelStart} and {TravelEnd}, unless specified otherwise. Please see specific details for each property by choosing the property of your interest. Search with your preferred travel dates to view the discounted rates applicable for your stay. The discounts advertised here apply to select properties only and all rates are subject to availability. The discounted property rates can also be accessed by running a general search. Unless otherwise stated, prices are per double room for hotels, including all taxes and fees.
+</string>
+    <string name="sales_terms_and_conditions_title">Terms and Conditions</string>
+    <string name="save_up_to_50_percent">Save up to 50%</string>
+    <string name="secret_price_header_title">
+Look out for \'Your Secret Price\' in top destinations
+</string>
+    <string name="secret_price_header_title_collapsed">Secret Prices</string>
+    <string name="section_coming_soon_dialog_message">We\'re working on this section. It\'s coming soon.</string>
+    <string name="see_whats_around">SEE WHAT\'s AROUND</string>
+    <string name="ser_f_searchfilter_accessibility_title">Accessibility</string>
+    <string name="ser_f_searchfilter_accommodotation_type_dialog_title">Accommodation type</string>
+    <string name="ser_f_searchfilter_deals_only">DEALS ONLY</string>
+    <string name="ser_f_searchfilter_facilities">Facilities</string>
+    <string name="ser_f_searchfilter_facilities_dialog_title">Facilities</string>
+    <string name="ser_f_searchfilter_guest_rating">GUEST RATING</string>
+    <string name="ser_f_searchfilter_hotelname">Hotel name contains</string>
+    <string name="ser_f_searchfilter_hotelname_label">NAME CONTAINS</string>
+    <string name="ser_f_searchfilter_intext_hotelname">Property name...</string>
+    <string name="ser_f_searchfilter_landmarks">Landmarks</string>
+    <string name="ser_f_searchfilter_landmarks_dialog_title">Landmarks</string>
+    <string name="ser_f_searchfilter_neighbourhood_dialog_title">Neighborhood</string>
+    <string name="ser_f_searchfilter_neighbourhoods">Neighborhoods</string>
+    <string name="ser_f_searchfilter_nightly_price_text">NIGHTLY RATE</string>
+    <string name="ser_f_searchfilter_popular_amenities_free_breakfast">Free breakfast</string>
+    <string name="ser_f_searchfilter_popular_amenities_free_parking">Free parking</string>
+    <string name="ser_f_searchfilter_popular_amenities_free_wifi">Free WiFi</string>
+    <string name="ser_f_searchfilter_popular_amenities_label">Popular amenities</string>
+    <string name="ser_f_searchfilter_popular_amenities_pet_friendly">Pet friendly</string>
+    <string name="ser_f_searchfilter_popular_amenities_pool">Pool</string>
+    <string name="ser_f_searchfilter_price_range_text">PRICE RANGE</string>
+    <string name="ser_f_searchfilter_star_rating">STAR RATING</string>
+    <string name="ser_f_searchfilter_total_price_text">TOTAL PRICE</string>
+    <string name="ser_for_p_airports_stations">AIRPORTS / STATIONS</string>
+    <string name="ser_for_p_cities_areas">CITIES / AREAS</string>
+    <string name="ser_for_p_destination_error_header">Sorry...</string>
+    <string name="ser_for_p_destination_error_message">We could not understand <b>\"%1$s\"</b></string>
+    <string name="ser_for_p_destination_error_suggestions">SUGGESTIONS</string>
+    <string name="ser_for_p_destination_error_suggestions_more_specific">Please try and be more specific</string>
+    <string name="ser_for_p_destination_error_suggestions_more_specific_hint">
+For example make sure your search contains a city or state
+</string>
+    <string name="ser_for_p_destination_error_suggestions_names">Make sure all names are spelled correctly</string>
+    <string name="ser_for_p_destination_error_suggestions_post_code">Please try entering a post code</string>
+    <string name="ser_for_p_destination_error_suggestions_speek_loudly">Try speaking loudly into the microphone</string>
+    <string name="ser_for_p_disambiguation_header">Nearly there...</string>
+    <string name="ser_for_p_disambiguation_message">Your search returned multiple results</string>
+    <string name="ser_for_p_gps_settings_turn_on">Settings</string>
+    <string name="ser_for_p_hotels">PROPERTIES</string>
+    <string name="ser_for_p_landmarks">LANDMARKS</string>
+    <string name="ser_for_p_location_name">Current location</string>
+    <string name="ser_for_p_location_preference_off">
+Location is turned off. Please press Turn On to turn on location.
+</string>
+    <string name="ser_for_p_location_preference_turn_on">Turn On</string>
+    <string name="ser_for_p_location_use">Use current location</string>
+    <string name="ser_for_p_location_waiting">Waiting for location...</string>
+    <string name="ser_for_p_recent_searches">RECENT SEARCHES</string>
+    <string name="ser_for_p_room_add_another_room">Add another one</string>
+    <string name="ser_for_p_room_adults">Adults</string>
+    <string name="ser_for_p_room_child_age_label">Age of child %1$d</string>
+    <string name="ser_for_p_room_child_age_select">Please select</string>
+    <string name="ser_for_p_room_children">Children</string>
+    <string name="ser_for_p_search_again">Search again</string>
+    <string name="ser_for_p_search_form_btn_search">Search</string>
+    <string name="ser_for_p_search_form_btn_show_deals">Show deals</string>
+    <string name="ser_for_p_search_form_title_where_to">Where to?</string>
+    <string name="ser_for_p_searchform_btn_search">Search</string>
+    <string name="ser_for_p_searchform_check_in_text">Check in</string>
+    <string name="ser_for_p_searchform_check_out_text">Check out</string>
+    <string name="ser_for_p_searchform_destination_error">Please enter your destination</string>
+    <string name="ser_for_p_searchform_room_adults">Adults</string>
+    <string name="ser_for_p_searchform_room_adults_number_few">%1$d adults</string>
+    <string name="ser_for_p_searchform_room_adults_number_many">%1$d adults</string>
+    <string name="ser_for_p_searchform_room_adults_number_one">%1$d adult</string>
+    <string name="ser_for_p_searchform_room_adults_number_other">%1$d adults</string>
+    <string name="ser_for_p_searchform_room_adults_number_two">%1$d adults</string>
+    <string name="ser_for_p_searchform_room_adults_number_zero">%1$d adult</string>
+    <string name="ser_for_p_searchform_room_child_age_not_set_error">Please enter the age of all children</string>
+    <string name="ser_for_p_searchform_room_child_age_zero"> 1</string>
+    <string name="ser_for_p_searchform_room_children">Children</string>
+    <string name="ser_for_p_searchform_room_children_few">%1$d children</string>
+    <string name="ser_for_p_searchform_room_children_many">%1$d children</string>
+    <string name="ser_for_p_searchform_room_children_one">%1$d child</string>
+    <string name="ser_for_p_searchform_room_children_other">%1$d children</string>
+    <string name="ser_for_p_searchform_room_children_two">%1$d children</string>
+    <string name="ser_for_p_searchform_room_children_zero">%1$d child</string>
+    <string name="ser_for_p_searchform_room_title_format">Room %1$s</string>
+    <string name="ser_lis_p_searchresultlist_change_criteria_text">Please change your criteria and search again</string>
+    <string name="ser_lis_p_searchresultlist_distance_form_current_text">%1$s from Current Location</string>
+    <string name="ser_lis_p_searchresultlist_hotel_not_available">
+Sorry, the %1$s is not available for your travel dates. You may choose alternate travel dates OR select from the properties below.
+</string>
+    <string name="ser_lis_p_searchresultlist_no_guest_rating">No guest reviews yet</string>
+    <string name="ser_lis_p_searchresultlist_no_hotel_available_text">
+Sorry, there are no available properties that match your search.
+</string>
+    <string name="ser_lis_p_searchresultlist_search_button_text">Search</string>
+    <string name="ser_m_searchresult_menuitem_list_text">List</string>
+    <string name="ser_m_searchresult_menuitem_map_text">Map</string>
+    <string name="ser_mor_p_morefilters_menu_clear">Clear</string>
+    <string name="ser_mor_p_morefilters_txt_accommodations">Accommodation type</string>
+    <string name="ser_mor_p_morefilters_txt_themes">Themes / types</string>
+    <string name="ser_res_filters_restored_message">
+We keep your Sort and Filter selections so you can pick up where you left off
+</string>
+    <string name="ser_res_occupancy_button_select">SELECT</string>
+    <string name="ser_res_p_actionbar_search_indicator_edit_text">Edit</string>
+    <string name="ser_res_p_actionbar_search_indicator_edit_text_long">Edit search</string>
+    <string name="ser_res_p_card_deal_of_day_text">Deal of the day</string>
+    <string name="ser_res_p_card_hotel_unavailable">Property unavailable</string>
+    <string name="ser_res_p_card_hotel_unavailable_description">Unavailable for your dates</string>
+    <string name="ser_res_p_card_hotels_available">Property available</string>
+    <string name="ser_res_p_expanded_area_card_label">Other properties close to %1$s</string>
+    <string name="ser_res_p_filter_text">Filters</string>
+    <string name="ser_res_p_header_room_amount_text_few">%1$d rooms</string>
+    <string name="ser_res_p_header_room_amount_text_many">%1$d rooms</string>
+    <string name="ser_res_p_header_room_amount_text_one">%1$d room</string>
+    <string name="ser_res_p_header_room_amount_text_other">%1$d rooms</string>
+    <string name="ser_res_p_header_room_amount_text_two">%1$d rooms</string>
+    <string name="ser_res_p_header_room_amount_text_zero">%1$d room</string>
+    <string name="ser_res_p_lnc_showing_hotels_text">
+Showing properties available for immediate check-in
+</string>
+    <string name="ser_res_p_no_matching_hotels">
+Oh dear! There are no available properties that match your filters. Try adjusting them.
+</string>
+    <string name="ser_res_p_no_more_matching_hotels">
+There are no more properties that match your search. Try adjusting your filters.
+</string>
+    <string name="ser_res_p_other_available_hotels_title">Other great available properties</string>
+    <string name="ser_res_p_pinned_hotel_book_now">
+Book now or you may pay a higher price for %s later.
+</string>
+    <string name="ser_res_p_pinned_hotel_is_available">%s is available—book now!</string>
+    <string name="ser_res_p_quick_filter_favorites_few">%d Favorites</string>
+    <string name="ser_res_p_quick_filter_favorites_many">%d Favorites</string>
+    <string name="ser_res_p_quick_filter_favorites_one">%d Favorite</string>
+    <string name="ser_res_p_quick_filter_favorites_other">%d Favorites</string>
+    <string name="ser_res_p_quick_filter_favorites_two">%d Favorites</string>
+    <string name="ser_res_p_quick_filter_favorites_zero">%d Favorites</string>
+    <string name="ser_res_p_remove_all_filters">REMOVE ALL FILTERS</string>
+    <string name="ser_res_p_remove_filters_card_message">There aren\'t any deals available for your dates.</string>
+    <string name="ser_res_p_remove_last_filter_multiple">REMOVE LAST APPLIED FILTERS</string>
+    <string name="ser_res_p_remove_last_filter_one">REMOVE LAST APPLIED FILTER</string>
+    <string name="ser_res_p_searchcriteria_indicator_date_format">EEE d MMM</string>
+    <string name="ser_res_p_searchresultlist_sort_dialog_title_text">Sort results by</string>
+    <string name="ser_res_p_see_other_hotels_message">see other properties</string>
+    <string name="ser_res_p_sort_and_filter_text">Sort and Filter</string>
+    <string name="ser_res_p_sort_and_filter_with_count_text">Sort and Filter (%s)</string>
+    <string name="ser_res_p_sort_order_disclaimer">How much we get paid influences your sort order</string>
+    <string name="ser_res_too_long_search_message">We are finding you the best deals ...</string>
+    <string name="set_com_p_settings_africa_middle_east_title">Africa/Middle East</string>
+    <string name="set_com_p_settings_americas_title">Americas</string>
+    <string name="set_com_p_settings_asia_pacific_title">Asia/Pacific</string>
+    <string name="set_com_p_settings_europe_title">Europe</string>
+    <string name="set_com_p_settings_lbl_low_bandwidth_mode">Low bandwidth mode</string>
+    <string name="set_com_p_settings_lbl_low_bandwidth_mode_subtitle">
+We recommend this mode for restricted cellular data traffic and poor network connections
+</string>
+    <string name="set_com_p_settings_lbl_notification_settings_subtitle">Notification Settings</string>
+    <string name="set_com_p_settings_lbl_notifications">Push notifications</string>
+    <string name="set_com_p_settings_lbl_remember_my_sign_in_status">Remember my sign-in status</string>
+    <string name="set_com_p_settings_lbl_use_my_current_location">Use my current location</string>
+    <string name="set_com_p_settings_lbl_version">Version</string>
+    <string name="set_com_p_settings_lbl_your_country">Your Country</string>
+    <string name="settings_page_title">Settings</string>
+    <string name="settings_your_continent_page_title">Your continent</string>
+    <string name="settings_your_country_page_title">Your country</string>
+    <string name="settings_your_currency_page_title">Your currency</string>
+    <string name="sig_in_p_fbconnect_wrong_email_or_password">
+Sorry, we can\'t verify your login information. Please check your email address and password are correct.
+</string>
+    <string name="sign_in_message_with_username">%1$s, you\'re now signed in.</string>
+    <string name="sign_in_page_title">Sign in</string>
+    <string name="skip_page">Skip</string>
+    <string name="slim_current_reservation_card_message">%1$s, see your upcoming booking</string>
+    <string name="slim_current_reservation_card_message_without_greetings">See your upcoming booking</string>
+    <string name="snackbar_blocked_location_permission">Location blocked on this app</string>
+    <string name="snackbar_blocked_voice_permission">Microphone blocked on this app</string>
+    <string name="soft_sign_in_create_account_button">create account</string>
+    <string name="soft_sign_in_no_favourites_message">
+Sign in to see the properties you\'ve already saved.
+</string>
+    <string name="soft_sign_in_prompt_message">See your saved favorites anytime, on any device.</string>
+    <string name="soft_sign_in_sign_in_button">sign in</string>
+    <string name="sort_and_filter_page_title">Sort and filter</string>
+    <string name="sort_order_distance">Distance</string>
+    <string name="sponsored_content">Sponsored listing</string>
+    <string name="sqm_guests">Guests</string>
+    <string name="sqm_travel_dates_message">
+Sale available for stay dates between %1$s and %2$s
+</string>
+    <string name="src_loc_p_use_my_location_dialog_message">
+Access to your current location is disabled, do you want to enable it?
+</string>
+    <string name="src_loc_p_use_my_location_dialog_no">No</string>
+    <string name="src_loc_p_use_my_location_dialog_title">Current location</string>
+    <string name="src_loc_p_use_my_location_dialog_yes">Yes</string>
+    <string name="srle_map_search_this_area">search this area</string>
+    <string name="srp_card_distance_info">%1$s from %2$s</string>
+    <string name="srp_guests_number_few">%1$s guests</string>
+    <string name="srp_guests_number_many">%1$s guests</string>
+    <string name="srp_guests_number_one">%1$s guest</string>
+    <string name="srp_guests_number_other">%1$s guests</string>
+    <string name="srp_guests_number_two">%1$s guests</string>
+    <string name="srp_guests_number_zero">%1$s guest</string>
+    <string name="srp_hotel_card_free_cancellation">Free cancellation</string>
+    <string name="srp_key_filter_under_price_tag">Under %1$s</string>
+    <string name="srp_map_swipe_to_dismiss_tooltip_message">Swipe to dismiss</string>
+    <string name="srp_rating_text_few">%s stars</string>
+    <string name="srp_rating_text_many">%s stars</string>
+    <string name="srp_rating_text_one">1 star</string>
+    <string name="srp_rating_text_other">%s stars</string>
+    <string name="srp_rating_text_two">%s stars</string>
+    <string name="srp_rating_text_zero">%s stars</string>
+    <string name="srp_rewards_card_collect_nights_text_few">
+Sign in! You could collect %s nights with this stay
+</string>
+    <string name="srp_rewards_card_collect_nights_text_many">
+Sign in! You could collect %s nights with this stay
+</string>
+    <string name="srp_rewards_card_collect_nights_text_one">Sign in! You could collect %s night with this stay</string>
+    <string name="srp_rewards_card_collect_nights_text_other">
+Sign in! You could collect %s nights with this stay
+</string>
+    <string name="srp_rewards_card_collect_nights_text_two">
+Sign in! You could collect %s nights with this stay
+</string>
+    <string name="srp_rewards_card_collect_nights_text_zero">
+Sign in! You could collect %s nights with this stay
+</string>
+    <string name="srp_rewards_card_create_account">CREATE ACCOUNT</string>
+    <string name="srp_rewards_card_excludes_taxes">
+*Excludes taxes and fees. On eligible properties only.
+</string>
+    <string name="srp_rewards_card_sign_in">SIGN IN</string>
+    <string name="srp_see_all_properties">See all properties</string>
+    <string name="srp_why_these_properties">Why these properties?</string>
+    <string name="tab_booking_title">Secure booking</string>
+    <string name="tab_chp_p_leave_review">Leave a review</string>
+    <string name="tab_chp_p_menu_deals">Deals</string>
+    <string name="tab_chp_p_menu_feedback">Feedback</string>
+    <string name="tab_chp_p_menu_info">Info</string>
+    <string name="tab_chp_p_menu_welcome_rewards_tm">Hotels.com® Rewards</string>
+    <string name="tab_chp_p_tonights_local_deals">Local deal for tonight</string>
+    <string name="tab_hot_det_p_reviews_rating_by_type">Rating by type</string>
+    <string name="tab_hot_det_p_reviews_total">Total</string>
+    <string name="tab_opinion_lab_p_header_text">Tell us what you\'d like to change</string>
+    <string name="tab_reg_st1_p_address_subtitle">Address</string>
+    <string name="tab_res_for_p_credit_card_hint">Credit/debit card number</string>
+    <string name="tab_res_for_p_itinerary_or_confirm_hint">Itinerary or confirmation number</string>
+    <string name="tab_res_for_p_search_title">Search for a reservation</string>
+    <string name="tab_res_for_p_signin_title">Sign in to view your reservations</string>
+    <string name="tab_ser_res_p_actionbar_dropdown_call_us">Call Us</string>
+    <string name="tab_ser_res_p_actionbar_dropdown_wr">Hotels.com® Rewards</string>
+    <string name="tab_ser_res_p_map_max_10_points">
+You can only have a maximum of 10 points. To change the shape either delete a point or create a new shape by dragging and dropping the shape into the bin.
+</string>
+    <string name="tab_set_p_keep_sign_in">Keep me signed in</string>
+    <string name="tab_wr_p_page_title">Hotels.com® Rewards</string>
+    <string name="tablet_set_p_close_btn_text">Close</string>
+    <string name="tablet_set_p_title">Settings and Information</string>
+    <string name="title_notification_inbox">Your notifications</string>
+    <string name="top_spots_nearby">Top spots nearby</string>
+    <string name="top_ten_hotels">Top 10 properties for your search</string>
+    <string name="travel_guide_city_prefix">Your guide to</string>
+    <string name="travel_guide_distance_from_your_hotel">%s meters from your hotel</string>
+    <string name="travel_guide_hub_eat_and_drink">Eat and drink</string>
+    <string name="travel_guide_hub_essentials">Essentials</string>
+    <string name="travel_guide_hub_getting_around">Getting around</string>
+    <string name="travel_guide_hub_getting_there">Getting there</string>
+    <string name="travel_guide_hub_list_separator">Coming soon</string>
+    <string name="travel_guide_hub_see_and_do">See and do</string>
+    <string name="travel_guide_hub_shop">Shop</string>
+    <string name="travel_guide_hub_snackbar_message">
+Don\'t forget you can still access your travel guides while offline.
+</string>
+    <string name="travel_guide_near_your_hotel">Near your hotel</string>
+    <string name="travel_guide_no_content_available">Sorry, this travel guide is not available.</string>
+    <string name="travel_guide_no_content_available_button">HEAD HOME</string>
+    <string name="travel_guide_poi_details_distance_from_hotel">%1$d meters from your hotel</string>
+    <string name="travel_guide_poi_details_distance_read_less">Read less</string>
+    <string name="travel_guide_poi_details_distance_read_more">Read more</string>
+    <string name="travel_guide_poi_details_footer">Sources and credits</string>
+    <string name="travel_guide_poi_details_location">Location</string>
+    <string name="travel_guide_poi_location_distance_text">%1$s %2$s walk from your hotel</string>
+    <string name="travel_guide_section_eat">Eat</string>
+    <string name="travel_guide_section_see">See</string>
+    <string name="travel_guide_section_shop">Shop</string>
+    <string name="trip_details_directions">DIRECTIONS</string>
+    <string name="trip_details_share">SHARE</string>
+    <string name="trip_planner_added_on">Added on %1$s</string>
+    <string name="trip_planner_all_page_title">All</string>
+    <string name="trip_planner_favourites_section_title">Your favorites</string>
+    <string name="trip_planner_favourites_title">Favorites</string>
+    <string name="trip_planner_get_started_card_message">All of your favorites will appear here.</string>
+    <string name="trip_planner_guest_review_badge_excellent">Excellent</string>
+    <string name="trip_planner_guest_review_badge_fair">Fair</string>
+    <string name="trip_planner_guest_review_badge_good">Good</string>
+    <string name="trip_planner_guest_review_badge_outstanding">Outstanding</string>
+    <string name="trip_planner_guest_review_badge_poor">Poor</string>
+    <string name="trip_planner_no_favourites_yet_message">No favorites yet</string>
+    <string name="trip_planner_nr_of_hotels_in_trip_few">%1$d Favorites</string>
+    <string name="trip_planner_nr_of_hotels_in_trip_many">%1$d Favorites</string>
+    <string name="trip_planner_nr_of_hotels_in_trip_one">%1$d Favorite</string>
+    <string name="trip_planner_nr_of_hotels_in_trip_other">%1$d Favorites</string>
+    <string name="trip_planner_nr_of_hotels_in_trip_two">%1$d Favorites</string>
+    <string name="trip_planner_nr_of_hotels_in_trip_zero">%1$d Favorites</string>
+    <string name="trip_planner_past_searches">Past searches</string>
+    <string name="trip_planner_pinned_date_format">EEE d MMM</string>
+    <string name="trip_planner_removed_from_favourites">Removed from Favorites</string>
+    <string name="trip_planner_sold_out">Sold out</string>
+    <string name="trip_planner_srp_get_started_card_message">When you add a property it will appear here.</string>
+    <string name="trip_planner_swipe_to_see_others"><b>%1$d of %2$d</b> Swipe to see others.</string>
+    <string name="trip_planner_swipe_to_see_others_msg">Swipe to see others.</string>
+    <string name="trip_planner_view_hotels_section_title">You also looked at these</string>
+    <string name="trip_planner_viewed_on">Viewed on %1$s</string>
+    <string name="trp_change_booking_multiroom_error_dialog_msg">
+This booking cannot be changed online. Please contact our customer service team on %s
+</string>
+    <string name="trp_det_booking_details">Booking details</string>
+    <string name="trp_det_destination_card_currency_header">Currency</string>
+    <string name="trp_det_destination_card_forecast_header">Forecast</string>
+    <string name="trp_det_destination_card_powered_by_label">powered by</string>
+    <string name="trp_det_destination_card_weather_history_avg">Hist. Avg.</string>
+    <string name="trp_det_get_directions">Get directions</string>
+    <string name="trp_det_hero_add_more_nights">Add more nights</string>
+    <string name="trp_det_hero_choose_room">Choose one</string>
+    <string name="trp_det_hero_confirmation_number_formatter">%1$s confirmation no: %2$s</string>
+    <string name="trp_det_hero_hide_cancellation_policy">Hide cancellation policy</string>
+    <string name="trp_det_hero_homeaway_reservation_number_text">%1$s reservation ID: %2$s</string>
+    <string name="trp_det_hero_number_of_rooms_text_few">%1$s rooms</string>
+    <string name="trp_det_hero_number_of_rooms_text_many">%1$s rooms</string>
+    <string name="trp_det_hero_number_of_rooms_text_one">%1$s room</string>
+    <string name="trp_det_hero_number_of_rooms_text_other">%1$s rooms</string>
+    <string name="trp_det_hero_number_of_rooms_text_two">%1$s rooms</string>
+    <string name="trp_det_hero_number_of_rooms_text_zero">%1$s rooms</string>
+    <string name="trp_det_hero_see_in_local_language">See in local language</string>
+    <string name="trp_det_hero_show_cancellation_policy">Show cancellation policy</string>
+    <string name="trp_det_hero_total_fee">Total including taxes and fees</string>
+    <string name="trp_det_hotel_card_facilities_label">Facilities</string>
+    <string name="trp_det_hotel_card_footer_label">See full details</string>
+    <string name="trp_det_hotel_card_more_nearby_activities_label">More nearby activities</string>
+    <string name="trp_det_hotel_card_title">About the property</string>
+    <string name="trp_det_hotel_card_whats_around_text">What\'s around</string>
+    <string name="trp_det_insurance_card_date_concat_format">%1$s - %2$s</string>
+    <string name="trp_det_insurance_card_date_format">EE, MMM dd</string>
+    <string name="trp_det_insurance_card_policy_id">Policy #%1$s</string>
+    <string name="trp_det_map_title">Map</string>
+    <string name="trp_det_p_add_more_nights_dialog_message">
+After booking, please check with the property to see if your request can be met.
+</string>
+    <string name="trp_det_p_add_more_nights_dialog_title">Want the same accommodation?</string>
+    <string name="trp_det_p_card_mail">Email</string>
+    <string name="trp_det_p_card_share">Share</string>
+    <string name="trp_det_payment_method">Your payment method</string>
+    <string name="trp_det_payment_reservation_status">
+The property manager will email you details about the payment currency, payment schedule, and how to check in.
+</string>
+    <string name="trp_det_redeem_value">Hotels.com® Rewards redeem value</string>
+    <string name="trp_det_room_card_cancel_segment">Which part would you like to cancel?</string>
+    <string name="trp_det_room_card_cancel_select">select</string>
+    <string name="trp_det_room_card_cancelled_part">Part %s canceled</string>
+    <string name="trp_det_room_card_number_of_nights">Number of nights</string>
+    <string name="trp_det_room_card_preferences">Preferences</string>
+    <string name="trp_det_room_card_segment_number">Part %s</string>
+    <string name="trp_det_room_card_title">About your room</string>
+    <string name="trp_det_room_card_title_multi_room">About your rooms</string>
+    <string name="trp_det_room_special_requests">Special request</string>
+    <string name="trp_det_view_booking_details">View booking details</string>
+    <string name="trp_det_weather_forecast_date">EEE, MMM d</string>
+    <string name="trp_lis_p_card_cancel">Cancel</string>
+    <string name="trp_lis_p_card_change">Change</string>
+    <string name="trp_lis_p_card_checkin_date">EEE, MMM d</string>
+    <string name="trp_lis_p_card_checkout_date">EEE, MMM d, yyyy</string>
+    <string name="trp_lis_p_card_find_booking_action">Find reservation</string>
+    <string name="trp_lis_p_card_leave_rvw">Leave a review</string>
+    <string name="trp_lis_p_card_no_days_left">Enjoy your stay!</string>
+    <string name="trp_lis_p_card_rebook">Rebook</string>
+    <string name="trp_lis_p_card_sign_in_action">Sign in</string>
+    <string name="trp_lis_p_card_sign_in_desc">
+Sign in to your account to see all of your reservations.
+</string>
+    <string name="trp_lis_p_page_title">Your reservations</string>
+    <string name="trp_lis_p_tab_cancelled">Canceled (%d)</string>
+    <string name="trp_lis_p_tab_completed">Completed (%d)</string>
+    <string name="trp_lis_p_tab_found">Found (%d)</string>
+    <string name="trp_lis_p_tab_upcoming">Upcoming (%d)</string>
+    <string name="trp_share_email_chkin_chkout">I\'m staying here from %1$s to %2$s:</string>
+    <string name="trp_share_email_date_format">EEE, MMMM d</string>
+    <string name="trp_share_email_message">Check out my booking on %s.</string>
+    <string name="trp_share_email_subject">My %s booking</string>
+    <string name="txt_sign_in_not_a_member_title">Not a member?</string>
+    <string name="voice_search_connection_error_msg">
+Oops, there seems to be a problem. Please try again.
+</string>
+    <string name="voice_search_label">Say your destination, property, or address</string>
+    <string name="voice_search_please_wait">Please wait whilst we connect your mic</string>
+    <string name="voice_search_recognizing_error_msg">
+Sorry we can\'t hear you. Please try speaking a bit louder.
+</string>
+    <string name="web_p_embeddedbrowser_dialog_auth_session_expired_text">
+Sorry, you\'ve been away for a while and cannot continue with this operation
+</string>
+    <string name="year_month_formatter">MMMM yyyy</string>
+    <string name="your_messages_page_title">Your messages</string>
+    <string name="your_rewards_page_title">Your rewards</string>
 </resources>
