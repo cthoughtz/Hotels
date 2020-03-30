@@ -918,4 +918,7 @@ Sorry, you\'ve been away for a while and cannot continue with this operation
     <string name="year_month_formatter">MMMM yyyy</string>
     <string name="your_messages_page_title">Your messages</string>
     <string name="your_rewards_page_title">Your rewards</string>
+
+
+    <string name="toll_free_number">18008076641</string>
 </resources>
