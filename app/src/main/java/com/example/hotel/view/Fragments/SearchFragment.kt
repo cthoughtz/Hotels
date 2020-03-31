@@ -4,14 +4,20 @@ package com.example.hotel.view.Fragments
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import com.example.hotel.R
 import com.example.hotel.view.Activities.HomeScreen
 import kotlinx.android.synthetic.main.fragment_search.*
 import kotlinx.android.synthetic.main.homescreen_main.*
+import kotlin.math.E
 
 class SearchFragment : Fragment() {
 
@@ -31,6 +37,26 @@ class SearchFragment : Fragment() {
 
             callHotel()
         }
+
+        search_edit_text.setOnEditorActionListener( object: TextView.OnEditorActionListener{
+            override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
+
+                if (actionId == EditorInfo.IME_ACTION_SEARCH ||
+                    actionId == EditorInfo.IME_ACTION_DONE ||
+                    actionId == EditorInfo.IME_ACTION_SEND ||
+                    event?.action == KeyEvent.ACTION_DOWN &&
+                    event?.keyCode == KeyEvent.KEYCODE_ENTER){
+
+                    Toast.makeText(activity!!,"Search Info: ${search_edit_text.text}",Toast.LENGTH_LONG).show()
+
+                    return true
+            }
+                return false
+        }
+
+        })
+
+
     }
 
 
