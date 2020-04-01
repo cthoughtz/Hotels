@@ -11,6 +11,7 @@ import io.reactivex.Single
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
@@ -31,6 +32,7 @@ object PostApi{
 
     private val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
+        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .baseUrl(baseUrl)
         .client(okHttpClient)
         .build()
@@ -42,7 +44,7 @@ object PostApi{
 
 
 class ApiService: ApiClient{
-    override fun searchResults(query: String?): Single<SearchResponse?>? {
+    override fun searchResults(query: String?): Flowable<SearchResponse?>? {
 
         return postApi.searchResults(query = "New York")
     }
