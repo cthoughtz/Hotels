@@ -17,6 +17,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.hotel.R
+import com.example.hotel.view.Activities.CheckIn
 import com.example.hotel.view.Activities.HomeScreen
 import com.example.hotel.viewmodel.AppViewModel
 import kotlinx.android.synthetic.main.fragment_search.*
@@ -26,6 +27,7 @@ import kotlin.math.E
 class SearchFragment : Fragment() {
 
     lateinit var viewModel: AppViewModel
+    val SEARCH_DATA ="SEARCH_QUERY"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +45,7 @@ class SearchFragment : Fragment() {
 
 
         //Observer Server
+        //Todo move to details activity that shows hotel details
         observeSearchQuery()
 
         callHotel.setOnClickListener{
@@ -60,7 +63,7 @@ class SearchFragment : Fragment() {
 
     fun observeSearchQuery(){
 
-        viewModel.hotelSearches.observe(this, Observer{
+        viewModel.hotelSearches.observe(viewLifecycleOwner, Observer{
 
             val testResponse = it.trackingID
 
@@ -82,9 +85,12 @@ class SearchFragment : Fragment() {
                     event?.action == KeyEvent.ACTION_DOWN &&
                     event?.keyCode == KeyEvent.KEYCODE_ENTER){
 
-                    Toast.makeText(activity!!,"Search Info: $searchQuery",Toast.LENGTH_LONG).show()
-
+                    // Todo move method to details fragment that shows hotel information
                     viewModel.fetchSearchResult(searchQuery)
+
+                    val intent = Intent(activity, CheckIn::class.java)
+                    intent.putExtra(SEARCH_DATA,searchQuery)
+                    startActivity(intent)
 
                     return true
                 }
