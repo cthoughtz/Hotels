@@ -135,7 +135,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/room_contraint_layout"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/room_textview"
@@ -161,33 +161,114 @@
                 android:id="@+id/room_adults_textview"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
                 android:text="Adults"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/view_two"
+                app:layout_constraintEnd_toStartOf="@+id/btn_remove_adult"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view_one" />
+
+            <ImageButton
+                android:id="@+id/btn_remove_adult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_remove_circle_remove_faded"
+                app:layout_constraintBottom_toBottomOf="@+id/room_adults_textview"
+                app:layout_constraintEnd_toStartOf="@+id/adult_text_count"
+                app:layout_constraintTop_toTopOf="@+id/room_adults_textview" />
+
+            <TextView
+                android:id="@+id/adult_text_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:text="1"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_remove_adult"
+                app:layout_constraintRight_toLeftOf="@+id/btn_add_adult"
+                app:layout_constraintTop_toTopOf="@+id/btn_remove_adult" />
+
+            <ImageButton
+                android:id="@+id/btn_add_adult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_add_circle_add"
+                app:layout_constraintBottom_toBottomOf="@+id/adult_text_count"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/adult_text_count"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:text="0"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/btn_add_children"
+                tools:layout_editor_absoluteY="174dp" />
 
             <View
                 android:id="@+id/view_two"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                app:layout_constraintBottom_toTopOf="@+id/room_children_textview"
                 android:background="@color/colorLightGrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/room_adults_textview" />
 
             <TextView
                 android:id="@+id/room_children_textview"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:text="Children"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/view_three"
+                app:layout_constraintEnd_toStartOf="@+id/btn_remove_children"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view_two" />
+
+            <ImageButton
+                android:id="@+id/btn_add_children"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_add_circle_add"
+                app:layout_constraintBottom_toBottomOf="@+id/textView21"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView21" />
+
+            <ImageButton
+                android:id="@+id/btn_remove_children"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_remove_circle_remove_faded"
+                app:layout_constraintBottom_toBottomOf="@+id/textView21"
+                app:layout_constraintEnd_toStartOf="@+id/textView21"
+                app:layout_constraintTop_toTopOf="@+id/textView21" />
 
             <View
                 android:id="@+id/view_three"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorLightGrey"
+                app:layout_constraintBottom_toTopOf="@+id/textView20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/room_children_textview" />
 
             <TextView
@@ -195,6 +276,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ADD ANOTHER ONE"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view_three" />
 
