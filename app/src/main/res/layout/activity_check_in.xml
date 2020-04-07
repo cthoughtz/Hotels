@@ -123,7 +123,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
-        android:layout_height="300dp"
+        android:layout_height="400dp"
         app:cardCornerRadius="10dp"
         android:layout_marginTop="20dp"
         android:id="@+id/room_cardview"
@@ -212,8 +212,9 @@
                 android:layout_marginRight="20dp"
                 android:text="0"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_remove_children"
                 app:layout_constraintEnd_toStartOf="@+id/btn_add_children"
-                tools:layout_editor_absoluteY="174dp" />
+                app:layout_constraintTop_toTopOf="@+id/btn_remove_children" />
 
             <View
                 android:id="@+id/view_two"
@@ -231,12 +232,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:text="Children"
                 android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/view_two"
                 app:layout_constraintBottom_toTopOf="@+id/view_three"
                 app:layout_constraintEnd_toStartOf="@+id/btn_remove_children"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view_two" />
+                />
 
             <ImageButton
                 android:id="@+id/btn_add_children"
@@ -256,20 +260,90 @@
                 android:layout_marginRight="20dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_remove_circle_remove_faded"
-                app:layout_constraintBottom_toBottomOf="@+id/textView21"
+                app:layout_constraintBottom_toBottomOf="@+id/room_children_textview"
                 app:layout_constraintEnd_toStartOf="@+id/textView21"
-                app:layout_constraintTop_toTopOf="@+id/textView21" />
+                app:layout_constraintTop_toTopOf="@+id/room_children_textview" />
 
             <View
                 android:id="@+id/view_three"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorLightGrey"
-                app:layout_constraintBottom_toTopOf="@+id/textView20"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/text_child_1"
                 app:layout_constraintTop_toBottomOf="@+id/room_children_textview" />
+
+
+            <TextView
+                android:id="@+id/text_child_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Age of child 1"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/view_four"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_three" />
+
+            <View
+                android:id="@+id/view_four"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLightGrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/text_child_2"
+                app:layout_constraintTop_toBottomOf="@+id/text_child_1" />
+
+            <TextView
+                android:id="@+id/text_child_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age of child 2"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/view_five"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_four" />
+
+            <View
+                android:id="@+id/view_five"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLightGrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/text_child_3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_child_2"/>
+
+            <TextView
+                android:id="@+id/text_child_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age of child 3"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/view_six"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_five" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:id="@+id/view_six"
+                app:layout_constraintBottom_toTopOf="@id/textView20"
+                app:layout_constraintTop_toBottomOf="@+id/text_child_3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
 
             <TextView
                 android:id="@+id/textView20"
@@ -277,10 +351,9 @@
                 android:layout_height="wrap_content"
                 android:text="ADD ANOTHER ONE"
                 android:textSize="20sp"
-                android:layout_marginLeft="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view_three" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_six" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
