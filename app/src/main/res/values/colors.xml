@@ -8,4 +8,5 @@
     <color name="colorRewardsBackgroundPurple">#FFFAEDFC</color>
     <color name="colorBlue">#ff156BC1</color>
     <color name="colorLightGrey">#9C9C9C</color>
+    <color name="colorBackgroundGrey">#FFE8E8E8</color>
 </resources>
