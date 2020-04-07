@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Reservation" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorPrimaryDark">@color/colorBlue</item>
+        <item name="titleTextColor">@color/colorBlue</item>
+        <item name="homeAsUpIndicator">@drawable/ic_arrow_back_blue_24dp</item>
+    </style>
+
 </resources>
