@@ -278,7 +278,7 @@
 
             <TextView
                 android:id="@+id/text_child_1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="10dp"
@@ -286,8 +286,30 @@
                 android:text="Age of child 1"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/view_four"
+                app:layout_constraintEnd_toStartOf="@+id/textView22"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view_three" />
+
+            <Spinner
+                android:id="@+id/spinner_child_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView22"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:backgroundTint="@color/colorBlue"
+                app:layout_constraintTop_toTopOf="@+id/textView22" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="1"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_child_1"
+                app:layout_constraintEnd_toStartOf="@+id/spinner_child_1"
+                app:layout_constraintTop_toTopOf="@+id/text_child_1" />
 
             <View
                 android:id="@+id/view_four"
@@ -301,16 +323,38 @@
 
             <TextView
                 android:id="@+id/text_child_2"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Age of child 2"
-                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
+                android:text="Age of child 2"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/view_five"
+                app:layout_constraintEnd_toStartOf="@+id/textView23"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view_four" />
+
+            <Spinner
+                android:id="@+id/spinner_child_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/colorBlue"
+                app:layout_constraintBottom_toBottomOf="@+id/textView23"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView23" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="20sp"
+                android:layout_marginRight="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_child_2"
+                app:layout_constraintEnd_toStartOf="@+id/spinner_child_2"
+                app:layout_constraintTop_toTopOf="@+id/text_child_2" />
 
             <View
                 android:id="@+id/view_five"
@@ -324,16 +368,38 @@
 
             <TextView
                 android:id="@+id/text_child_3"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Age of child 3"
-                android:textSize="20sp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                android:text="Age of child 3"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/view_six"
+                app:layout_constraintEnd_toStartOf="@+id/textView24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view_five" />
+
+            <Spinner
+                android:id="@+id/spinner_child_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="@color/colorBlue"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:layout_editor_absoluteY="314dp" />
+
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="1"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_child_3"
+                app:layout_constraintEnd_toStartOf="@+id/spinner_child_3"
+                app:layout_constraintTop_toTopOf="@+id/text_child_3" />
 
             <View
                 android:layout_width="match_parent"
