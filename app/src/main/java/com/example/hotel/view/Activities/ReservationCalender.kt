@@ -11,8 +11,6 @@ import kotlinx.android.synthetic.main.activity_reservation_calender.*
 
 class ReservationCalender : AppCompatActivity(), TabLayout.OnTabSelectedListener {
 
-    lateinit var viewPager: ViewPager
-    //val viewPager = ViewPager(this)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,19 +19,16 @@ class ReservationCalender : AppCompatActivity(), TabLayout.OnTabSelectedListener
 
         setSupportActionBar(calendar_toolbar)
 
-        viewPager = ViewPager(this)
-
         tabLayout.apply {
-            addTab(this.newTab().setText("CheckIn"))
-            addTab(this.newTab().setText("CheckOut"))
+            addTab(this.newTab().setText("CHECK-IN"))
+            addTab(this.newTab().setText("CHECK-OUT"))
 
             setOnTabSelectedListener(this@ReservationCalender)
         }
 
         val adapter = Pager(supportFragmentManager,tabLayout.tabCount)
 
-        viewPager.adapter = adapter
-
+        pager.adapter = adapter
     }
 
     override fun onTabReselected(p0: TabLayout.Tab?) {
@@ -45,6 +40,6 @@ class ReservationCalender : AppCompatActivity(), TabLayout.OnTabSelectedListener
     }
 
     override fun onTabSelected(tab: TabLayout.Tab?) {
-        viewPager.setCurrentItem(tab!!.position)
+        pager.setCurrentItem(tab!!.position)
     }
 }

@@ -2,12 +2,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.hotel.view.Fragments.CheckInFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+<com.applandeo.materialcalendarview.CalendarView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:headerColor="@android:color/white"
+    app:headerLabelColor="@color/colorBlue"
+    app:previousButtonSrc="@drawable/ic_keyboard_arrow_left"
+    app:forwardButtonSrc="@drawable/ic_keyboard_arrow_right"
+    app:abbreviationsBarColor="@color/colorBlue"
+    app:abbreviationsLabelsColor="@android:color/white"
+    app:todayLabelColor="@color/colorPrimary"
+    app:selectionColor="@color/colorBlue"
+    app:datePicker="true"
+    android:id="@+id/calendarView"/>
 
 </FrameLayout>
