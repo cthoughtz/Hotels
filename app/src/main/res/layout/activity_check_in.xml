@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/outterContraint"
     android:background="@color/colorBackgroundGrey"
-    tools:context="com.example.hotel.view.Activities.CheckIn">
+    tools:context="com.example.hotel.view.Activities.Reservation">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -38,7 +38,7 @@
             app:layout_constraintTop_toBottomOf="@id/scrollview">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardView"
+                android:id="@+id/cardView_checkin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -102,7 +102,7 @@
                 app:cardCornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/cardView"
+                app:layout_constraintStart_toEndOf="@+id/cardView_checkin"
                 app:layout_constraintTop_toTopOf="@+id/innerContraint">
 
                 <LinearLayout
@@ -161,8 +161,8 @@
                 app:cardCornerRadius="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/cardView2"
-                app:layout_constraintStart_toStartOf="@+id/cardView"
-                app:layout_constraintTop_toBottomOf="@+id/cardView">
+                app:layout_constraintStart_toStartOf="@+id/cardView_checkin"
+                app:layout_constraintTop_toBottomOf="@+id/cardView_checkin">
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout

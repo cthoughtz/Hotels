@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.Activities.CheckIn"
-            android:theme="@style/Reservation"></activity>
+        <activity android:name=".view.Activities.ReservationCalender"
+            android:theme="@style/Calendar"/>
+        <activity
+            android:name=".view.Activities.Reservation"
+            android:theme="@style/Reservation" />
         <activity android:name=".view.Activities.HomeScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

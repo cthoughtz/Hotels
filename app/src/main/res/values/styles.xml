@@ -15,4 +15,8 @@
         <item name="homeAsUpIndicator">@drawable/ic_arrow_back_blue_24dp</item>
     </style>
 
+    <style name="Calendar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/colorLightGrey</item>
+    </style>
+
 </resources>

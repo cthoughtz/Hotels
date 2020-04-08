@@ -11,18 +11,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.hotel.R
-import com.example.hotel.view.Activities.CheckIn
-import com.example.hotel.view.Activities.HomeScreen
+import com.example.hotel.view.Activities.Reservation
 import com.example.hotel.viewmodel.AppViewModel
 import kotlinx.android.synthetic.main.fragment_search.*
-import kotlinx.android.synthetic.main.homescreen_main.*
-import kotlin.math.E
 
 class SearchFragment : Fragment() {
 
@@ -88,7 +83,7 @@ class SearchFragment : Fragment() {
                     // Todo move method to details fragment that shows hotel information
                     viewModel.fetchSearchResult(searchQuery)
 
-                    val intent = Intent(activity, CheckIn::class.java)
+                    val intent = Intent(activity, Reservation::class.java)
                     intent.putExtra(SEARCH_DATA,searchQuery)
                     startActivity(intent)
 
