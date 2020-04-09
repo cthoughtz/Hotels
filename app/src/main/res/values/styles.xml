@@ -15,9 +15,8 @@
         <item name="homeAsUpIndicator">@drawable/ic_arrow_back_blue_24dp</item>
     </style>
 
-    <style name="Calendar" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimaryDark">@color/colorLightGrey</item>
-        <item name="colorAccent">@color/colorBlue</item>
+    <style name="Calendar" parent="Reservation">
+        <!-- Just incase I want to change some values unique to the calendar screen later -->
     </style>
 
 </resources>

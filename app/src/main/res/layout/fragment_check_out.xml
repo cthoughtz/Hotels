@@ -2,12 +2,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.hotel.view.Fragments.CheckOutFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.applandeo.materialcalendarview.CalendarView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="app:type=\range_picker for selecting range" />
-
+        app:headerColor="@android:color/white"
+        app:headerLabelColor="@color/colorBlue"
+        app:previousButtonSrc="@drawable/ic_keyboard_arrow_left"
+        app:forwardButtonSrc="@drawable/ic_keyboard_arrow_right"
+        app:abbreviationsLabelsColor="@color/colorBlue"
+        app:abbreviationsBarColor="@android:color/white"
+        app:selectionColor="@color/colorBlue"
+        android:id="@+id/calendarViewCheckout"
+        app:type="range_picker" />
 </FrameLayout>

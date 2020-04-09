@@ -12,6 +12,7 @@
         android:id="@+id/calendar_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/white"
         android:minHeight="?attr/actionBarSize"/>
 
     <com.google.android.material.tabs.TabLayout

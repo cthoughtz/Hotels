@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
+import com.example.hotel.AppUtilities
 import com.example.hotel.R
 import kotlinx.android.synthetic.main.activity_check_in.*
 
@@ -14,23 +15,13 @@ class Reservation : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_check_in)
 
-       setupToolbar()
-
+        AppUtilities.setupToolbar(this,check_in_toolbar,"Reservation")
         cardView_checkin.setOnClickListener {
 
             val intent = Intent(this, ReservationCalender::class.java)
             startActivity(intent)
         }
     }
-
-    fun setupToolbar(){
-        //setup toolbar
-        setSupportActionBar(check_in_toolbar)
-        val checkInToolbar = supportActionBar
-        checkInToolbar?.title = "Reservation"
-        checkInToolbar?.setDisplayHomeAsUpEnabled(true)
-    }
-
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
