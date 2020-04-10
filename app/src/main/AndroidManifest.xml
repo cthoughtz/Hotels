@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.Activities.ReservationCalender"
-            android:theme="@style/Calendar"/>
+        <activity android:name=".view.Activities.HotelDeals"></activity>
+        <activity
+            android:name=".view.Activities.ReservationCalender"
+            android:theme="@style/Calendar" />
         <activity
             android:name=".view.Activities.Reservation"
             android:theme="@style/Reservation" />

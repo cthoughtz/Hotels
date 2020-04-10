@@ -242,7 +242,7 @@
                         app:layout_constraintVertical_bias="1.0" />
 
                     <TextView
-                        android:id="@+id/textView21"
+                        android:id="@+id/child_text_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="20dp"
@@ -286,9 +286,9 @@
                         android:layout_marginRight="20dp"
                         android:background="@android:color/transparent"
                         android:src="@drawable/ic_add_circle_add"
-                        app:layout_constraintBottom_toBottomOf="@+id/textView21"
+                        app:layout_constraintBottom_toBottomOf="@+id/child_text_count"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/textView21" />
+                        app:layout_constraintTop_toTopOf="@+id/child_text_count" />
 
                     <ImageButton
                         android:id="@+id/btn_remove_children"
@@ -298,7 +298,7 @@
                         android:background="@android:color/transparent"
                         android:src="@drawable/circle_remove"
                         app:layout_constraintBottom_toBottomOf="@+id/room_children_textview"
-                        app:layout_constraintEnd_toStartOf="@+id/textView21"
+                        app:layout_constraintEnd_toStartOf="@+id/child_text_count"
                         app:layout_constraintTop_toTopOf="@+id/room_children_textview" />
 
                     <View
@@ -325,7 +325,7 @@
                         android:visibility="gone"
                         android:textSize="20sp"
                         app:layout_constraintBottom_toTopOf="@+id/view_four"
-                        app:layout_constraintEnd_toStartOf="@+id/textView22"
+                        app:layout_constraintEnd_toStartOf="@+id/child_text_count_1"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/view_three" />
 
@@ -336,12 +336,12 @@
                         android:layout_marginRight="5dp"
                         android:backgroundTint="@color/colorBlue"
                         android:visibility="gone"
-                        app:layout_constraintBottom_toBottomOf="@+id/textView22"
+                        app:layout_constraintBottom_toBottomOf="@+id/child_text_count_1"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/textView22" />
+                        app:layout_constraintTop_toTopOf="@+id/child_text_count_1" />
 
                     <TextView
-                        android:id="@+id/textView22"
+                        android:id="@+id/child_text_count_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
@@ -374,7 +374,7 @@
                         android:textSize="20sp"
                         android:visibility="gone"
                         app:layout_constraintBottom_toTopOf="@+id/view_five"
-                        app:layout_constraintEnd_toStartOf="@+id/textView23"
+                        app:layout_constraintEnd_toStartOf="@+id/child_text_count_2"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/view_four" />
 
@@ -385,12 +385,12 @@
                         android:layout_marginRight="5dp"
                         android:visibility="gone"
                         android:backgroundTint="@color/colorBlue"
-                        app:layout_constraintBottom_toBottomOf="@+id/textView23"
+                        app:layout_constraintBottom_toBottomOf="@+id/child_text_count_2"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/textView23" />
+                        app:layout_constraintTop_toTopOf="@+id/child_text_count_2" />
 
                     <TextView
-                        android:id="@+id/textView23"
+                        android:id="@+id/child_text_count_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
@@ -423,7 +423,7 @@
                         android:textSize="20sp"
                         android:visibility="gone"
                         app:layout_constraintBottom_toTopOf="@+id/view_six"
-                        app:layout_constraintEnd_toStartOf="@+id/textView24"
+                        app:layout_constraintEnd_toStartOf="@+id/child_text_count_3"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/view_five" />
 
@@ -435,12 +435,12 @@
                         android:layout_marginEnd="4dp"
                         android:visibility="gone"
                         android:backgroundTint="@color/colorBlue"
-                        app:layout_constraintBottom_toBottomOf="@+id/textView24"
+                        app:layout_constraintBottom_toBottomOf="@+id/child_text_count_3"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/textView24" />
+                        app:layout_constraintTop_toTopOf="@+id/child_text_count_3" />
 
                     <TextView
-                        android:id="@+id/textView24"
+                        android:id="@+id/child_text_count_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
