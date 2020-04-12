@@ -10,6 +10,8 @@ import com.example.hotel.R
 import com.example.hotel.view.Adapters.Pager
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_reservation_calender.*
+import kotlinx.android.synthetic.main.fragment_check_in.*
+import java.util.*
 
 class ReservationCalender : AppCompatActivity(), TabLayout.OnTabSelectedListener {
 
