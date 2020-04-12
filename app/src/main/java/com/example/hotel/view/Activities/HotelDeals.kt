@@ -2,6 +2,7 @@ package com.example.hotel.view.Activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.hotel.R
 
 class HotelDeals : AppCompatActivity() {
 

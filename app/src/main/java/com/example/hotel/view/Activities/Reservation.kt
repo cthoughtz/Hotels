@@ -5,21 +5,32 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.hotel.AppUtilities
 import com.example.hotel.R
 import kotlinx.android.synthetic.main.activity_check_in.*
+import kotlinx.android.synthetic.main.activity_check_in.view.*
 
 class Reservation : AppCompatActivity() {
 
+    lateinit var childSpinner:Array<String>
     var adultPersonCounter = 1
     var childPersonCounter = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_check_in)
 
         AppUtilities.setupToolbar(this,check_in_toolbar,"Reservation")
+
+        childSpinner = resources.getStringArray(R.array.age_of_child_spinner)
+
+
+       setUpSpinners()
+
 
         cardView_checkin.setOnClickListener {
 
@@ -73,6 +84,78 @@ class Reservation : AppCompatActivity() {
             val intent = Intent(this,HotelDeals::class.java)
             startActivity(intent)
         }
+
+
+    }
+
+    private fun setUpSpinners() {
+        ArrayAdapter(this,android.R.layout.simple_spinner_item,
+            childSpinner).apply {
+
+            spinner_child_1.adapter = this
+
+            spinner_child_1.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+
+                }
+
+            }
+        }
+
+
+        ArrayAdapter(this,android.R.layout.simple_spinner_item,
+            childSpinner).apply {
+
+            spinner_child_2.adapter = this
+
+            spinner_child_2.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+
+                }
+
+            }
+        }
+
+        ArrayAdapter(this,android.R.layout.simple_spinner_item,
+            childSpinner).apply {
+
+            spinner_child_3.adapter = this
+
+            spinner_child_3.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+
+                }
+
+            }
+        }
+
     }
 
     private fun numberOfChildrenPerRoom(childPersonCounter: Int){
