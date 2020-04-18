@@ -1,22 +1,22 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.hotel.view.Fragments.CheckInFragment">
 
-<com.applandeo.materialcalendarview.CalendarView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:headerColor="@android:color/white"
-    app:headerLabelColor="@color/colorBlue"
-    app:previousButtonSrc="@drawable/ic_keyboard_arrow_left"
-    app:forwardButtonSrc="@drawable/ic_keyboard_arrow_right"
-    app:abbreviationsBarColor="@color/colorBlue"
-    app:abbreviationsLabelsColor="@android:color/white"
-    app:todayLabelColor="@color/colorPrimary"
-    app:selectionColor="@color/colorBlue"
-    app:datePicker="true"
-    android:id="@+id/calendarView"/>
+    <com.applandeo.materialcalendarview.CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:abbreviationsBarColor="@color/colorBlue"
+        app:abbreviationsLabelsColor="@android:color/white"
+        app:datePicker="true"
+        app:forwardButtonSrc="@drawable/ic_keyboard_arrow_right"
+        app:headerColor="@android:color/white"
+        app:headerLabelColor="@color/colorBlue"
+        app:previousButtonSrc="@drawable/ic_keyboard_arrow_left"
+        app:selectionColor="@color/colorBlue"
+        app:todayLabelColor="@color/colorPrimary" />
 
 </FrameLayout>
