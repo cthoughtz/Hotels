@@ -1,20 +1,20 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.hotel.view.Fragments.CheckOutFragment">
 
     <com.applandeo.materialcalendarview.CalendarView
+        android:id="@+id/calendarViewCheckout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:abbreviationsBarColor="@color/colorBlue"
+        app:abbreviationsLabelsColor="@android:color/white"
+        app:forwardButtonSrc="@drawable/ic_keyboard_arrow_right"
         app:headerColor="@android:color/white"
         app:headerLabelColor="@color/colorBlue"
         app:previousButtonSrc="@drawable/ic_keyboard_arrow_left"
-        app:forwardButtonSrc="@drawable/ic_keyboard_arrow_right"
-        app:abbreviationsLabelsColor="@color/colorBlue"
-        app:abbreviationsBarColor="@android:color/white"
         app:selectionColor="@color/colorBlue"
-        android:id="@+id/calendarViewCheckout"
         app:type="range_picker" />
 </FrameLayout>

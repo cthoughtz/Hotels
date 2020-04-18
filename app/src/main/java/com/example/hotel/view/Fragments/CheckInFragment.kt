@@ -1,6 +1,7 @@
 package com.example.hotel.view.Fragments
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.applandeo.materialcalendarview.CalendarView
+import com.applandeo.materialcalendarview.EventDay
 import com.example.hotel.R
 import kotlinx.android.synthetic.main.fragment_check_in.*
 import java.util.*
@@ -40,29 +42,27 @@ class CheckInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         val sharedPrefs = activity?.getSharedPreferences("Dates", Context.MODE_PRIVATE)
-        val selectedDate = calendarView.selectedDates
-
-
-
 
         calendarView.setOnDayClickListener {
 
-            // get the updated day of the month after click takes place
-            val currentDayOfMonth = it.calendar
-            var calendarDay= currentDayOfMonth.get(Calendar.DAY_OF_MONTH)
-            var year = currentDayOfMonth.get(Calendar.YEAR)
-            var month = currentDayOfMonth.get(Calendar.MONTH)
+            selectedDate(it,sharedPrefs)
 
-            sharedPrefs?.edit()?.putString(selectedYear,year.toString())?.commit()
-            sharedPrefs?.edit()?.putString(selectedMonth,month.toString())?.commit()
-            sharedPrefs?.edit()?.putString(selectedDay,calendarDay.toString())?.commit()
-
-
-            //Todo add to shared preference and set date selected in checkout and UI.
         }
 
+    }
+
+    private fun selectedDate(it: EventDay?, sharedPrefs: SharedPreferences?) {
+
+        val calendarInfo = it?.calendar
+
+        var calendarDay= calendarInfo?.get(Calendar.DAY_OF_MONTH)
+        var year = calendarInfo?.get(Calendar.YEAR)
+        var month = calendarInfo?.get(Calendar.MONTH)
+
+        sharedPrefs?.edit()?.putString(selectedYear,year.toString())?.commit()
+        sharedPrefs?.edit()?.putString(selectedMonth,month.toString())?.commit()
+        sharedPrefs?.edit()?.putString(selectedDay,calendarDay.toString())?.commit()
     }
 }
 
