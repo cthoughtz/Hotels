@@ -14,6 +14,7 @@
         app:forwardButtonSrc="@drawable/ic_keyboard_arrow_right"
         app:headerColor="@android:color/white"
         app:headerLabelColor="@color/colorBlue"
+        app:eventsEnabled="true"
         app:previousButtonSrc="@drawable/ic_keyboard_arrow_left"
         app:selectionColor="@color/colorBlue"
         app:type="range_picker" />

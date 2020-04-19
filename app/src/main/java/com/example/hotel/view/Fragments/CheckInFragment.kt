@@ -50,6 +50,7 @@ class CheckInFragment : Fragment() {
 
         }
 
+
     }
 
     private fun selectedDate(it: EventDay?, sharedPrefs: SharedPreferences?) {
