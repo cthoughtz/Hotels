@@ -3,6 +3,7 @@ package com.example.hotel.view.Fragments
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
@@ -21,6 +22,7 @@ import com.applandeo.materialcalendarview.EventDay
 import com.applandeo.materialcalendarview.utils.CalendarProperties
 import com.example.hotel.R
 import com.example.hotel.interfaces.TabSelected
+import com.example.hotel.view.Activities.Reservation
 import com.example.hotel.view.Activities.ReservationCalender
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_reservation_calender.*
@@ -41,6 +43,10 @@ class CheckOutFragment : Fragment(), TabSelected {
     var  calendarDayCheckIn: String? = null
     lateinit var alertDialogOkButton: Button
 
+    val selectedCheckoutYear = "SELECTED_CHECKOUT_YEAR"
+    val selectedCheckoutMonth = "SELECTED_CHECKOUT_MONTH"
+    val selectedCheckoutDay = "SELECTED_CHECKOUT_DAY"
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,10 +66,6 @@ class CheckOutFragment : Fragment(), TabSelected {
         calendarYearCheckIn = checkinDate?.getString("SELECTED_YEAR","null")
         calendarMonthCheckIn = checkinDate?.getString("SELECTED_MONTH", "null")
         calendarDayCheckIn = checkinDate?.getString("SELECTED_DAY","null")
-
-
-
-
 
     }
 
@@ -98,17 +100,61 @@ class CheckOutFragment : Fragment(), TabSelected {
             if (calendarDayCheckIn != null && calendarMonthCheckIn  != null && calendarYearCheckIn != null){
 
                 showDialog()
+                setCheckDate(calendarDayCheckIn!!,calendarMonthCheckIn!!,calendarYearCheckIn!!)
             }
 
-            val test = Calendar.getInstance()
-            test.set(2020,4,20)
-
-            val eventArray = ArrayList<EventDay>()
-            eventArray.add(EventDay(test,R.drawable.transparent_circle))
-
-            calendarViewCheckout.setEvents(eventArray)
         }
 
+    }
+
+    private fun setCheckDate(
+        calendarDayCheckIn: String,
+        calendarMonthCheckIn: String,
+        calendarYearCheckIn: String
+    ) {
+
+        val setCalendarDate  = Calendar.getInstance()
+        val year = calendarYearCheckIn.toInt()
+        val month = calendarMonthCheckIn.toInt()
+        val day = calendarDayCheckIn.toInt()
+        setCalendarDate.set(year,month,day)
+
+        val eventCheckInConfirmation = ArrayList<EventDay>()
+        eventCheckInConfirmation.add(EventDay(setCalendarDate,R.drawable.transparent_circle))
+
+        calendarViewCheckout.setEvents(eventCheckInConfirmation)
+
+        secondClick(year,month,day)
+    }
+
+    private fun secondClick(year: Int, month: Int, day: Int) {
+
+        calendarViewCheckout.setOnDayClickListener {
+
+           checkoutDate(it, year, month, day)
+
+        }
+    }
+
+    fun checkoutDate(it: EventDay, year: Int, month:Int, day:Int){
+        val calendarInfo = it?.calendar
+
+        var calendarDay= calendarInfo?.get(Calendar.DAY_OF_MONTH)
+        var calendarYear = calendarInfo?.get(Calendar.YEAR)
+        var calendarMonth = calendarInfo?.get(Calendar.MONTH)
+
+        if (calendarDay!! > day && calendarYear!! >= year && calendarMonth!! >= month){
+
+            val checkoutDateSharedPrefs = activity?.getSharedPreferences("CheckoutDates",Context.MODE_PRIVATE)
+
+            checkoutDateSharedPrefs?.edit()?.putString(selectedCheckoutYear,calendarYear.toString())?.commit()
+            checkoutDateSharedPrefs?.edit()?.putString(selectedCheckoutMonth,calendarMonth.toString())?.commit()
+            checkoutDateSharedPrefs?.edit()?.putString(selectedCheckoutDay,calendarDay.toString())?.commit()
+
+            val intent = Intent(activity, Reservation::class.java)
+            startActivity(intent)
+
+        }
     }
 
 }
