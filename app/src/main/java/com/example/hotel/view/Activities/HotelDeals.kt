@@ -6,13 +6,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.hotel.AppUtilities
 import com.example.hotel.R
+import com.example.hotel.view.Adapters.HotelDealsPager
 import com.example.hotel.viewmodel.AppViewModel
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_hotel_deals.*
+import kotlinx.android.synthetic.main.activity_reservation_calender.*
 
 class HotelDeals : AppCompatActivity(), TabLayout.OnTabSelectedListener {
 
@@ -52,13 +55,16 @@ class HotelDeals : AppCompatActivity(), TabLayout.OnTabSelectedListener {
 
     private fun setUpTabLayout() {
 
-
-
         hotelsDealsTabLayout.apply{
 
             addTab(this.newTab().setCustomView(R.layout.custom_all_tab))
             addTab(this.newTab().setText("\u2661 Favorites ($favNumberCount)"))
+
+            setOnTabSelectedListener(this@HotelDeals)
         }
+
+        val adapter = HotelDealsPager(supportFragmentManager,hotelsDealsTabLayout.tabCount)
+        hotelDealsPager.adapter = adapter
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
