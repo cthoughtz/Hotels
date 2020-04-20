@@ -56,14 +56,12 @@ class CheckOutFragment : Fragment(), TabSelected {
         super.onViewCreated(view, savedInstanceState)
 
         (activity as ReservationCalender).setCallback(this)
-
     }
 
     fun showDialog(){
 
         val layout = layoutInflater.inflate(R.layout.check_out_alert_dialog,null,false)
         alertDialogOkButton = layout.findViewById(R.id.checkout_btn)
-
 
         val alertDialog = AlertDialog.Builder(activity)
         val finalDialog = alertDialog.create()
@@ -79,7 +77,6 @@ class CheckOutFragment : Fragment(), TabSelected {
 
     override fun selectedTAb() {
 
-
         val selectedTab = activity?.tabLayout?.selectedTabPosition
         Log.d(TAG,"Tab Seleted: $selectedTab")
 
@@ -90,7 +87,6 @@ class CheckOutFragment : Fragment(), TabSelected {
        var calendarDayCheckIn = checkinDate!!.getString("SELECTED_DAY","null").toString()
 
         if (selectedTab == 1) {
-
 
             if (calendarDayCheckIn != null && calendarMonthCheckIn  != null && calendarYearCheckIn != null){
 
@@ -148,7 +144,6 @@ class CheckOutFragment : Fragment(), TabSelected {
 
             val intent = Intent(activity, Reservation::class.java)
             startActivity(intent)
-
         }
     }
 

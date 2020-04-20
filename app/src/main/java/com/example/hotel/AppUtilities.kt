@@ -12,6 +12,8 @@ import kotlinx.android.synthetic.main.activity_check_in.*
 
 object AppUtilities {
 
+    val SEARCH_DATA ="SEARCH_QUERY"
+
     fun hideSoftKeyBoard(input: EditText, context: Context) {
 
         val inputManager =

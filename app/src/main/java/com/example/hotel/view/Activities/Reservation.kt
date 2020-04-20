@@ -18,6 +18,7 @@ class Reservation : AppCompatActivity() {
     lateinit var childSpinner:Array<String>
     var adultPersonCounter = 1
     var childPersonCounter = 0
+    lateinit var searchQuery: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,10 +28,9 @@ class Reservation : AppCompatActivity() {
         AppUtilities.setupToolbar(this,check_in_toolbar,"Reservation")
 
         childSpinner = resources.getStringArray(R.array.age_of_child_spinner)
-
-
        setUpSpinners()
 
+        searchQuery = intent.getStringExtra("SEARCH_QUERY")
 
         cardView_checkin.setOnClickListener {
 
@@ -82,11 +82,9 @@ class Reservation : AppCompatActivity() {
         btn_show_deals.setOnClickListener {
 
             val intent = Intent(this,HotelDeals::class.java)
+            intent.putExtra(AppUtilities.SEARCH_DATA,searchQuery)
             startActivity(intent)
         }
-
-
-
     }
 
     override fun onStart() {

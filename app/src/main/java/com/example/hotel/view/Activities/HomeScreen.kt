@@ -17,17 +17,12 @@ class HomeScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.homescreen_main)
 
-
         setupView()
     }
 
     private fun setupView() {
 
         var navController = findNavController(R.id.fragNavHost)
-
-
         bottomNavView.setupWithNavController(navController)
-
-
     }
 }
