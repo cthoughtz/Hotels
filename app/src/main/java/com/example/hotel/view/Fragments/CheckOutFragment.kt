@@ -38,18 +38,11 @@ import kotlin.collections.ArrayList
 class CheckOutFragment : Fragment(), TabSelected {
 
     val TAG = javaClass.simpleName
-
-    //Todo erase later
-    lateinit var calendarYearCheckIn: String
-    lateinit var calendarMonthCheckIn: String
-    lateinit var  calendarDayCheckIn: String
     lateinit var alertDialogOkButton: Button
 
     val selectedCheckoutYear = "SELECTED_CHECKOUT_YEAR"
     val selectedCheckoutMonth = "SELECTED_CHECKOUT_MONTH"
     val selectedCheckoutDay = "SELECTED_CHECKOUT_DAY"
-    var checkinDate:SharedPreferences? = null
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -90,12 +83,11 @@ class CheckOutFragment : Fragment(), TabSelected {
         val selectedTab = activity?.tabLayout?.selectedTabPosition
         Log.d(TAG,"Tab Seleted: $selectedTab")
 
-        //Todo Create function for setting up shared preferences
-        checkinDate = context?.getSharedPreferences("Dates", Context.MODE_PRIVATE)
+        var checkinDate = context?.getSharedPreferences("Dates", Context.MODE_PRIVATE)
 
-        calendarYearCheckIn = checkinDate?.getString("SELECTED_YEAR","null").toString()
-        calendarMonthCheckIn = checkinDate?.getString("SELECTED_MONTH", "null").toString()
-        calendarDayCheckIn = checkinDate!!.getString("SELECTED_DAY","null").toString()
+       var calendarYearCheckIn = checkinDate?.getString("SELECTED_YEAR","null").toString()
+       var calendarMonthCheckIn = checkinDate?.getString("SELECTED_MONTH", "null").toString()
+       var calendarDayCheckIn = checkinDate!!.getString("SELECTED_DAY","null").toString()
 
         if (selectedTab == 1) {
 
