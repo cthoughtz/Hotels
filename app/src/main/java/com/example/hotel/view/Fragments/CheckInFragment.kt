@@ -27,6 +27,7 @@ class CheckInFragment : Fragment() {
     val selectedYear = "SELECTED_YEAR"
     val selectedMonth = "SELECTED_MONTH"
     val selectedDay = "SELECTED_DAY"
+    lateinit var sharedPrefs: SharedPreferences
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateView(
@@ -42,14 +43,18 @@ class CheckInFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val sharedPrefs = activity?.getSharedPreferences("Dates", Context.MODE_PRIVATE)
+       Log.d(TAG,"onViewCreated Method Called")
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        sharedPrefs = activity!!.getSharedPreferences("Dates", Context.MODE_PRIVATE)
 
         calendarView.setOnDayClickListener {
 
             selectedDate(it,sharedPrefs)
-
         }
-
 
     }
 

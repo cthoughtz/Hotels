@@ -27,7 +27,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:text="Please confirm your Check-In date by clicking on the calendar date with the 3 dots before setting your Check-Out date."
+        android:text="Please confirm your Check-In date. It should be marked with  3 dots beneath the date."
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

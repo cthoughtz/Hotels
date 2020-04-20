@@ -1,5 +1,6 @@
 package com.example.hotel.view.Activities
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,7 +12,6 @@ import android.widget.Toast
 import com.example.hotel.AppUtilities
 import com.example.hotel.R
 import kotlinx.android.synthetic.main.activity_check_in.*
-import kotlinx.android.synthetic.main.activity_check_in.view.*
 
 class Reservation : AppCompatActivity() {
 
@@ -85,6 +85,50 @@ class Reservation : AppCompatActivity() {
             startActivity(intent)
         }
 
+
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        reservationCheckInDate()
+        reservationCheckOutDate()
+    }
+
+    private fun reservationCheckOutDate() {
+
+        val setCheckOutDate = getSharedPreferences("CheckoutDates",Context.MODE_PRIVATE)
+
+        val y = setCheckOutDate.getString("SELECTED_CHECKOUT_YEAR","null")
+        val m = setCheckOutDate.getString("SELECTED_CHECKOUT_MONTH", "null")
+        val d = setCheckOutDate.getString("SELECTED_CHECKOUT_DAY", "null")
+
+        if (y != null && m != null && d != null) {
+
+            val abbreviatedMonth = AppUtilities.getMonth(m)
+
+            checkout_day.text = "$abbreviatedMonth $d"
+            checkout_year.text = y.toString()
+        }
+
+    }
+
+    private fun reservationCheckInDate() {
+
+        val setCheckInDate = getSharedPreferences("Dates", Context.MODE_PRIVATE)
+
+        val y = setCheckInDate.getString("SELECTED_YEAR","null")
+        val m = setCheckInDate.getString("SELECTED_MONTH","null")
+        val d = setCheckInDate.getString("SELECTED_DAY", "null")
+
+        if (y != null && m != null && d != null){
+
+            val abbreviatedMonth = AppUtilities.getMonth(m)
+
+            checkin_day.text = "$abbreviatedMonth $d"
+            checkin_year.text = y.toString()
+        }
 
     }
 

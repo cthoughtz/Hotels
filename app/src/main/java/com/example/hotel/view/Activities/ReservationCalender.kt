@@ -1,5 +1,6 @@
 package com.example.hotel.view.Activities
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -32,8 +33,6 @@ class ReservationCalender() : AppCompatActivity(), TabLayout.OnTabSelectedListen
 
         val adapter = Pager(supportFragmentManager,tabLayout.tabCount)
         pager.adapter = adapter
-
-
     }
 
     fun setCallback(callback: TabSelected){

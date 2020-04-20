@@ -75,6 +75,7 @@
                         android:background="@color/colorLightGrey" />
 
                     <TextView
+                        android:id="@+id/checkin_day"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
@@ -85,6 +86,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/checkin_year"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
@@ -131,6 +133,7 @@
                         android:background="@color/colorLightGrey" />
 
                     <TextView
+                        android:id="@+id/checkout_day"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
@@ -141,6 +144,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/checkout_year"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
