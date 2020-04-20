@@ -13,6 +13,7 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.applandeo.materialcalendarview.CalendarView
 import com.applandeo.materialcalendarview.EventDay
+import com.example.hotel.AppUtilities
 import com.example.hotel.R
 import kotlinx.android.synthetic.main.fragment_check_in.*
 import java.util.*
@@ -24,9 +25,6 @@ import java.util.*
 class CheckInFragment : Fragment() {
 
     val TAG = javaClass.simpleName
-    val selectedYear = "SELECTED_YEAR"
-    val selectedMonth = "SELECTED_MONTH"
-    val selectedDay = "SELECTED_DAY"
     lateinit var sharedPrefs: SharedPreferences
 
     @RequiresApi(Build.VERSION_CODES.N)
@@ -66,9 +64,9 @@ class CheckInFragment : Fragment() {
         var year = calendarInfo?.get(Calendar.YEAR)
         var month = calendarInfo?.get(Calendar.MONTH)
 
-        sharedPrefs?.edit()?.putString(selectedYear,year.toString())?.commit()
-        sharedPrefs?.edit()?.putString(selectedMonth,month.toString())?.commit()
-        sharedPrefs?.edit()?.putString(selectedDay,calendarDay.toString())?.commit()
+        sharedPrefs?.edit()?.putString(AppUtilities.selectedYear,year.toString())?.commit()
+        sharedPrefs?.edit()?.putString(AppUtilities.selectedMonth,month.toString())?.commit()
+        sharedPrefs?.edit()?.putString(AppUtilities.selectedDay,calendarDay.toString())?.commit()
     }
 }
 

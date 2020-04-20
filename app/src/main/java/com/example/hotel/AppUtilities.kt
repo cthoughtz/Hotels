@@ -13,6 +13,13 @@ import kotlinx.android.synthetic.main.activity_check_in.*
 object AppUtilities {
 
     val SEARCH_DATA ="SEARCH_QUERY"
+    val ADULT_COUNT ="ADULT_COUNT"
+    val selectedYear = "SELECTED_YEAR"
+    val selectedMonth = "SELECTED_MONTH"
+    val selectedDay = "SELECTED_DAY"
+    val selectedCheckoutYear = "SELECTED_CHECKOUT_YEAR"
+    val selectedCheckoutMonth = "SELECTED_CHECKOUT_MONTH"
+    val selectedCheckoutDay = "SELECTED_CHECKOUT_DAY"
 
     fun hideSoftKeyBoard(input: EditText, context: Context) {
 

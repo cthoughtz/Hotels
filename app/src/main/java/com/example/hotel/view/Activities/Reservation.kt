@@ -30,7 +30,7 @@ class Reservation : AppCompatActivity() {
         childSpinner = resources.getStringArray(R.array.age_of_child_spinner)
        setUpSpinners()
 
-        searchQuery = intent.getStringExtra("SEARCH_QUERY")
+        searchQuery = intent.getStringExtra("SEARCH_QUERY") ?: "null"
 
         cardView_checkin.setOnClickListener {
 
@@ -83,6 +83,7 @@ class Reservation : AppCompatActivity() {
 
             val intent = Intent(this,HotelDeals::class.java)
             intent.putExtra(AppUtilities.SEARCH_DATA,searchQuery)
+            intent.putExtra(AppUtilities.ADULT_COUNT,adultPersonCounter.toString())
             startActivity(intent)
         }
     }

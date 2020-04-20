@@ -20,6 +20,7 @@ import androidx.core.view.get
 import com.applandeo.materialcalendarview.CalendarUtils
 import com.applandeo.materialcalendarview.EventDay
 import com.applandeo.materialcalendarview.utils.CalendarProperties
+import com.example.hotel.AppUtilities
 import com.example.hotel.R
 import com.example.hotel.interfaces.TabSelected
 import com.example.hotel.view.Activities.Reservation
@@ -39,10 +40,6 @@ class CheckOutFragment : Fragment(), TabSelected {
 
     val TAG = javaClass.simpleName
     lateinit var alertDialogOkButton: Button
-
-    val selectedCheckoutYear = "SELECTED_CHECKOUT_YEAR"
-    val selectedCheckoutMonth = "SELECTED_CHECKOUT_MONTH"
-    val selectedCheckoutDay = "SELECTED_CHECKOUT_DAY"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -138,9 +135,9 @@ class CheckOutFragment : Fragment(), TabSelected {
 
             val checkoutDateSharedPrefs = activity?.getSharedPreferences("CheckoutDates",Context.MODE_PRIVATE)
 
-            checkoutDateSharedPrefs?.edit()?.putString(selectedCheckoutYear,calendarYear.toString())?.commit()
-            checkoutDateSharedPrefs?.edit()?.putString(selectedCheckoutMonth,calendarMonth.toString())?.commit()
-            checkoutDateSharedPrefs?.edit()?.putString(selectedCheckoutDay,calendarDay.toString())?.commit()
+            checkoutDateSharedPrefs?.edit()?.putString(AppUtilities.selectedCheckoutYear,calendarYear.toString())?.commit()
+            checkoutDateSharedPrefs?.edit()?.putString(AppUtilities.selectedCheckoutMonth,calendarMonth.toString())?.commit()
+            checkoutDateSharedPrefs?.edit()?.putString(AppUtilities.selectedCheckoutDay,calendarDay.toString())?.commit()
 
             val intent = Intent(activity, Reservation::class.java)
             startActivity(intent)
