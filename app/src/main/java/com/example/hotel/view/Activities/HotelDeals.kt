@@ -11,9 +11,10 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.hotel.AppUtilities
 import com.example.hotel.R
 import com.example.hotel.viewmodel.AppViewModel
+import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_hotel_deals.*
 
-class HotelDeals : AppCompatActivity() {
+class HotelDeals : AppCompatActivity(), TabLayout.OnTabSelectedListener {
 
     val TAG = javaClass.simpleName
     lateinit var searchQuery: String
@@ -24,7 +25,6 @@ class HotelDeals : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hotel_deals)
 
-
         // setup Toolbar
         AppUtilities.setupToolbar(this,hotelDealsToolbar,"null")
 
@@ -34,15 +34,28 @@ class HotelDeals : AppCompatActivity() {
         Log.d(TAG,"Search Query: $searchQuery")
         Log.d(TAG,"Adult Count: $adultCount")
 
+        // setup Toolbar Items
         setReservationDates()
         setNumberOfAdults(adultCount)
         setUiClickListeners()
+
+        //setUp Tablayout
+        setUpTabLayout()
 
         // Initiate ViewModel
         viewModel = ViewModelProviders.of(this).get(AppViewModel::class.java)
         observeSearchQuery()
 
         searchResult()
+    }
+
+    private fun setUpTabLayout() {
+
+        hotelsDealsTabLayout.apply{
+
+            addTab(this.newTab().setText("All"))
+            addTab(this.newTab().setText("Favorites"))
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -104,5 +117,18 @@ class HotelDeals : AppCompatActivity() {
             Log.d(TAG,testResponse)
             Log.d(TAG,"Suggested Terms: $testResponseTwo")
         })
+    }
+
+    override fun onTabReselected(tab: TabLayout.Tab?) {
+
+    }
+
+    override fun onTabUnselected(tab: TabLayout.Tab?) {
+
+    }
+
+    override fun onTabSelected(tab: TabLayout.Tab?) {
+
+        hotelDealsPager.setCurrentItem(tab!!.position)
     }
 }
