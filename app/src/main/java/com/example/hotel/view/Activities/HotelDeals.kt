@@ -20,6 +20,7 @@ class HotelDeals : AppCompatActivity(), TabLayout.OnTabSelectedListener {
     lateinit var searchQuery: String
     lateinit var adultCount: String
     lateinit var viewModel: AppViewModel
+    var favNumberCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,10 +52,12 @@ class HotelDeals : AppCompatActivity(), TabLayout.OnTabSelectedListener {
 
     private fun setUpTabLayout() {
 
+
+
         hotelsDealsTabLayout.apply{
 
-            addTab(this.newTab().setText("All"))
-            addTab(this.newTab().setText("Favorites"))
+            addTab(this.newTab().setCustomView(R.layout.custom_all_tab))
+            addTab(this.newTab().setText("\u2661 Favorites ($favNumberCount)"))
         }
     }
 
