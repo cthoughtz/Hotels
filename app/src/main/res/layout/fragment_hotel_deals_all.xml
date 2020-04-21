@@ -5,15 +5,93 @@
     android:layout_height="match_parent"
     tools:context="com.example.hotel.view.Fragments.HotelDealsAllFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
+    <HorizontalScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/hello_blank_fragment"
+        android:fillViewport="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+
+            <Button
+                android:id="@+id/hotelDealsZeroToTwoHundred"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button_grey"
+                android:text="$ 0 - 200"/>
+
+            <Button
+                android:id="@+id/hotelDealsUnderNinety"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button_grey"
+                android:text="Under $90"/>
+
+            <Button
+                android:id="@+id/hotelDealsFourStars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button_grey"
+                android:text="4 \u2605 \u2795"/>
+
+            <Button
+                android:id="@+id/hotelDealsEight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button_grey"
+                android:text="8.0 \u2795"/>
+
+            <Button
+                android:id="@+id/hotelDealsFreeBreakFast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:background="@drawable/button_grey"
+                android:text="Free Breakfast"/>
+
+            <Button
+                android:id="@+id/hotelDealPool"
+                android:text="Pool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button_grey"/>
+
+            <Button
+                android:id="@+id/hotelDealFreeParking"
+                android:text="Free Parking"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button_grey"/>
+
+            <Button
+                android:id="@+id/hotelDealPetFriendly"
+                android:text="Pet Friendly"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button_grey"/>
+        </LinearLayout>
+
+    </HorizontalScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
