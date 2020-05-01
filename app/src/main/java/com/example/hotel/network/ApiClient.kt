@@ -22,12 +22,13 @@ interface ApiClient{
     @Headers("x-rapidapi-host: hotels4.p.rapidapi.com",
                     "x-rapidapi-key: fdb24db5eemsh90362d2616f25ebp135e27jsne4972d8c39bc")
     @GET("/properties/get-hotel-photos")
-    fun getHotelPhotos():Single<HotelPhotosResponse>
+    fun getHotelPhotos(@Query("query") query: Int?):Flowable<HotelPhotosResponse>
 
     @Headers("x-rapidapi-host: hotels4.p.rapidapi.com",
                     "x-rapidapi-key: fdb24db5eemsh90362d2616f25ebp135e27jsne4972d8c39bc")
     @GET("/properties/list")
-    fun getHotelList():Single<HotelListResponse>
+    fun getHotelList(@Query("currency") currency:String,@Query("locale") locale:String,@Query("sortOrder") sortOrder:String,@Query("destinationId") queryId:String, @Query("pageNumber") pageNumber:String, @Query("checkIn") checkIn:String,
+                     @Query("checkOut") checkOut:String, @Query("pageSize") pageSize:String, @Query("adult") adult:String):Single<HotelListResponse>
 
     @Headers("x-rapidapi-host: hotels4.p.rapidapi.com",
         "x-rapidapi-key: fdb24db5eemsh90362d2616f25ebp135e27jsne4972d8c39bc")

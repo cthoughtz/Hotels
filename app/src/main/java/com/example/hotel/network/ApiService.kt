@@ -49,9 +49,9 @@ class ApiService: ApiClient{
         return postApi.searchResults(query = "New York")
     }
 
-    override fun getHotelPhotos(): Single<HotelPhotosResponse> {
+    override fun getHotelPhotos(query: Int?): Flowable<HotelPhotosResponse> {
 
-        return  postApi.getHotelPhotos()
+        return  postApi.getHotelPhotos(query)
     }
 
     override fun getHotelDetails(): Single<HotelDetailsResponse> {
@@ -59,9 +59,9 @@ class ApiService: ApiClient{
         return postApi.getHotelDetails()
     }
 
-    override fun getHotelList(): Single<HotelListResponse> {
+    override fun getHotelList(currency:String,locale:String,sortOrder:String,destination:String,pageNumber:String,checkin:String,checkout:String,pageSize:String,adult:String): Single<HotelListResponse> {
 
-        return postApi.getHotelList()
+        return postApi.getHotelList(currency,locale,sortOrder,destination,pageNumber,checkin,checkout,pageSize,adult)
     }
 
 }

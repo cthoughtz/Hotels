@@ -131,13 +131,16 @@ class CheckOutFragment : Fragment(), TabSelected {
         var calendarYear = calendarInfo?.get(Calendar.YEAR)
         var calendarMonth = calendarInfo?.get(Calendar.MONTH)
 
+        var updatedMonth = AppUtilities.monthFormat(calendarMonth.toString())
+        var updatedDay = AppUtilities.dateFormat(calendarDay.toString())
+
         if (calendarDay!! > day && calendarYear!! >= year && calendarMonth!! >= month){
 
             val checkoutDateSharedPrefs = activity?.getSharedPreferences("CheckoutDates",Context.MODE_PRIVATE)
 
             checkoutDateSharedPrefs?.edit()?.putString(AppUtilities.selectedCheckoutYear,calendarYear.toString())?.commit()
-            checkoutDateSharedPrefs?.edit()?.putString(AppUtilities.selectedCheckoutMonth,calendarMonth.toString())?.commit()
-            checkoutDateSharedPrefs?.edit()?.putString(AppUtilities.selectedCheckoutDay,calendarDay.toString())?.commit()
+            checkoutDateSharedPrefs?.edit()?.putString(AppUtilities.selectedCheckoutMonth,updatedMonth)?.commit()
+            checkoutDateSharedPrefs?.edit()?.putString(AppUtilities.selectedCheckoutDay,updatedDay)?.commit()
 
             val intent = Intent(activity, Reservation::class.java)
             startActivity(intent)

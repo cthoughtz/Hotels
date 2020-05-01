@@ -37,27 +37,48 @@ object AppUtilities {
         checkInToolbar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    fun getMonth(month: String): String {
+    fun monthAbbrevations(month:String):String{
 
-        val monthNumber = month.toInt()
+         val updatedMonth =when(month){
 
-        return when (monthNumber) {
-
-            0 -> "Jan"
-            1 -> "Feb"
-            2 -> "Mar"
-            3 -> "Apr"
-            4 -> "May"
-            5 -> "Jun"
-            6 -> "Jul"
-            7 -> "Aug"
-            8 -> "Sep"
-            9 -> "Oct"
-            10 -> "Nov"
-            11 -> "Dec"
-            else -> "No Value"
+             "00" -> "Jan"
+             "01" -> "Feb"
+             "02" -> "Mar"
+             "03" -> "Apr"
+             "04" -> "May"
+             "05" -> "Jun"
+             "06" -> "Jul"
+             "07" -> "Aug"
+             "08" -> "Sep"
+             "09" -> "Oct"
+             "10" -> "Nov"
+             "11" -> "Dec"
+             else -> "N/A"
         }
 
+        return updatedMonth
+    }
 
+
+    fun monthFormat(month: String): String {
+
+        val updatedMonth = if (month.length == 1) {
+            "0$month"
+        } else{
+            "$month"
+        }
+
+       return updatedMonth
+    }
+
+    fun dateFormat(calendarDay: String): String {
+
+        val updatedDay = if (calendarDay.length == 1) {
+            "0$calendarDay"
+        } else {
+            "$calendarDay"
+        }
+
+        return updatedDay
     }
 }

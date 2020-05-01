@@ -34,9 +34,9 @@ class AppViewModel: ViewModel() {
             })
     }
 
-    fun fetchHotelList(){
+    fun fetchHotelList(currency:String,locale:String,sortOrder:String,destinationId:String, pageNumber:String, checkin:String, checkout:String, pageSize:String, adult:String){
 
-        disposable = apiResponse.getHotelList()
+        disposable = apiResponse.getHotelList(currency,locale,sortOrder,destinationId,pageNumber,checkin,checkout,pageSize,adult)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
@@ -46,9 +46,9 @@ class AppViewModel: ViewModel() {
             })
     }
 
-    fun fetchHotelPhotos(){
+    fun fetchHotelPhotos(search: Int){
 
-        disposable = apiResponse.getHotelPhotos()
+        disposable = apiResponse.getHotelPhotos(search)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({

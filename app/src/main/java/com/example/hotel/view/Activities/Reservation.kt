@@ -105,7 +105,7 @@ class Reservation : AppCompatActivity() {
 
         if (y != null && m != null && d != null) {
 
-            val abbreviatedMonth = AppUtilities.getMonth(m)
+            val abbreviatedMonth = AppUtilities.monthAbbrevations(m)
 
             checkout_day.text = "$abbreviatedMonth $d"
             checkout_year.text = y.toString()
@@ -123,7 +123,7 @@ class Reservation : AppCompatActivity() {
 
         if (y != null && m != null && d != null){
 
-            val abbreviatedMonth = AppUtilities.getMonth(m)
+            val abbreviatedMonth = AppUtilities.monthAbbrevations(m)
 
             checkin_day.text = "$abbreviatedMonth $d"
             checkin_year.text = y.toString()

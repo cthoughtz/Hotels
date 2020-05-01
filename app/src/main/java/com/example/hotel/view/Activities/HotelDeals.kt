@@ -6,8 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import androidx.core.widget.NestedScrollView
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.hotel.AppUtilities
 import com.example.hotel.R
@@ -15,15 +13,18 @@ import com.example.hotel.view.Adapters.HotelDealsPager
 import com.example.hotel.viewmodel.AppViewModel
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_hotel_deals.*
-import kotlinx.android.synthetic.main.activity_reservation_calender.*
 
 class HotelDeals : AppCompatActivity(), TabLayout.OnTabSelectedListener {
 
     val TAG = javaClass.simpleName
     lateinit var searchQuery: String
     lateinit var adultCount: String
+    var checkIn = ""
+    var checkOut = ""
     lateinit var viewModel: AppViewModel
     var favNumberCount = 0
+    val pageNumber = "1"
+    val pageSize = "25"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,9 +49,7 @@ class HotelDeals : AppCompatActivity(), TabLayout.OnTabSelectedListener {
 
         // Initiate ViewModel
         viewModel = ViewModelProviders.of(this).get(AppViewModel::class.java)
-        observeSearchQuery()
 
-        searchResult()
     }
 
     private fun setUpTabLayout() {
@@ -100,32 +99,24 @@ class HotelDeals : AppCompatActivity(), TabLayout.OnTabSelectedListener {
 
         val checkInDay = checkInDates.getString(AppUtilities.selectedDay, "null")
         val checkInMonth = checkInDates.getString(AppUtilities.selectedMonth, "null")
+        val checkInYear = checkInDates.getString(AppUtilities.selectedYear, "null")
 
         val checkOutDay = checkOutDates.getString(AppUtilities.selectedCheckoutDay, "null")
         val checkOutMonth = checkOutDates.getString(AppUtilities.selectedCheckoutMonth, "null")
+        val checkOutYear = checkOutDates.getString(AppUtilities.selectedCheckoutYear,"null")
+
+        //CheckIn - CheckOut for parameters in api request (HotelAllFragment)
+        checkIn = "${checkInYear.toString()}-${checkInMonth.toString()}-${checkInDay.toString()}"
+        checkOut ="${checkOutYear.toString()}-${checkOutMonth.toString()}-${checkOutDay.toString()}"
+
+
 
         // convert month number into month abbrevation
-        val abbrMonCheckIn = AppUtilities.getMonth(checkInMonth!!)
-        val abbrMonthCheckout = AppUtilities.getMonth(checkOutMonth!!)
+        val abbrMonCheckIn = AppUtilities.monthAbbrevations(checkInMonth!!)
+        val abbrMonthCheckout = AppUtilities.monthAbbrevations(checkOutMonth!!)
 
         // Set Text in UI
         reservation_dates_tv.text = "$abbrMonCheckIn $checkInDay - $abbrMonthCheckout $checkOutDay"
-    }
-
-    private fun searchResult() {
-        // search backend with search query
-        viewModel.fetchSearchResult(searchQuery)
-    }
-
-    fun observeSearchQuery(){
-
-        viewModel.hotelSearches.observe(this, Observer{
-
-            val testResponse = it.trackingID
-            val testResponseTwo = it.suggestions
-            Log.d(TAG,testResponse)
-            Log.d(TAG,"Suggested Terms: $testResponseTwo")
-        })
     }
 
     override fun onTabReselected(tab: TabLayout.Tab?) {
