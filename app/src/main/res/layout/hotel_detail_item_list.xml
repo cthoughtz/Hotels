@@ -1,27 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/mainTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/roomPhoto"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="New York Times" />
+
+            <TextView
+                android:id="@+id/subTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="10dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@+id/roomPhoto"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mainTitle"
+                tools:text="Lower Eas Side" />
+
+            <TextView
+                android:id="@+id/mileage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:textSize="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/roomPhoto"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/subTitle"
+                tools:text="2.5 miles from city Center" />
+
+            <TextView
+                android:id="@+id/limitedOffer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text=" Limited Time Offer"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:drawableLeft="@drawable/image"
+                app:layout_constraintBottom_toTopOf="@+id/oldPrice"
+                app:layout_constraintEnd_toStartOf="@+id/roomPhoto"
+                app:layout_constraintStart_toEndOf="@+id/price"
+                app:layout_constraintTop_toBottomOf="@+id/mileage" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/colorPurple"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mileage"
+                tools:text="$93" />
+
+            <TextView
+                android:id="@+id/oldPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/oldPrice"
+                app:layout_constraintEnd_toStartOf="@+id/roomPhoto"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/price" />
+
+            <TextView
+                android:id="@+id/exceptional"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/oldPrice"
+                tools:text="Exceptional" />
+
+            <TextView
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:background="@color/colorPurple"
+                android:padding="2dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/exceptional"
+                app:layout_constraintTop_toBottomOf="@+id/oldPrice"
+                tools:text="9.4" />
+
+            <TextView
+                android:id="@+id/numberOfPeopleRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/rating"
+                app:layout_constraintTop_toBottomOf="@+id/oldPrice"
+                tools:text="(1598)"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:id="@+id/setPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPurple"
+                android:padding="3dp"
+                android:text="Your Secret Price"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/exceptional" />
+
             <ImageView
-                android:id="@+id/room"
-                android:layout_width="50dp"
-                android:layout_height="100dp"
+                android:id="@+id/roomPhoto"
+                android:layout_width="90dp"
+                android:layout_height="190dp"
                 android:scaleType="center"
                 android:src="@drawable/dummy_hotel_image"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/favoritesBackground"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/favorite_background"
+                app:layout_constraintEnd_toEndOf="@+id/roomPhoto"
+                app:layout_constraintTop_toTopOf="@+id/roomPhoto"
+                tools:layout_editor_absoluteY="26dp" />
+
+            <ImageView
+                android:id="@+id/favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="3dp"
+                android:src="@drawable/ic_favorite_border_red_24dp"
+                app:layout_constraintEnd_toEndOf="@+id/roomPhoto"
+                app:layout_constraintTop_toTopOf="@+id/roomPhoto" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

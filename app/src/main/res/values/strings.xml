@@ -942,4 +942,6 @@ Sorry, you\'ve been away for a while and cannot continue with this operation
         <item>16</item>
         <item>17</item>
     </string-array>
+
+    <string name="oldPrice"><strike>$109</strike></string>
 </resources>

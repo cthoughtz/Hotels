@@ -8,11 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dinuscxj.progressbar.CircleProgressBar
 import com.example.hotel.R
+import com.example.hotel.model.HotelListResponse
+import com.example.hotel.model.RecyclerView.PropertyList
 import com.example.hotel.view.Activities.HotelDeals
+import com.example.hotel.view.Adapters.PropertyListRecyclerAdapter
 import com.example.hotel.viewmodel.AppViewModel
 import kotlinx.android.synthetic.main.fragment_hotel_deals_all.*
+import kotlinx.android.synthetic.main.hotel_detail_item_list.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * A simple [Fragment] subclass.
@@ -22,7 +29,7 @@ class HotelDealsAllFragment : Fragment() {
     lateinit var viewModel: AppViewModel
     val TAG = javaClass.simpleName
     var searchQuery = " "
-    var numberOfAdults =" "
+    var numberOfAdults = " "
     var pageNumber = " "
     var pageSize = " "
     var checkIn = " "
@@ -49,12 +56,12 @@ class HotelDealsAllFragment : Fragment() {
         checkIn = (activity as HotelDeals).checkIn
         checkOut = (activity as HotelDeals).checkOut
 
-        Log.d(TAG,"Search Query: $searchQuery")
-        Log.d(TAG,"Number of Adults: $numberOfAdults")
-        Log.d(TAG,"PageNumber: $pageNumber")
-        Log.d(TAG,"Page Size: $pageSize")
-        Log.d(TAG,"Check In: $checkIn")
-        Log.d(TAG," Check Out: $checkOut")
+        Log.d(TAG, "Search Query: $searchQuery")
+        Log.d(TAG, "Number of Adults: $numberOfAdults")
+        Log.d(TAG, "PageNumber: $pageNumber")
+        Log.d(TAG, "Page Size: $pageSize")
+        Log.d(TAG, "Check In: $checkIn")
+        Log.d(TAG, " Check Out: $checkOut")
 
         setUpBookedPercentagCardView(searchQuery)
 
@@ -66,8 +73,6 @@ class HotelDealsAllFragment : Fragment() {
 
         // Fetch Data from backend
         searchRequest()
-
-
     }
 
     private fun searchRequest() {
@@ -75,12 +80,12 @@ class HotelDealsAllFragment : Fragment() {
         viewModel.fetchSearchResult(searchQuery)
     }
 
-    fun observeSearchQuery(){
+    fun observeSearchQuery() {
 
-        viewModel.hotelSearches.observe(viewLifecycleOwner, Observer{
+        viewModel.hotelSearches.observe(viewLifecycleOwner, Observer {
 
             val hotelGeoId = it.suggestions?.get(0)?.entities?.get(0)?.destinationId.toString()
-            Log.d(TAG,"GeoId: $hotelGeoId")
+            Log.d(TAG, "GeoId: $hotelGeoId")
 
             propretySearchRequest(hotelGeoId)
 
@@ -90,22 +95,88 @@ class HotelDealsAllFragment : Fragment() {
     fun observeProperties() {
 
         viewModel.hotelList.observe(viewLifecycleOwner, Observer {
-
-            val testData = it.result?.get(0)
-            val testDataTwo = it.data
-            Log.d(TAG,"Idprop: $it")
+            setupRecyclerView(it)
         })
     }
 
+    private fun setupRecyclerView(it: HotelListResponse?) {
 
-    fun propretySearchRequest(destinationId: String){
+        var propList = ArrayList<PropertyList>()
+        var propListAdapter = PropertyListRecyclerAdapter(activity!!, propList)
 
-        val test = destinationId
-        Log.d(TAG,"destinationID: $destinationId")
+        addDatatoArrayList(propList, it, propListAdapter)
 
-        viewModel.fetchHotelList(currency,locale,sortOrder,destinationId,pageNumber,checkIn,checkOut,pageSize,numberOfAdults)
+
+        hotelDetailsRecyclerView.apply {
+            layoutManager = LinearLayoutManager(activity)
+            adapter = propListAdapter
+        }
     }
 
+    private fun addDatatoArrayList(
+        propList: java.util.ArrayList<PropertyList>,
+        it: HotelListResponse?,
+        propListAdapter: PropertyListRecyclerAdapter
+    ) {
+
+        var counter = 0
+        var mainTitle = " "
+        var subTitle = " "
+        var mileageLabel = " "
+        var mileageDistance = " "
+        var price = " "
+
+        val size = it?.data?.body?.searchResults?.results?.size
+        for (i in 0 until size!!) {
+
+            mainTitle = it?.data?.body?.searchResults?.results?.get(counter)?.name.toString()
+            subTitle =
+                it?.data?.body?.searchResults?.results?.get(counter)?.address?.locality.toString()
+            mileageLabel =
+                it?.data?.body?.searchResults?.results?.get(counter)?.landmarks?.get(0)?.label.toString()
+            mileageDistance =
+                it?.data?.body?.searchResults?.results?.get(counter)?.landmarks?.get(0)?.distance.toString()
+            price =
+                it?.data.body?.searchResults?.results?.get(counter)?.ratePlan?.price?.current.toString()
+
+            propList.add(
+                PropertyList(
+                    mainTitle,
+                    subTitle,
+                    "$mileageDistance miles from $mileageLabel",
+                    price,
+                    "null"
+                    ,
+                    "testing",
+                    "testing",
+                    "testing",
+                    "testing",
+                    "testing",
+                    1
+                )
+            )
+
+            counter++
+        }
+
+        propListAdapter!!.notifyDataSetChanged()
+    }
+
+
+    fun propretySearchRequest(destinationId: String) {
+
+        viewModel.fetchHotelList(
+            currency,
+            locale,
+            sortOrder,
+            destinationId,
+            pageNumber,
+            checkIn,
+            checkOut,
+            pageSize,
+            numberOfAdults
+        )
+    }
 
 
     private fun setUpBookedPercentagCardView(searchQuery: String) {
@@ -114,7 +185,7 @@ class HotelDealsAllFragment : Fragment() {
         var DEFAUL_PATTERN = "%d%%"
         var random = (1..100).random()
 
-        val progress = object: CircleProgressBar.ProgressFormatter{
+        val progress = object : CircleProgressBar.ProgressFormatter {
             override fun format(progress: Int, max: Int): CharSequence {
 
                 return String.format(DEFAUL_PATTERN, random)
@@ -124,9 +195,10 @@ class HotelDealsAllFragment : Fragment() {
         circleProgressBar2.progress = random
         circleProgressBar2.setProgressFormatter(progress)
 
-        bookedPercentText.text = "We are $random% booked! $searchQuery is popular for your travel dates."
+        bookedPercentText.text =
+            "We are $random% booked! $searchQuery is popular for your travel dates."
 
-        closeBookedPercentTextView.setOnClickListener{
+        closeBookedPercentTextView.setOnClickListener {
 
             bookedPercentContraint.visibility = View.GONE
         }

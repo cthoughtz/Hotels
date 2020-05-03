@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat.getSystemService
 import kotlinx.android.synthetic.main.activity_check_in.*
+import java.lang.NumberFormatException
 
 object AppUtilities {
 
@@ -80,5 +81,9 @@ object AppUtilities {
         }
 
         return updatedDay
+    }
+
+    fun percentCalculator(price: String):Int {
+        return (10*price.toInt())/100
     }
 }
