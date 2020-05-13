@@ -84,6 +84,10 @@ object AppUtilities {
     }
 
     fun percentCalculator(price: String):Int {
-        return (10*price.toInt())/100
+        if(price == "null"){
+            return 0
+        } else {
+            return (10 * price.toInt()) / 100
+        }
     }
 }

@@ -169,7 +169,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="3dp"
-                android:src="@drawable/ic_favorite_border_red_24dp"
+                android:background="@drawable/favorite_selection"
+                android:src="@android:color/transparent"
                 app:layout_constraintEnd_toEndOf="@+id/roomPhoto"
                 app:layout_constraintTop_toTopOf="@+id/roomPhoto" />
         </androidx.constraintlayout.widget.ConstraintLayout>

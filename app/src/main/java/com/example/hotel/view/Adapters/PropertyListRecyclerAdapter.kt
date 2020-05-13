@@ -7,11 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hotel.AppUtilities
 import com.example.hotel.R
 import com.example.hotel.model.RecyclerView.PropertyList
+import com.jakewharton.rxbinding2.view.enabled
+import com.jakewharton.rxbinding2.view.selected
 import kotlinx.android.synthetic.main.hotel_detail_item_list.*
+import kotlinx.android.synthetic.main.hotel_detail_item_list.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -32,6 +36,20 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         holder.bindItems(propertyList[position])
+
+        holder.itemView.favorite.setOnClickListener{
+
+            if (holder.itemView.favorite.isActivated == false){
+
+                holder.itemView.favorite.isActivated = true
+            } else{
+                holder.itemView.favorite.isActivated = false
+            }
+        }
+
+        holder.itemView.setOnClickListener{
+            Toast.makeText(c,"Clicked",Toast.LENGTH_LONG).show()
+        }
     }
 
     class ViewHolder(itemView: View,context:Context) : RecyclerView.ViewHolder(itemView) {
@@ -49,6 +67,7 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
         val numberOfPeopleRating = itemView.findViewById<TextView>(R.id.numberOfPeopleRating)
         val setPrice = itemView.findViewById<TextView>(R.id.setPrice)
         val roomPhotoImage = itemView.findViewById<ImageView>(R.id.roomPhoto)
+        val favoriteHeart = itemView.findViewById<ImageView>(R.id.favorite)
 
         fun bindItems(propertyList: PropertyList) {
 
@@ -79,9 +98,14 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
 
                 lm.text = pl.limitedOffer
                 val moneySaved = AppUtilities.percentCalculator(it.text.toString())
+                val originalPrice = lm.text.toString()
 
-                if (moneySaved < lm.text.toString().toInt()){
-                    lm.text = "Save $moneySaved%"
+                if (originalPrice != "null") {
+                    if (moneySaved < originalPrice.toInt()) {
+                        lm.text = "Save $moneySaved%"
+                    }
+                } else{
+                    it.visibility = View.INVISIBLE
                 }
             }
 
