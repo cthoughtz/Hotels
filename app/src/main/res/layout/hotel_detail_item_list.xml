@@ -66,6 +66,7 @@
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
+                android:visibility="invisible"
                 android:drawableLeft="@drawable/image"
                 app:layout_constraintBottom_toTopOf="@+id/oldPrice"
                 app:layout_constraintEnd_toStartOf="@+id/roomPhoto"
@@ -88,11 +89,20 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:text="@string/oldPrice"
-                app:layout_constraintEnd_toStartOf="@+id/roomPhoto"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/price" />
+
+            <TextView
+                android:id="@+id/perNight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/oldPrice"
+                app:layout_constraintEnd_toStartOf="@+id/roomPhoto"
+                app:layout_constraintStart_toEndOf="@+id/oldPrice"
+                app:layout_constraintTop_toBottomOf="@+id/price"
+                tools:text="nightly price per room" />
 
             <TextView
                 android:id="@+id/exceptional"
@@ -136,6 +146,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPurple"
                 android:padding="3dp"
+                android:visibility="invisible"
                 android:text="Your Secret Price"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"

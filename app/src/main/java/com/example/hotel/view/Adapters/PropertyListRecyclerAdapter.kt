@@ -2,6 +2,7 @@ package com.example.hotel.view.Adapters
 
 import android.content.Context
 import android.graphics.Color
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.hotel.AppUtilities
 import com.example.hotel.R
 import com.example.hotel.model.RecyclerView.PropertyList
@@ -62,6 +64,7 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
         val price = itemView.findViewById<TextView>(R.id.price)
         val limitedOffer = itemView.findViewById<TextView>(R.id.limitedOffer)
         val oldPrice = itemView.findViewById<TextView>(R.id.oldPrice)
+        val perNight = itemView.findViewById<TextView>(R.id.perNight)
         val exceptional = itemView.findViewById<TextView>(R.id.exceptional)
         val rating = itemView.findViewById<TextView>(R.id.rating)
         val numberOfPeopleRating = itemView.findViewById<TextView>(R.id.numberOfPeopleRating)
@@ -75,13 +78,58 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
             subTitle.text = propertyList.subTitle
             mileage.text = propertyList.mileage
             price.text = propertyList.price
+            exceptional.text = AppUtilities.ratingLevel(propertyList.rating!!.toDouble())
+            rating.text = propertyList.rating
+            numberOfPeopleRating.text = "(${propertyList.numberOfPeopleRating})"
+
+
 
             // set random color for prices and limited offer
            setRandomColors(price,ctx)
 
-            // set up limited offer based on percent
-            setLimitOffer(limitedOffer, propertyList)
 
+            //set OldPrice
+            setOldPrice(oldPrice, price,limitedOffer, propertyList)
+
+            // set Image
+            setImage(roomPhotoImage,propertyList)
+
+
+
+        }
+
+        private fun setImage(roomPhotoImage: ImageView?, propertyList: PropertyList) {
+
+            Glide.with(ctx)
+                .load(propertyList.roomPhotoImage)
+                .into(roomPhotoImage!!)
+        }
+
+        private fun setOldPrice(oldPrice: TextView?, price:TextView?, limitedOffer: TextView?, propertyList: PropertyList) {
+
+            var op = propertyList.oldPrice
+            var lmo = limitedOffer
+
+            if (op == "null"){
+                oldPrice?.text = " "
+            } else{
+                oldPrice?.text = propertyList.oldPrice
+                oldPrice?.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+
+                savedPercent(oldPrice?.text?.toString(), price?.text?.toString(), lmo)
+            }
+        }
+
+        private fun savedPercent(oldPrice: String?, price: String?, limitedOffer: TextView?) {
+            var op = oldPrice!!.substring(1,oldPrice!!.lastIndex).toInt()
+            var p =  price!!.substring(1,price!!.lastIndex).toInt()
+
+            var savedMoney = AppUtilities.savedMoney(op!!,p!!)
+
+            if (savedMoney > 0) {
+                limitedOffer?.visibility = View.VISIBLE
+                limitedOffer?.text = "Save $savedMoney"
+            }
         }
 
 
@@ -92,24 +140,6 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
             tv.setTextColor(randomColor)
         }
 
-        fun setLimitOffer(lm: TextView, pl: PropertyList){
-
-            lm?.let {
-
-                lm.text = pl.limitedOffer
-                val moneySaved = AppUtilities.percentCalculator(it.text.toString())
-                val originalPrice = lm.text.toString()
-
-                if (originalPrice != "null") {
-                    if (moneySaved < originalPrice.toInt()) {
-                        lm.text = "Save $moneySaved%"
-                    }
-                } else{
-                    it.visibility = View.INVISIBLE
-                }
-            }
-
-        }
     }
 
 }

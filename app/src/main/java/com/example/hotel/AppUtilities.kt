@@ -90,4 +90,37 @@ object AppUtilities {
             return (10 * price.toInt()) / 100
         }
     }
+
+    fun savedMoney(oldPrice: Int, price:Int):Int{
+
+       return ((oldPrice - price)/((price + oldPrice)/2))*100
+    }
+
+    fun ratingLevel(number: Double): String {
+
+     return when (number) {
+            in 9.4..9.9 -> {
+                "Exceptional"
+            }
+            in 9.0..9.3 -> {
+                "Superb"
+            }
+            in 8.6..8.9 ->{
+                "Very Good"
+            }
+            in 8.0..8.5 ->{
+                "Good"
+            }
+            in 6.0..7.9 ->{
+            "Nice"
+            }
+            in 0.0..5.9 ->{
+                "Awesome"
+            }
+            else ->{
+                "No Rating"
+            }
+
+        }
+    }
 }

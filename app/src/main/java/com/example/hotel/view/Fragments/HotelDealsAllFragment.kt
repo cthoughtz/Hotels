@@ -125,6 +125,10 @@ class HotelDealsAllFragment : Fragment() {
         var mileageLabel = " "
         var mileageDistance = " "
         var price = " "
+        var oldPrice = " "
+        var rating = " "
+        var numberOfPeopleRating = " "
+        var thumbnail = " "
 
         val size = it?.data?.body?.searchResults?.results?.size
         for (i in 0 until size!!) {
@@ -138,6 +142,10 @@ class HotelDealsAllFragment : Fragment() {
                 it?.data?.body?.searchResults?.results?.get(counter)?.landmarks?.get(0)?.distance.toString()
             price =
                 it?.data.body?.searchResults?.results?.get(counter)?.ratePlan?.price?.current.toString()
+            oldPrice = it?.data.body?.searchResults?.results?.get(counter)?.ratePlan?.price?.old.toString()
+            rating = it?.data?.body?.searchResults?.results?.get(counter)?.guestReviews?.rating.toString()
+            numberOfPeopleRating = it?.data?.body?.searchResults?.results?.get(counter)?.guestReviews?.total.toString()
+            thumbnail = it?.data?.body?.searchResults?.results?.get(counter)?.thumbnailUrl.toString()
 
             propList.add(
                 PropertyList(
@@ -147,12 +155,12 @@ class HotelDealsAllFragment : Fragment() {
                     price,
                     "null"
                     ,
+                    oldPrice,
                     "testing",
+                    rating,
+                    numberOfPeopleRating,
                     "testing",
-                    "testing",
-                    "testing",
-                    "testing",
-                    1
+                    thumbnail
                 )
             )
 
