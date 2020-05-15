@@ -11,8 +11,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dinuscxj.progressbar.CircleProgressBar
 import com.example.hotel.R
+import com.example.hotel.RoomDataBase.AppDatabase
 import com.example.hotel.model.HotelListResponse
 import com.example.hotel.model.RecyclerView.PropertyList
+import com.example.hotel.view.Activities.BaseApplication
 import com.example.hotel.view.Activities.HotelDeals
 import com.example.hotel.view.Adapters.PropertyListRecyclerAdapter
 import com.example.hotel.viewmodel.AppViewModel
@@ -37,6 +39,7 @@ class HotelDealsAllFragment : Fragment() {
     val currency = "USD"
     val locale = "en_US"
     val sortOrder = "PRICE"
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

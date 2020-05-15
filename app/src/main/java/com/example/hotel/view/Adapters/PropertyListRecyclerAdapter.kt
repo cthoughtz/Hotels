@@ -1,8 +1,10 @@
 package com.example.hotel.view.Adapters
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Paint
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +15,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.hotel.AppUtilities
 import com.example.hotel.R
+import com.example.hotel.RoomDataBase.AppDatabase
 import com.example.hotel.model.RecyclerView.PropertyList
+import com.example.hotel.model.RoomEntities.PropertyListEntity
+import com.example.hotel.services.DatabaseTransactions
+import com.example.hotel.view.Activities.BaseApplication
 import com.jakewharton.rxbinding2.view.enabled
 import com.jakewharton.rxbinding2.view.selected
 import kotlinx.android.synthetic.main.hotel_detail_item_list.*
@@ -25,6 +31,7 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
 
 
     val c = context
+    val pl = propertyList
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -44,6 +51,40 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
             if (holder.itemView.favorite.isActivated == false){
 
                 holder.itemView.favorite.isActivated = true
+
+
+                val dbIntent = Intent()
+                dbIntent.setClass(c,DatabaseTransactions::class.java)
+                dbIntent.putExtra("insert","insert")
+                dbIntent.putExtra("position", position.toString())
+                dbIntent.putExtra("mainTitle",pl.get(position).mainTile)
+                dbIntent.putExtra("subTitle",pl.get(position).subTitle)
+                dbIntent.putExtra("mileage",pl.get(position).mileage)
+                dbIntent.putExtra("price",pl.get(position).price)
+                dbIntent.putExtra("limitedOffer",pl.get(position).limitedOffer)
+                dbIntent.putExtra("oldPrice",pl.get(position).oldPrice)
+                dbIntent.putExtra("exceptional",pl.get(position).exceptional)
+                dbIntent.putExtra("rating",pl.get(position).rating)
+                dbIntent.putExtra("numberOfPeopleRating",pl.get(position).numberOfPeopleRating)
+                dbIntent.putExtra("setPrice",pl.get(position).setPrice)
+                dbIntent.putExtra("roomPhotoImage",pl.get(position).roomPhotoImage)
+                c.startService(dbIntent)
+//                db.propListDao().insertAll(
+//                    PropertyListEntity(
+//                        position,
+//                        holder.mainTitle.toString(),
+//                        holder.subTitle.toString(),
+//                        holder.mileage.toString(),
+//                        holder.price.toString(),
+//                        holder.limitedOffer.toString(),
+//                        holder.oldPrice.toString(),
+//                        holder.exceptional.toString(),
+//                        holder.rating.toString(),
+//                        holder.numberOfPeopleRating.toString(),
+//                        holder.setPrice.toString(),
+//                        holder.roomPhotoImage.toString()
+//                    )
+//                )
             } else{
                 holder.itemView.favorite.isActivated = false
             }
@@ -82,20 +123,14 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
             rating.text = propertyList.rating
             numberOfPeopleRating.text = "(${propertyList.numberOfPeopleRating})"
 
-
-
             // set random color for prices and limited offer
            setRandomColors(price,ctx)
-
 
             //set OldPrice
             setOldPrice(oldPrice, price,limitedOffer, propertyList)
 
             // set Image
             setImage(roomPhotoImage,propertyList)
-
-
-
         }
 
         private fun setImage(roomPhotoImage: ImageView?, propertyList: PropertyList) {
@@ -132,7 +167,6 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
             }
         }
 
-
         private fun setRandomColors(tv: TextView, context:Context) {
 
             var colors = context.resources.getIntArray(R.array.randomcolorlist)
@@ -141,5 +175,4 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
         }
 
     }
-
 }
