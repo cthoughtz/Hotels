@@ -2,27 +2,25 @@ package com.example.hotel.view.Adapters
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
+import android.content.SharedPreferences
 import android.graphics.Paint
-import android.os.Bundle
+import android.os.Build
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.hotel.AppUtilities
 import com.example.hotel.R
 import com.example.hotel.RoomDataBase.AppDatabase
 import com.example.hotel.model.RecyclerView.PropertyList
-import com.example.hotel.model.RoomEntities.PropertyListEntity
 import com.example.hotel.services.DatabaseTransactions
 import com.example.hotel.view.Activities.BaseApplication
-import com.jakewharton.rxbinding2.view.enabled
-import com.jakewharton.rxbinding2.view.selected
-import kotlinx.android.synthetic.main.hotel_detail_item_list.*
 import kotlinx.android.synthetic.main.hotel_detail_item_list.view.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -51,48 +49,56 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
             if (holder.itemView.favorite.isActivated == false){
 
                 holder.itemView.favorite.isActivated = true
+                insertItemIntoDatabase(position)
 
-
-                val dbIntent = Intent()
-                dbIntent.setClass(c,DatabaseTransactions::class.java)
-                dbIntent.putExtra("insert","insert")
-                dbIntent.putExtra("position", position.toString())
-                dbIntent.putExtra("mainTitle",pl.get(position).mainTile)
-                dbIntent.putExtra("subTitle",pl.get(position).subTitle)
-                dbIntent.putExtra("mileage",pl.get(position).mileage)
-                dbIntent.putExtra("price",pl.get(position).price)
-                dbIntent.putExtra("limitedOffer",pl.get(position).limitedOffer)
-                dbIntent.putExtra("oldPrice",pl.get(position).oldPrice)
-                dbIntent.putExtra("exceptional",pl.get(position).exceptional)
-                dbIntent.putExtra("rating",pl.get(position).rating)
-                dbIntent.putExtra("numberOfPeopleRating",pl.get(position).numberOfPeopleRating)
-                dbIntent.putExtra("setPrice",pl.get(position).setPrice)
-                dbIntent.putExtra("roomPhotoImage",pl.get(position).roomPhotoImage)
-                c.startService(dbIntent)
-//                db.propListDao().insertAll(
-//                    PropertyListEntity(
-//                        position,
-//                        holder.mainTitle.toString(),
-//                        holder.subTitle.toString(),
-//                        holder.mileage.toString(),
-//                        holder.price.toString(),
-//                        holder.limitedOffer.toString(),
-//                        holder.oldPrice.toString(),
-//                        holder.exceptional.toString(),
-//                        holder.rating.toString(),
-//                        holder.numberOfPeopleRating.toString(),
-//                        holder.setPrice.toString(),
-//                        holder.roomPhotoImage.toString()
-//                    )
-//                )
             } else{
+
                 holder.itemView.favorite.isActivated = false
+                deleteItemFromDatabase(position)
             }
         }
 
         holder.itemView.setOnClickListener{
             Toast.makeText(c,"Clicked",Toast.LENGTH_LONG).show()
         }
+    }
+
+    private fun deleteItemFromDatabase(position: Int) {
+        val dbIntent = Intent()
+        dbIntent.setClass(c,DatabaseTransactions::class.java)
+        dbIntent.putExtra("position", position.toString())
+        dbIntent.putExtra("mainTitle",pl.get(position).mainTile)
+        dbIntent.putExtra("subTitle",pl.get(position).subTitle)
+        dbIntent.putExtra("mileage",pl.get(position).mileage)
+        dbIntent.putExtra("price",pl.get(position).price)
+        dbIntent.putExtra("limitedOffer",pl.get(position).limitedOffer)
+        dbIntent.putExtra("oldPrice",pl.get(position).oldPrice)
+        dbIntent.putExtra("exceptional",pl.get(position).exceptional)
+        dbIntent.putExtra("rating",pl.get(position).rating)
+        dbIntent.putExtra("numberOfPeopleRating",pl.get(position).numberOfPeopleRating)
+        dbIntent.putExtra("setPrice",pl.get(position).setPrice)
+        dbIntent.putExtra("roomPhotoImage",pl.get(position).roomPhotoImage)
+        c.startService(dbIntent)
+    }
+
+    private fun insertItemIntoDatabase(position: Int) {
+
+        val dbIntent = Intent()
+        dbIntent.setClass(c,DatabaseTransactions::class.java)
+        dbIntent.putExtra("insert","insert")
+        dbIntent.putExtra("position", position.toString())
+        dbIntent.putExtra("mainTitle",pl.get(position).mainTile)
+        dbIntent.putExtra("subTitle",pl.get(position).subTitle)
+        dbIntent.putExtra("mileage",pl.get(position).mileage)
+        dbIntent.putExtra("price",pl.get(position).price)
+        dbIntent.putExtra("limitedOffer",pl.get(position).limitedOffer)
+        dbIntent.putExtra("oldPrice",pl.get(position).oldPrice)
+        dbIntent.putExtra("exceptional",pl.get(position).exceptional)
+        dbIntent.putExtra("rating",pl.get(position).rating)
+        dbIntent.putExtra("numberOfPeopleRating",pl.get(position).numberOfPeopleRating)
+        dbIntent.putExtra("setPrice",pl.get(position).setPrice)
+        dbIntent.putExtra("roomPhotoImage",pl.get(position).roomPhotoImage)
+        c.startService(dbIntent)
     }
 
     class ViewHolder(itemView: View,context:Context) : RecyclerView.ViewHolder(itemView) {
@@ -131,6 +137,26 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
 
             // set Image
             setImage(roomPhotoImage,propertyList)
+
+            //set Favorites
+            setFavorites(favoriteHeart, propertyList)
+        }
+
+        private fun setFavorites(favoriteHeart: ImageView?, prop: PropertyList?) {
+            val  title = prop?.mainTile.toString()
+
+            val sharedPrefs  = this.ctx.applicationContext.getSharedPreferences("FavoriteChecker",Context.MODE_PRIVATE)
+
+            if (sharedPrefs.contains(title)) {
+
+                val getFavs = sharedPrefs.getBoolean(title, false)
+
+                if (getFavs == true) {
+                    favoriteHeart?.isActivated = true
+                } else {
+                    favoriteHeart?.isActivated = false
+                }
+            }
         }
 
         private fun setImage(roomPhotoImage: ImageView?, propertyList: PropertyList) {

@@ -12,6 +12,15 @@ interface PropertyListDao{
     @Query("SELECT * FROM propertylisttable")
     fun getAll(): List<PropertyListEntity>
 
+    @Query("SELECT COUNT (*) FROM propertylisttable")
+    fun getDataCount(): Int
+
+    @Query("SELECT mainTile FROM propertylisttable")
+    fun searchMainTitle():List<PropertyListEntity>
+
+    @Query("SELECT mainTile FROM Propertylisttable WHERE mainTile =:name")
+    fun searchMainTitleName(name: String):List<PropertyListEntity>
+
     @Insert
     fun insert(item: PropertyListEntity)
 

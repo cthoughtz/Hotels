@@ -8,6 +8,8 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat.getSystemService
+import com.example.hotel.RoomDataBase.AppDatabase
+import com.example.hotel.view.Activities.BaseApplication
 import kotlinx.android.synthetic.main.activity_check_in.*
 import java.lang.NumberFormatException
 
