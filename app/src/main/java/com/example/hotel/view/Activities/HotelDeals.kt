@@ -56,8 +56,9 @@ class HotelDeals : AppCompatActivity(), TabLayout.OnTabSelectedListener {
 
         hotelsDealsTabLayout.apply{
 
+            //todo - change the icon for the favorites tabe
             addTab(this.newTab().setCustomView(R.layout.custom_all_tab))
-            addTab(this.newTab().setText("\u2661 Favorites ($favNumberCount)"))
+            addTab(this.newTab().setCustomView(R.layout.custom_favorites_tab).setText("Favorites ($favNumberCount)"))
 
             setOnTabSelectedListener(this@HotelDeals)
         }

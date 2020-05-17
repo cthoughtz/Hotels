@@ -27,7 +27,6 @@ import kotlin.collections.ArrayList
 
 class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayList<PropertyList>): RecyclerView.Adapter<PropertyListRecyclerAdapter.ViewHolder>() {
 
-
     val c = context
     val pl = propertyList
 
@@ -44,15 +43,20 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
 
         holder.bindItems(propertyList[position])
 
+        // setclick listener for favorites icon
         holder.itemView.favorite.setOnClickListener{
 
             if (holder.itemView.favorite.isActivated == false){
 
+                // activated favorites icon when click
+                // save data that is on cardview into room database
                 holder.itemView.favorite.isActivated = true
                 insertItemIntoDatabase(position)
 
             } else{
 
+                // deactivate favorites icon when clicked
+                // remove data that is on cardview into room database
                 holder.itemView.favorite.isActivated = false
                 deleteItemFromDatabase(position)
             }
@@ -64,6 +68,9 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
     }
 
     private fun deleteItemFromDatabase(position: Int) {
+
+        // start service that inserts data in database
+        // data must be placed into database on seperate thread or service or it might block the UI.
         val dbIntent = Intent()
         dbIntent.setClass(c,DatabaseTransactions::class.java)
         dbIntent.putExtra("position", position.toString())
@@ -83,6 +90,8 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
 
     private fun insertItemIntoDatabase(position: Int) {
 
+        // starts service that delete data from database
+        // data must be placed into database on seperate thread or service or it might block the UI.
         val dbIntent = Intent()
         dbIntent.setClass(c,DatabaseTransactions::class.java)
         dbIntent.putExtra("insert","insert")
@@ -105,6 +114,7 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
 
         val ctx = context
 
+        // gets items from UI and bind them to  the specified val
         val mainTitle = itemView.findViewById<TextView>(R.id.mainTitle)
         val subTitle = itemView.findViewById<TextView>(R.id.subTitle)
         val mileage = itemView.findViewById<TextView>(R.id.mileage)
@@ -121,6 +131,7 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
 
         fun bindItems(propertyList: PropertyList) {
 
+            // binds data from data class to UI
            mainTitle.text = propertyList.mainTile
             subTitle.text = propertyList.subTitle
             mileage.text = propertyList.mileage
@@ -161,6 +172,7 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
 
         private fun setImage(roomPhotoImage: ImageView?, propertyList: PropertyList) {
 
+            // set image on UI
             Glide.with(ctx)
                 .load(propertyList.roomPhotoImage)
                 .into(roomPhotoImage!!)
@@ -171,6 +183,7 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
             var op = propertyList.oldPrice
             var lmo = limitedOffer
 
+            // set older price and add line through it
             if (op == "null"){
                 oldPrice?.text = " "
             } else{
@@ -195,6 +208,7 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
 
         private fun setRandomColors(tv: TextView, context:Context) {
 
+            // set random percentage because there is no data from the server
             var colors = context.resources.getIntArray(R.array.randomcolorlist)
             var randomColor = colors[Random().nextInt(colors.size)]
             tv.setTextColor(randomColor)
