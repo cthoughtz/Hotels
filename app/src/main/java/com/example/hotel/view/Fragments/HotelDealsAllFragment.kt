@@ -12,12 +12,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dinuscxj.progressbar.CircleProgressBar
 import com.example.hotel.R
 import com.example.hotel.RoomDataBase.AppDatabase
+import com.example.hotel.interfaces.FavsUpdate
 import com.example.hotel.model.HotelListResponse
 import com.example.hotel.model.RecyclerView.PropertyList
 import com.example.hotel.view.Activities.BaseApplication
 import com.example.hotel.view.Activities.HotelDeals
 import com.example.hotel.view.Adapters.PropertyListRecyclerAdapter
 import com.example.hotel.viewmodel.AppViewModel
+import kotlinx.android.synthetic.main.custom_favorites_tab.*
 import kotlinx.android.synthetic.main.fragment_hotel_deals_all.*
 import kotlinx.android.synthetic.main.hotel_detail_item_list.*
 import java.util.*
@@ -52,6 +54,7 @@ class HotelDealsAllFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Intent for items to be displayed on Screen
         searchQuery = (activity as HotelDeals).searchQuery
         numberOfAdults = (activity as HotelDeals).adultCount
         pageNumber = (activity as HotelDeals).pageNumber
@@ -66,8 +69,11 @@ class HotelDealsAllFragment : Fragment() {
         Log.d(TAG, "Check In: $checkIn")
         Log.d(TAG, " Check Out: $checkOut")
 
+        // So random percent value (Only for show because there is not data from the server to so
+        // Actual data
         setUpBookedPercentagCardView(searchQuery)
 
+        // Initilize viewmodel
         viewModel = ViewModelProviders.of(requireActivity()).get(AppViewModel::class.java)
 
         // Observe Data for updates
@@ -90,6 +96,7 @@ class HotelDealsAllFragment : Fragment() {
             val hotelGeoId = it.suggestions?.get(0)?.entities?.get(0)?.destinationId.toString()
             Log.d(TAG, "GeoId: $hotelGeoId")
 
+            // Passes search data to backend which will retrieve information form endpoint
             propretySearchRequest(hotelGeoId)
 
         })
@@ -104,6 +111,7 @@ class HotelDealsAllFragment : Fragment() {
 
     private fun setupRecyclerView(it: HotelListResponse?) {
 
+        // Set up Adapter for RecyclerView
         var propList = ArrayList<PropertyList>()
         var propListAdapter = PropertyListRecyclerAdapter(activity!!, propList)
 
@@ -121,7 +129,7 @@ class HotelDealsAllFragment : Fragment() {
         it: HotelListResponse?,
         propListAdapter: PropertyListRecyclerAdapter
     ) {
-
+        // Adds Data to adapter
         var counter = 0
         var mainTitle = " "
         var subTitle = " "
@@ -176,6 +184,7 @@ class HotelDealsAllFragment : Fragment() {
 
     fun propretySearchRequest(destinationId: String) {
 
+        // Fetch Data from searver
         viewModel.fetchHotelList(
             currency,
             locale,
@@ -214,5 +223,4 @@ class HotelDealsAllFragment : Fragment() {
             bookedPercentContraint.visibility = View.GONE
         }
     }
-
 }

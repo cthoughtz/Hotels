@@ -13,7 +13,8 @@ class HotelDealsPager(fm: FragmentManager, tabCount: Int): FragmentStatePagerAda
     val hotelDealFavorites = HotelDealsFavoriteFragment()
 
     override fun getItem(position: Int) = when(position){
-
+        // When potision 1 is selected hotelDealFavorites will be displayed otherwise hotelDealsAll
+        // will be displayed
         0-> hotelDealsAll
         1 -> hotelDealFavorites
         else -> hotelDealsAll

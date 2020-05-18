@@ -17,6 +17,7 @@ class HomeScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.homescreen_main)
 
+        // Set up navigation Controller to navigation throughout that app
         setupView()
     }
 

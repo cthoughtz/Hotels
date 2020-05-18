@@ -9,26 +9,31 @@ import com.example.hotel.view.Activities.BaseApplication
 
 class DatabaseTransactions : IntentService("DatabaseTransactions") {
 
+    //initialize  Database
     val db: AppDatabase by lazy{
         BaseApplication.appDb
     }
 
     override fun onHandleIntent(intent: Intent?) {
 
+        // Get intent Extra
         val parmInent = intent?.getStringExtra("insert") ?: "delete"
 
         when (parmInent) {
             "insert" -> {
-
+                // insert items into database
                 insertItems(intent!!)
             }
             "delete" -> {
+                // Delete Items from database
                 deleteItems(intent!!)
             }
         }
     }
 
     private fun deleteItems(intent: Intent) {
+
+        // Get Intents for all the data to be deleted
         val position = intent.getStringExtra("position") ?: "null"
         val mainTitle = intent.getStringExtra("mainTitle")
         val subTitle = intent.getStringExtra("subTitle")
@@ -42,8 +47,10 @@ class DatabaseTransactions : IntentService("DatabaseTransactions") {
         val setPrice = intent.getStringExtra("setPrice")
         val roomPhoto = intent.getStringExtra("roomPhotoImage")
 
-        sharedPrefs(false,position)
+        // Set boolean to false if it exist in shared preferences
+        sharedPrefs(false,mainTitle)
 
+        // If position from intent is not equal to false delete it from the database
         if (position != null) {
             db.propListDao().delete(
                 PropertyListEntity(
@@ -67,6 +74,7 @@ class DatabaseTransactions : IntentService("DatabaseTransactions") {
 
     private fun insertItems(intent: Intent) {
 
+        // Get Intents for all the data to be inserted
         val position = intent.getStringExtra("position")
         val mainTitle = intent.getStringExtra("mainTitle")
         val subTitle = intent.getStringExtra("subTitle")
@@ -80,8 +88,10 @@ class DatabaseTransactions : IntentService("DatabaseTransactions") {
         val setPrice = intent.getStringExtra("setPrice")
         val roomPhoto = intent.getStringExtra("roomPhotoImage")
 
+        // Set boolean to true if it exist in shared preferences
         sharedPrefs(true,mainTitle)
 
+        // Insert all items into database
         db.propListDao().insertAll(
             PropertyListEntity(
                 position.toInt(),
@@ -101,6 +111,7 @@ class DatabaseTransactions : IntentService("DatabaseTransactions") {
 
     fun sharedPrefs(boolean: Boolean, position: String){
 
+        // Add items to Shared preferences
         val prefs = getSharedPreferences("FavoriteChecker", Context.MODE_PRIVATE)
         val editor = prefs.edit()
         editor.putBoolean(position,boolean)

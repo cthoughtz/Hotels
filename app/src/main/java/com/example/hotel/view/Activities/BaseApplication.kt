@@ -9,7 +9,10 @@ class BaseApplication: Application() {
 
     companion object{
 
+        // Initilize BaseApplication Class
         var instance= BaseApplication()
+
+        // Set up Database
         val appDb: AppDatabase by lazy {
             Room.databaseBuilder(
                 instance,

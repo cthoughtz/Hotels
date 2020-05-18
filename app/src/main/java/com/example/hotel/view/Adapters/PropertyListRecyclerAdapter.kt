@@ -2,25 +2,21 @@ package com.example.hotel.view.Adapters
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.Paint
-import android.os.Build
-import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.hotel.AppUtilities
 import com.example.hotel.R
-import com.example.hotel.RoomDataBase.AppDatabase
+import com.example.hotel.interfaces.FavsUpdate
 import com.example.hotel.model.RecyclerView.PropertyList
 import com.example.hotel.services.DatabaseTransactions
-import com.example.hotel.view.Activities.BaseApplication
+import com.example.hotel.view.Activities.HotelDeals
 import kotlinx.android.synthetic.main.hotel_detail_item_list.view.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -29,13 +25,13 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
 
     val c = context
     val pl = propertyList
+    lateinit var updateFavs: FavsUpdate
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         val v = LayoutInflater.from(parent.context).inflate(R.layout.hotel_detail_item_list, parent,false)
         return ViewHolder(v,c)
     }
-
 
     override fun getItemCount()= propertyList.size
 
@@ -53,12 +49,17 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
                 holder.itemView.favorite.isActivated = true
                 insertItemIntoDatabase(position)
 
+                //todo - update number to increase
+               (c as HotelDeals).addToFavorites()
+
             } else{
 
                 // deactivate favorites icon when clicked
                 // remove data that is on cardview into room database
                 holder.itemView.favorite.isActivated = false
                 deleteItemFromDatabase(position)
+
+                (c as HotelDeals).removeFromFavorites()
             }
         }
 
@@ -154,20 +155,26 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
         }
 
         private fun setFavorites(favoriteHeart: ImageView?, prop: PropertyList?) {
+            // Get title
             val  title = prop?.mainTile.toString()
 
+            // Get Shared prefs
             val sharedPrefs  = this.ctx.applicationContext.getSharedPreferences("FavoriteChecker",Context.MODE_PRIVATE)
 
-            if (sharedPrefs.contains(title)) {
+            // if shared prefs is not null
+                if(sharedPrefs != null) {
 
-                val getFavs = sharedPrefs.getBoolean(title, false)
+                    // get boolean value for title and if for some reason there is on value set
+                    // the default value to null
+                    val getFavs = sharedPrefs.getBoolean(title, false)
 
-                if (getFavs == true) {
-                    favoriteHeart?.isActivated = true
-                } else {
-                    favoriteHeart?.isActivated = false
+                    // if value is  true then activate favorite hear else deactivate it
+                    if (getFavs == true) {
+                        favoriteHeart?.isActivated = true
+                    } else {
+                        favoriteHeart?.isActivated = false
+                    }
                 }
-            }
         }
 
         private fun setImage(roomPhotoImage: ImageView?, propertyList: PropertyList) {
@@ -195,11 +202,16 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
         }
 
         private fun savedPercent(oldPrice: String?, price: String?, limitedOffer: TextView?) {
+
+            // Get number values of price and old price ex: $45 would be 45
             var op = oldPrice!!.substring(1,oldPrice!!.lastIndex).toInt()
             var p =  price!!.substring(1,price!!.lastIndex).toInt()
 
+            // Perform Calculation to show how much money was saved and pass it to savedMoney variable
             var savedMoney = AppUtilities.savedMoney(op!!,p!!)
 
+            // if savedMoney is greater then 0 then make limited offer textview visible and set text
+            // to savedmoney value
             if (savedMoney > 0) {
                 limitedOffer?.visibility = View.VISIBLE
                 limitedOffer?.text = "Save $savedMoney"

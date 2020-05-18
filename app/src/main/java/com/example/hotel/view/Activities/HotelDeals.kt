@@ -9,12 +9,14 @@ import android.view.MenuItem
 import androidx.lifecycle.ViewModelProviders
 import com.example.hotel.AppUtilities
 import com.example.hotel.R
+import com.example.hotel.interfaces.FavsUpdate
 import com.example.hotel.view.Adapters.HotelDealsPager
 import com.example.hotel.viewmodel.AppViewModel
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_hotel_deals.*
+import kotlinx.android.synthetic.main.custom_favorites_tab.*
 
-class HotelDeals : AppCompatActivity(), TabLayout.OnTabSelectedListener {
+class HotelDeals : AppCompatActivity(), TabLayout.OnTabSelectedListener, FavsUpdate {
 
     val TAG = javaClass.simpleName
     lateinit var searchQuery: String
@@ -25,6 +27,8 @@ class HotelDeals : AppCompatActivity(), TabLayout.OnTabSelectedListener {
     var favNumberCount = 0
     val pageNumber = "1"
     val pageSize = "25"
+    var startCounter = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +37,7 @@ class HotelDeals : AppCompatActivity(), TabLayout.OnTabSelectedListener {
         // setup Toolbar
         AppUtilities.setupToolbar(this,hotelDealsToolbar,"null")
 
+        // Get intents for search query and number of adults
         searchQuery = intent.getStringExtra(AppUtilities.SEARCH_DATA)
         adultCount = intent.getStringExtra(AppUtilities.ADULT_COUNT)
 
@@ -50,25 +55,31 @@ class HotelDeals : AppCompatActivity(), TabLayout.OnTabSelectedListener {
         // Initiate ViewModel
         viewModel = ViewModelProviders.of(this).get(AppViewModel::class.java)
 
+        //Set Favorites
+        setFavoritesCountTab()
+
     }
+
 
     private fun setUpTabLayout() {
 
         hotelsDealsTabLayout.apply{
 
-            //todo - change the icon for the favorites tabe
+            // Add Tabs to ViewPager
             addTab(this.newTab().setCustomView(R.layout.custom_all_tab))
-            addTab(this.newTab().setCustomView(R.layout.custom_favorites_tab).setText("Favorites ($favNumberCount)"))
+            addTab(this.newTab().setCustomView(R.layout.custom_favorites_tab))
 
             setOnTabSelectedListener(this@HotelDeals)
-        }
 
+
+        }
         val adapter = HotelDealsPager(supportFragmentManager,hotelsDealsTabLayout.tabCount)
         hotelDealsPager.adapter = adapter
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
+        // Set up action for when back arrow is clicked
         if (item.itemId == android.R.id.home) {
 
             finish()
@@ -81,6 +92,7 @@ class HotelDeals : AppCompatActivity(), TabLayout.OnTabSelectedListener {
 
         editButton.setOnClickListener {
 
+            // Intent to go to the next Activity
             val intent = Intent(this,Reservation::class.java)
             startActivity(intent)
         }
@@ -131,5 +143,50 @@ class HotelDeals : AppCompatActivity(), TabLayout.OnTabSelectedListener {
     override fun onTabSelected(tab: TabLayout.Tab?) {
 
         hotelDealsPager.setCurrentItem(tab!!.position)
+    }
+
+    fun setFavoritesCountTab() {
+
+        var counter = 0
+
+        // Get all shared preferences values and store them in keys
+        val favsPrefs = getSharedPreferences("FavoriteChecker", Context.MODE_PRIVATE)
+        var keys = favsPrefs.getAll()
+
+        // if keys is not null then cycle through the list of preferences and implement counter by
+        // 1
+        if (keys != null) {
+
+            for (i in keys.values) {
+
+                if (i == true) {
+                    counter++
+                }
+            }
+
+            // set favorites Tab's text to counter
+            favorites_text.text = "Favorites($counter)"
+            startCounter = counter
+        }
+    }
+
+    override fun addToFavorites() {
+
+        startCounter++
+
+            // Callback method that will increment the value on the favorites tab when item
+            // favorites button is activated
+            Log.d("Counter", "Counter = $startCounter")
+            favorites_text.text = "Favorites($startCounter)"
+    }
+
+    override fun removeFromFavorites() {
+
+        startCounter--
+
+        // Callback method that will decrement the value on the favorites tab when item favorites
+        // button is not activated
+        Log.d("Counter", "Counter = $startCounter")
+        favorites_text.text = "Favorites($startCounter)"
     }
 }

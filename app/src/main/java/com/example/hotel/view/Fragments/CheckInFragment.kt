@@ -32,7 +32,6 @@ class CheckInFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
         return inflater.inflate(R.layout.fragment_check_in, container, false)
     }
 
@@ -45,8 +44,10 @@ class CheckInFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
+        //Get Shared preferneces for Dates
         sharedPrefs = activity!!.getSharedPreferences("Dates", Context.MODE_PRIVATE)
 
+        // Listens to Date clicked on calendar
         calendarView.setOnDayClickListener {
 
             selectedDate(it,sharedPrefs)
@@ -56,15 +57,17 @@ class CheckInFragment : Fragment() {
 
     private fun selectedDate(it: EventDay?, sharedPrefs: SharedPreferences?) {
 
+        // Get Calender dates that were selected
         val calendarInfo = it?.calendar
-        //todo change format of date before it is saved to get the correct repsonse from backend.
         var calendarDay= calendarInfo?.get(Calendar.DAY_OF_MONTH)
         var year = calendarInfo?.get(Calendar.YEAR)
         var month = calendarInfo?.get(Calendar.MONTH)
 
+        // Changes format of dates
         var updatedMonth = AppUtilities.monthFormat(month.toString())
         var updatedDay = AppUtilities.dateFormat(calendarDay.toString())
 
+        // Saves values in shared preferences
         sharedPrefs?.edit()?.putString(AppUtilities.selectedYear,year.toString())?.commit()
         sharedPrefs?.edit()?.putString(AppUtilities.selectedMonth,updatedMonth)?.commit()
         sharedPrefs?.edit()?.putString(AppUtilities.selectedDay,updatedDay)?.commit()

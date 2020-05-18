@@ -10,11 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <service
             android:name=".services.DatabaseTransactions"
-            android:exported="false"></service>
-        <service android:name=".services.FavoriteChecker"
-            android:exported="false"></service>
+            android:exported="false" />
 
         <activity android:name=".view.Activities.HotelDeals" />
         <activity

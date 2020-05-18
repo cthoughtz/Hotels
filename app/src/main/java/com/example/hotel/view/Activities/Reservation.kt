@@ -25,19 +25,24 @@ class Reservation : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_check_in)
 
+        // Set up Toolbar
         AppUtilities.setupToolbar(this,check_in_toolbar,"Reservation")
 
+        // Set up Spinner
         childSpinner = resources.getStringArray(R.array.age_of_child_spinner)
        setUpSpinners()
 
+        // Get intent for Search Query
         searchQuery = intent.getStringExtra("SEARCH_QUERY") ?: "null"
 
+        // Set up Cardview listener to Go to ReservationCalander when clicked
         cardView_checkin.setOnClickListener {
 
             val intent = Intent(this, ReservationCalender::class.java)
             startActivity(intent)
         }
 
+        // Click listener to increment number of adults
         btn_add_adult.setOnClickListener{
 
             if (adultPersonCounter < 8){
@@ -47,6 +52,7 @@ class Reservation : AppCompatActivity() {
             numberOfAdultsPerRoom(adultPersonCounter)
         }
 
+        // Click listener to decrement number of adults
         btn_remove_adult.setOnClickListener {
 
              if(adultPersonCounter > 1){
@@ -57,6 +63,7 @@ class Reservation : AppCompatActivity() {
         }
 
 
+        // Increment children
         btn_add_children.setOnClickListener {
 
             if (childPersonCounter < 3){
@@ -66,6 +73,7 @@ class Reservation : AppCompatActivity() {
             numberOfChildrenPerRoom(childPersonCounter)
         }
 
+        // Decrement children
         btn_remove_children.setOnClickListener {
 
             if(childPersonCounter > 0){
@@ -74,11 +82,13 @@ class Reservation : AppCompatActivity() {
             numberOfChildrenPerRoom(childPersonCounter)
         }
 
+        // Informs customer that certain functions are not available during demo due to api restrictions
         textView20.setOnClickListener {
 
             Toast.makeText(this,"No functionality for Demo",Toast.LENGTH_LONG).show()
         }
 
+        // Launches Hotels Deals Activity and pass it search query and adultPersonCounter
         btn_show_deals.setOnClickListener {
 
             val intent = Intent(this,HotelDeals::class.java)
@@ -91,6 +101,7 @@ class Reservation : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
+        // Sets date for check in
         reservationCheckInDate()
         reservationCheckOutDate()
     }
@@ -99,14 +110,17 @@ class Reservation : AppCompatActivity() {
 
         val setCheckOutDate = getSharedPreferences("CheckoutDates",Context.MODE_PRIVATE)
 
+        // Gets values for Checkout Dates
         val y = setCheckOutDate.getString("SELECTED_CHECKOUT_YEAR","null")
         val m = setCheckOutDate.getString("SELECTED_CHECKOUT_MONTH", "null")
         val d = setCheckOutDate.getString("SELECTED_CHECKOUT_DAY", "null")
 
         if (y != null && m != null && d != null) {
 
+            // Changes month to Abbreviations
             val abbreviatedMonth = AppUtilities.monthAbbrevations(m)
 
+            // Sets Date for UI
             checkout_day.text = "$abbreviatedMonth $d"
             checkout_year.text = y.toString()
         }
@@ -117,20 +131,24 @@ class Reservation : AppCompatActivity() {
 
         val setCheckInDate = getSharedPreferences("Dates", Context.MODE_PRIVATE)
 
+        //Get String from Shared prefs
         val y = setCheckInDate.getString("SELECTED_YEAR","null")
         val m = setCheckInDate.getString("SELECTED_MONTH","null")
         val d = setCheckInDate.getString("SELECTED_DAY", "null")
 
         if (y != null && m != null && d != null){
 
+            // Changes Month to abbrevitaions
             val abbreviatedMonth = AppUtilities.monthAbbrevations(m)
 
+            // sets date on UI
             checkin_day.text = "$abbreviatedMonth $d"
             checkin_year.text = y.toString()
         }
 
     }
 
+    // Sets up spinner data
     private fun setUpSpinners() {
         ArrayAdapter(this,android.R.layout.simple_spinner_item,
             childSpinner).apply {
@@ -155,6 +173,7 @@ class Reservation : AppCompatActivity() {
         }
 
 
+        // Sets up spinner object on UI
         ArrayAdapter(this,android.R.layout.simple_spinner_item,
             childSpinner).apply {
 
@@ -177,6 +196,7 @@ class Reservation : AppCompatActivity() {
             }
         }
 
+        // Sets up spinner object on UI
         ArrayAdapter(this,android.R.layout.simple_spinner_item,
             childSpinner).apply {
 
@@ -201,6 +221,7 @@ class Reservation : AppCompatActivity() {
 
     }
 
+    // Set Items Visible or Gone
     private fun numberOfChildrenPerRoom(childPersonCounter: Int){
 
         child_text_count.text = childPersonCounter.toString()
@@ -248,6 +269,7 @@ class Reservation : AppCompatActivity() {
 
     }
 
+    // Set data for number of adults per room
     private fun numberOfAdultsPerRoom(adultPersonCounter: Int) {
 
         adult_text_count.text = adultPersonCounter.toString()
@@ -256,6 +278,7 @@ class Reservation : AppCompatActivity() {
     }
 
 
+    // When Edit button is selected user will be send to the HomeScreen
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         if (item.itemId == android.R.id.home) {

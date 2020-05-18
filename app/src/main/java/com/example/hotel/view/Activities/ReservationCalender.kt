@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.activity_reservation_calender.*
 
 class ReservationCalender() : AppCompatActivity(), TabLayout.OnTabSelectedListener {
 
-
     val TAG = javaClass.simpleName
     lateinit var listener: TabSelected
 
@@ -22,8 +21,10 @@ class ReservationCalender() : AppCompatActivity(), TabLayout.OnTabSelectedListen
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reservation_calender)
 
+        // Set up toolbars
         AppUtilities.setupToolbar(this,calendar_toolbar,"Calendar")
 
+        // Add Labels to Tab
         tabLayout.apply {
             addTab(this.newTab().setText("CHECK-IN"))
             addTab(this.newTab().setText("CHECK-OUT"))
@@ -35,10 +36,12 @@ class ReservationCalender() : AppCompatActivity(), TabLayout.OnTabSelectedListen
         pager.adapter = adapter
     }
 
+    // Pass Interface to setback Callback so that it can be initalized
     fun setCallback(callback: TabSelected){
         this.listener = callback
     }
 
+    // When toolbar item is selected  if item equals home finish() will be called
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         if (item.itemId == android.R.id.home) {
@@ -59,7 +62,10 @@ class ReservationCalender() : AppCompatActivity(), TabLayout.OnTabSelectedListen
 
     override fun onTabSelected(tab: TabLayout.Tab?) {
 
+        // Get the Current Tab
         pager.setCurrentItem(tab!!.position)
+
+        // Triggers listener from interface to preform some action when the tab is selected
         listener.selectedTAb()
     }
 }

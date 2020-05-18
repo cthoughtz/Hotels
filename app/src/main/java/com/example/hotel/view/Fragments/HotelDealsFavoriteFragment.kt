@@ -12,6 +12,7 @@ import com.example.hotel.R
  */
 class HotelDealsFavoriteFragment : Fragment() {
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -19,5 +20,6 @@ class HotelDealsFavoriteFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_hotel_deals_favorite, container, false)
     }
+
 
 }

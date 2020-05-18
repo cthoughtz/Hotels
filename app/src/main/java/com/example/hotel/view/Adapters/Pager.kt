@@ -15,6 +15,7 @@ class Pager(fm: FragmentManager, tabCount: Int): FragmentStatePagerAdapter(fm ,t
 
     override fun getItem(position: Int): Fragment {
 
+        // When position is 1 then checkout fragment is displayed else checkin is displayed
         when (position) {
             0 -> {
                 return checkIn
