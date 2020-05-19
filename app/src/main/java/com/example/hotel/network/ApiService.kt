@@ -54,9 +54,9 @@ class ApiService: ApiClient{
         return  postApi.getHotelPhotos(query)
     }
 
-    override fun getHotelDetails(): Single<HotelDetailsResponse> {
+    override fun getHotelDetails(locale: String, currency: String, checkOut: String, adult:String, checkIn: String, id:String): Single<HotelDetailsResponse> {
 
-        return postApi.getHotelDetails()
+        return postApi.getHotelDetails(locale,currency,checkOut,adult,checkIn,id)
     }
 
     override fun getHotelList(currency:String,locale:String,sortOrder:String,destination:String,pageNumber:String,checkin:String,checkout:String,pageSize:String,adult:String): Single<HotelListResponse> {

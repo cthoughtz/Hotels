@@ -22,9 +22,9 @@ class AppViewModel: ViewModel() {
     private var disposable: Disposable? = null
     val apiResponse = ApiService()
 
-    fun fetchHotelDetails(){
+    fun fetchHotelDetails(locale: String, currency: String, checkOut: String, adult:String, checkIn: String, id:String){
 
-        disposable = apiResponse.getHotelDetails()
+        disposable = apiResponse.getHotelDetails(locale,currency,checkOut,adult,checkIn,id)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({

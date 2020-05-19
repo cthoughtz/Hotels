@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dinuscxj.progressbar.CircleProgressBar
+import com.example.hotel.AppUtilities
 import com.example.hotel.R
 import com.example.hotel.RoomDataBase.AppDatabase
 import com.example.hotel.interfaces.FavsUpdate
@@ -38,9 +39,6 @@ class HotelDealsAllFragment : Fragment() {
     var pageSize = " "
     var checkIn = " "
     var checkOut = " "
-    val currency = "USD"
-    val locale = "en_US"
-    val sortOrder = "PRICE"
 
 
     override fun onCreateView(
@@ -189,9 +187,9 @@ class HotelDealsAllFragment : Fragment() {
 
         // Fetch Data from searver
         viewModel.fetchHotelList(
-            currency,
-            locale,
-            sortOrder,
+            AppUtilities.currency,
+            AppUtilities.locale,
+            AppUtilities.sortOrder,
             destinationId,
             pageNumber,
             checkIn,

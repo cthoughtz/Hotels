@@ -41,6 +41,10 @@ class HotelDeals : AppCompatActivity(), TabLayout.OnTabSelectedListener, FavsUpd
         searchQuery = intent.getStringExtra(AppUtilities.SEARCH_DATA)
         adultCount = intent.getStringExtra(AppUtilities.ADULT_COUNT)
 
+        // Add number of adults to shared preferences to be used for other api calls
+        // if needed
+        addAdultstoPrefs(adultCount)
+
         Log.d(TAG,"Search Query: $searchQuery")
         Log.d(TAG,"Adult Count: $adultCount")
 
@@ -58,6 +62,13 @@ class HotelDeals : AppCompatActivity(), TabLayout.OnTabSelectedListener, FavsUpd
         //Set Favorites
         setFavoritesCountTab()
 
+    }
+
+    private fun addAdultstoPrefs(adultCount: String?) {
+
+        val prefs = getSharedPreferences("NumberOfAdults", Context.MODE_PRIVATE)
+        val editor = prefs.edit().putString("number", adultCount)
+        editor.commit()
     }
 
 

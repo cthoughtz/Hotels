@@ -33,5 +33,7 @@ interface ApiClient{
     @Headers("x-rapidapi-host: hotels4.p.rapidapi.com",
         "x-rapidapi-key: fdb24db5eemsh90362d2616f25ebp135e27jsne4972d8c39bc")
     @GET("/properties/get-details")
-    fun getHotelDetails():Single<HotelDetailsResponse>
+    fun getHotelDetails(@Query("locale") locale:String, @Query("currency") currency:String,
+    @Query("checkOut") checkOut:String, @Query("adults1") adults:String,
+                        @Query("checkIn") checkIn:String, @Query("id") id:String ):Single<HotelDetailsResponse>
 }

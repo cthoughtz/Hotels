@@ -23,6 +23,9 @@ object AppUtilities {
     val selectedCheckoutYear = "SELECTED_CHECKOUT_YEAR"
     val selectedCheckoutMonth = "SELECTED_CHECKOUT_MONTH"
     val selectedCheckoutDay = "SELECTED_CHECKOUT_DAY"
+    val currency = "USD"
+    val locale = "en_US"
+    val sortOrder = "PRICE"
 
     fun hideSoftKeyBoard(input: EditText, context: Context) {
 
