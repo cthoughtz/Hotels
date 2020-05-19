@@ -3,6 +3,7 @@ package com.example.hotel.view.Adapters
 import android.content.Context
 import android.content.Intent
 import android.graphics.Paint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,7 @@ import com.example.hotel.interfaces.FavsUpdate
 import com.example.hotel.model.RecyclerView.PropertyList
 import com.example.hotel.services.DatabaseTransactions
 import com.example.hotel.view.Activities.HotelDeals
+import com.example.hotel.view.Activities.HotelDetails
 import kotlinx.android.synthetic.main.hotel_detail_item_list.view.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -49,7 +51,6 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
                 holder.itemView.favorite.isActivated = true
                 insertItemIntoDatabase(position)
 
-                //todo - update number to increase
                (c as HotelDeals).addToFavorites()
 
             } else{
@@ -64,7 +65,10 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
         }
 
         holder.itemView.setOnClickListener{
-            Toast.makeText(c,"Clicked",Toast.LENGTH_LONG).show()
+
+            val intent = Intent(c, HotelDetails::class.java)
+            intent.putExtra("itemId", "${pl.get(position).destinationId}")
+            c.startActivity(intent)
         }
     }
 

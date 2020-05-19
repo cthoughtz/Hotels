@@ -11,4 +11,5 @@ data class PropertyList(
     val rating:String? = null,
     val numberOfPeopleRating:String? = null,
     val setPrice:String? = null,
-    val roomPhotoImage: String? = null)
+    val roomPhotoImage: String? = null,
+    val destinationId: String? = null)
