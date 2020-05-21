@@ -1,14 +1,18 @@
 package com.example.hotel.view.Activities
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.hotel.AppUtilities
 import com.example.hotel.R
 import com.example.hotel.viewmodel.AppViewModel
+import kotlinx.android.synthetic.main.activity_hotel_details.*
 
 class HotelDetails : AppCompatActivity() {
 
@@ -21,7 +25,7 @@ class HotelDetails : AppCompatActivity() {
 
         // Get intent for destination Id
         val itemId = intent.getStringExtra("itemId")
-        
+
         // Get parameters for api call 
         val checkoutPrefs = getSharedPreferences("CheckoutDates", Context.MODE_PRIVATE)
         val checkoutAll = checkoutPrefs.all
@@ -41,7 +45,7 @@ class HotelDetails : AppCompatActivity() {
         observeHotelPhotosInfo()
         observeHotelDetailsinfo()
 
-        //Fetch Infor FromBackend
+        //Fetch Info FromBackend
         fetchHotelPhotos(itemId)
         fetchHotelDetails(itemId,checkout,checkin,adultsPrefs)
     }
@@ -60,7 +64,11 @@ class HotelDetails : AppCompatActivity() {
     private fun observeHotelDetailsinfo() {
 
         viewModel.hotelDetails.observe(this, Observer {
-            // DATA
+
+            val locationName = it.data?.body?.pdpHeader?.hotelLocation?.locationName
+
+            //Set up Toolbar Title
+            AppUtilities.setupToolbar(this,toolbarHotelDetails,locationName.toString())
         })
     }
 
@@ -75,5 +83,31 @@ class HotelDetails : AppCompatActivity() {
 
             Log.d(TAG,"Details Data = ${it.hotelImages?.get(0)?.baseUrl}")
         })
+    }
+
+    // Setup Items in toolbar selection
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        // When home button is selected
+        when (item.itemId) {
+            android.R.id.home ->{
+                finish()
+            }
+            R.id.editButtonToolbar ->{
+                val intent = Intent(this, Reservation::class.java)
+                startActivity(intent)
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    // Create Items on toolbar (top right)
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_edit_button,menu)
+
+        return super.onCreateOptionsMenu(menu)
     }
 }

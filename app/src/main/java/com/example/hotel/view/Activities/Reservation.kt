@@ -62,7 +62,6 @@ class Reservation : AppCompatActivity() {
             numberOfAdultsPerRoom(adultPersonCounter)
         }
 
-
         // Increment children
         btn_add_children.setOnClickListener {
 
@@ -171,7 +170,6 @@ class Reservation : AppCompatActivity() {
 
             }
         }
-
 
         // Sets up spinner object on UI
         ArrayAdapter(this,android.R.layout.simple_spinner_item,

@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.Activities.HotelDetails"></activity>
+        <activity android:name=".view.Activities.HotelDetails"
+            android:theme="@style/Standard"></activity>
 
         <service
             android:name=".services.DatabaseTransactions"
