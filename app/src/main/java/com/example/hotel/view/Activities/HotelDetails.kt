@@ -4,13 +4,16 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hotel.AppUtilities
 import com.example.hotel.R
+import com.example.hotel.model.HotelPhotosResponse
+import com.example.hotel.model.RecyclerViewDataClass.HotelDetailsPhotos
+import com.example.hotel.view.Adapters.HotelDetailsAdditionalImageAdapter
 import com.example.hotel.viewmodel.AppViewModel
 import kotlinx.android.synthetic.main.activity_hotel_details.*
 
@@ -72,6 +75,35 @@ class HotelDetails : AppCompatActivity() {
         })
     }
 
+    // Set up horizontal recyclerView for list of images associated with specific hotel
+    private fun setupRecyclerView(it: HotelPhotosResponse?) {
+
+        val imageSize = "_z.jpg"
+
+        // Set up Adapter for RecyclerView
+        var roomImageList = ArrayList<HotelDetailsPhotos>()
+        var additionaImageAdapter = HotelDetailsAdditionalImageAdapter(this@HotelDetails,roomImageList)
+
+        val size = it?.hotelImages?.size
+        for (i in 0 until size!!){
+
+            //todo - check after monthly quota for request is renewed 
+          var  rawThumbnail = it?.hotelImages?.get(i)?.baseUrl.toString()
+          var  splitThumbnailString = rawThumbnail.split("_")
+          var  firstHalfThumbnailString = splitThumbnailString[0]
+          var  usableThumbnailString = "$firstHalfThumbnailString$imageSize"
+
+            roomImageList.add(HotelDetailsPhotos(usableThumbnailString))
+        }
+        additionaImageAdapter!!.notifyDataSetChanged()
+
+        hotelDetailsImageGallery.apply {
+
+            layoutManager = LinearLayoutManager(this@HotelDetails, LinearLayoutManager.HORIZONTAL,false)
+            adapter = additionaImageAdapter
+        }
+    }
+
     private fun fetchHotelPhotos(itemId: String?) {
 
         viewModel.fetchHotelPhotos(itemId!!.toInt())
@@ -81,7 +113,8 @@ class HotelDetails : AppCompatActivity() {
 
         viewModel.hotelPhoto.observe(this, Observer {
 
-            Log.d(TAG,"Details Data = ${it.hotelImages?.get(0)?.baseUrl}")
+            // Set up Recyclerview
+            setupRecyclerView(it)
         })
     }
 

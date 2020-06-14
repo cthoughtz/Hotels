@@ -1,4 +1,4 @@
-package com.example.hotel.model.RecyclerView
+package com.example.hotel.model.RecyclerViewDataClass
 
 data class PropertyList(
     val mainTile:String? = null,

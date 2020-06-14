@@ -3,19 +3,17 @@ package com.example.hotel.view.Adapters
 import android.content.Context
 import android.content.Intent
 import android.graphics.Paint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.hotel.AppUtilities
 import com.example.hotel.R
 import com.example.hotel.interfaces.FavsUpdate
-import com.example.hotel.model.RecyclerView.PropertyList
+import com.example.hotel.model.RecyclerViewDataClass.PropertyList
 import com.example.hotel.services.DatabaseTransactions
 import com.example.hotel.view.Activities.HotelDeals
 import com.example.hotel.view.Activities.HotelDetails
@@ -27,7 +25,6 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
 
     val c = context
     val pl = propertyList
-    lateinit var updateFavs: FavsUpdate
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -117,6 +114,7 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
 
     class ViewHolder(itemView: View,context:Context) : RecyclerView.ViewHolder(itemView) {
 
+        //todo - clean up class variables dont have to be passed to methods because they are global - foolish blunder on my part.
         val ctx = context
 
         // gets items from UI and bind them to  the specified val

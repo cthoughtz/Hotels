@@ -12,18 +12,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dinuscxj.progressbar.CircleProgressBar
 import com.example.hotel.AppUtilities
 import com.example.hotel.R
-import com.example.hotel.RoomDataBase.AppDatabase
-import com.example.hotel.interfaces.FavsUpdate
 import com.example.hotel.model.HotelListResponse
-import com.example.hotel.model.RecyclerView.PropertyList
-import com.example.hotel.view.Activities.BaseApplication
+import com.example.hotel.model.RecyclerViewDataClass.PropertyList
 import com.example.hotel.view.Activities.HotelDeals
 import com.example.hotel.view.Adapters.PropertyListRecyclerAdapter
 import com.example.hotel.viewmodel.AppViewModel
-import kotlinx.android.synthetic.main.custom_favorites_tab.*
 import kotlinx.android.synthetic.main.fragment_hotel_deals_all.*
-import kotlinx.android.synthetic.main.hotel_detail_item_list.*
-import java.util.*
 import kotlin.collections.ArrayList
 
 /**
@@ -143,6 +137,7 @@ class HotelDealsAllFragment : Fragment() {
         val size = it?.data?.body?.searchResults?.results?.size
         for (i in 0 until size!!) {
 
+            // todo - change counter to i instead of using counter
             mainTitle = it?.data?.body?.searchResults?.results?.get(counter)?.name.toString()
             subTitle =
                 it?.data?.body?.searchResults?.results?.get(counter)?.address?.locality.toString()
