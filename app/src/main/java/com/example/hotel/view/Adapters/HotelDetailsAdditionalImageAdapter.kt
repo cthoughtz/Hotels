@@ -1,15 +1,20 @@
 package com.example.hotel.view.Adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.hotel.R
 import com.example.hotel.model.RecyclerViewDataClass.HotelDetailsPhotos
+import com.example.hotel.view.Activities.ExpandedImage
 import kotlinx.android.synthetic.main.activity_check_in.*
+import kotlinx.android.synthetic.main.hotel_detail_item_list.view.*
+import kotlinx.android.synthetic.main.hotel_details_additional_room_images_list.view.*
 
 class HotelDetailsAdditionalImageAdapter(val context: Context, val additionalImagesList:ArrayList<HotelDetailsPhotos>): RecyclerView.Adapter<HotelDetailsAdditionalImageAdapter.ViewHolder>() {
 
@@ -25,7 +30,17 @@ class HotelDetailsAdditionalImageAdapter(val context: Context, val additionalIma
 
     override fun onBindViewHolder(holder: HotelDetailsAdditionalImageAdapter.ViewHolder, position: Int) {
 
+        val currentPosition = position+1
+
         holder.bindItems(additionalImagesList[position])
+        holder.itemView.setOnClickListener{
+
+            var intent = Intent(c,ExpandedImage::class.java)
+            intent.putExtra("Url",additionalImagesList.get(position).additionalRoomImages.toString())
+            intent.putExtra("ListSize", additionalImagesList.size.toString())
+            intent.putExtra("CurrentPosition",currentPosition.toString())
+            c.startActivity(intent)
+        }
     }
 
     class ViewHolder(itemView: View, context: Context): RecyclerView.ViewHolder(itemView){

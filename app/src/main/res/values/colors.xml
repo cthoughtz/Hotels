@@ -11,6 +11,9 @@
     <color name="colorBackgroundGrey">#FFE8E8E8</color>
     <color name="colorButtonGrey">#FFE1E1E1</color>
     <color name="colorBiege">#FFF9E89F</color>
+    <color name="colorJetBlack">#000</color>
+    <color name="colorOffBlack">#1C1C1C</color>
+    <color name="colorGrayishBlack">#4A4949</color>
 
     <integer-array name="randomcolorlist">
         <item>@color/colorPrimary</item>
