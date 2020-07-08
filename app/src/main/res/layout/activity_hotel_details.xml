@@ -15,6 +15,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@color/colorPrimary"
+        android:padding="10dp"
         app:layout_constraintTop_toTopOf="parent" >
     </androidx.appcompat.widget.Toolbar>
 
@@ -25,4 +26,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarHotelDetails" />
+
+    <TextView
+        android:id="@+id/totalNumberOfImages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@android:drawable/ic_menu_camera"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        android:padding="10dp"
+        android:visibility="invisible"
+        android:background="@color/colorJetBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/hotelDetailsImageGallery"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        tools:text="69" />
+
+    <TextView
+        android:id="@+id/hotelDetailsMainTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:textSize="30sp"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/hotelDetailsImageGallery"
+        tools:text="Staypineapple, An Artful Hotel Detail" />
 </androidx.constraintlayout.widget.ConstraintLayout>

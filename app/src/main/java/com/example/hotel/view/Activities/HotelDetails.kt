@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_hotel_details.*
 class HotelDetails : AppCompatActivity() {
 
     lateinit var viewModel: AppViewModel
+    lateinit var mainTitle: String
     val TAG = javaClass.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +30,9 @@ class HotelDetails : AppCompatActivity() {
 
         // Get intent for destination Id
         val itemId = intent.getStringExtra("itemId")
+
+        // Get intent for mainTitle name
+         mainTitle = intent.getStringExtra("hotelName")
 
         // Get parameters for api call 
         val checkoutPrefs = getSharedPreferences("CheckoutDates", Context.MODE_PRIVATE)
@@ -85,6 +90,16 @@ class HotelDetails : AppCompatActivity() {
         var additionaImageAdapter = HotelDetailsAdditionalImageAdapter(this@HotelDetails,roomImageList)
 
         val size = it?.hotelImages?.size
+
+        // setS total number of images
+        size?.let {
+            totalNumberOfImages.visibility = View.VISIBLE
+            totalNumberOfImages.text = it.toString()
+
+            //Set Text for Main Title
+            hotelDetailsMainTitle.text = mainTitle
+        }
+
         for (i in 0 until size!!){
 
             //todo - check after monthly quota for request is renewed 
