@@ -31,9 +31,6 @@ class HotelDetails : AppCompatActivity() {
         // Get intent for destination Id
         val itemId = intent.getStringExtra("itemId")
 
-        // Get intent for mainTitle name
-         mainTitle = intent.getStringExtra("hotelName")
-
         // Get parameters for api call 
         val checkoutPrefs = getSharedPreferences("CheckoutDates", Context.MODE_PRIVATE)
         val checkoutAll = checkoutPrefs.all
@@ -74,10 +71,96 @@ class HotelDetails : AppCompatActivity() {
         viewModel.hotelDetails.observe(this, Observer {
 
             val locationName = it.data?.body?.pdpHeader?.hotelLocation?.locationName
+            mainTitle = it.data?.body?.propertyDescription?.name.toString()
+
+
+            val stars = it.data?.body?.propertyDescription?.starRatingTitle
+            setupRating(stars)
 
             //Set up Toolbar Title
             AppUtilities.setupToolbar(this,toolbarHotelDetails,locationName.toString())
         })
+    }
+
+    private fun setupRating(stars: String?) {
+
+        // Set up stars rating
+        when (stars) {
+            "1 stars" ->{
+                one_star.visibility = View.VISIBLE
+                two_star.visibility = View.GONE
+                three_star.visibility = View.GONE
+                four_star.visibility = View.GONE
+                five_star.visibility = View.GONE
+                half_star.visibility = View.GONE
+
+            }
+            "1.5 stars" ->{
+                one_star.visibility = View.VISIBLE
+                two_star.visibility = View.GONE
+                three_star.visibility = View.GONE
+                four_star.visibility = View.GONE
+                five_star.visibility = View.GONE
+                half_star.visibility = View.VISIBLE
+
+            }
+            "2 stars"->{
+                one_star.visibility = View.VISIBLE
+                two_star.visibility = View.VISIBLE
+                three_star.visibility = View.GONE
+                four_star.visibility = View.GONE
+                five_star.visibility = View.GONE
+                half_star.visibility = View.GONE
+            }
+            "2.5 stars"->{
+                one_star.visibility = View.VISIBLE
+                two_star.visibility = View.VISIBLE
+                three_star.visibility = View.GONE
+                four_star.visibility = View.GONE
+                five_star.visibility = View.GONE
+                half_star.visibility = View.VISIBLE
+            }
+            "3 stars"->{
+                one_star.visibility = View.VISIBLE
+                two_star.visibility = View.VISIBLE
+                three_star.visibility = View.VISIBLE
+                four_star.visibility = View.GONE
+                five_star.visibility = View.GONE
+                half_star.visibility = View.GONE
+            }
+            "3.5 stars"->{
+                one_star.visibility = View.VISIBLE
+                two_star.visibility = View.VISIBLE
+                three_star.visibility = View.VISIBLE
+                four_star.visibility = View.GONE
+                five_star.visibility = View.GONE
+                half_star.visibility = View.VISIBLE
+            }
+            "4 stars"->{
+                one_star.visibility = View.VISIBLE
+                two_star.visibility = View.VISIBLE
+                three_star.visibility = View.VISIBLE
+                four_star.visibility = View.VISIBLE
+                five_star.visibility = View.GONE
+                half_star.visibility = View.GONE
+            }
+            "4.5 stars"->{
+                one_star.visibility = View.VISIBLE
+                two_star.visibility = View.VISIBLE
+                three_star.visibility = View.VISIBLE
+                four_star.visibility = View.VISIBLE
+                five_star.visibility = View.GONE
+                half_star.visibility = View.VISIBLE
+            }
+            "5 stars"->{
+                one_star.visibility = View.VISIBLE
+                two_star.visibility = View.VISIBLE
+                three_star.visibility = View.VISIBLE
+                four_star.visibility = View.VISIBLE
+                five_star.visibility = View.VISIBLE
+                half_star.visibility = View.GONE
+            }
+        }
     }
 
     // Set up horizontal recyclerView for list of images associated with specific hotel

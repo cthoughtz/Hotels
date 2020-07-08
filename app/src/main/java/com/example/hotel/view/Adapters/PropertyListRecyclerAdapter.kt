@@ -65,7 +65,6 @@ class PropertyListRecyclerAdapter(val context: Context, val propertyList:ArrayLi
 
             val intent = Intent(c, HotelDetails::class.java)
             intent.putExtra("itemId", "${pl.get(position).destinationId}")
-            intent.putExtra("hotelName","${pl.get(position).mainTile}")
             c.startActivity(intent)
         }
     }
