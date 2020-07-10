@@ -15,8 +15,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hotel.AppUtilities
 import com.example.hotel.R
+import com.example.hotel.model.HotelDetailsResponse
 import com.example.hotel.model.HotelPhotosResponse
 import com.example.hotel.model.RecyclerViewDataClass.HotelDetailsPhotos
+import com.example.hotel.view.Adapters.FeelAtHomeAdapter
 import com.example.hotel.view.Adapters.HotelDetailsAdditionalImageAdapter
 import com.example.hotel.view.Adapters.MainAmenitiesAdapter
 import com.example.hotel.viewmodel.AppViewModel
@@ -94,7 +96,8 @@ class HotelDetails : AppCompatActivity() {
 
             val amenitiesTitle = it?.data?.body?.overview?.overviewSections?.get(0)?.title
             val amenitiesList = it?.data?.body?.overview?.overviewSections?.get(0)?.content
-            setUpAmentities(amenitiesTitle, amenitiesList)
+            val feelAtHome = it?.data?.body?.amenities?.get(1)?.listItems
+            setUpAmentities(amenitiesTitle, amenitiesList,feelAtHome)
 
             //Set up Toolbar Title
             AppUtilities.setupToolbar(this,toolbarHotelDetails,locationName.toString())
@@ -103,10 +106,14 @@ class HotelDetails : AppCompatActivity() {
 
     private fun setUpAmentities(
         amenities: String?,
-        amenitiesList: List<String?>?
+        amenitiesList: List<String?>?,
+        feelAtHome: List<HotelDetailsResponse.Data.Body.Amenity.Items?>?
     ) {
 
         amentities_title.text = amenities
+
+        // ArrayList for Feel At Home Items
+        val feelAtHomeList = ArrayList<String>()
 
         // Setting up Adapter
         val mainAmenAdapter = MainAmenitiesAdapter(this,amenitiesList as ArrayList<String>)
@@ -117,6 +124,24 @@ class HotelDetails : AppCompatActivity() {
             adapter = mainAmenAdapter
             layoutManager = LinearLayoutManager(this@HotelDetails, LinearLayoutManager.VERTICAL,false)
 
+        }
+
+        // Add items from feel at home nested json to array
+        for (i in feelAtHome!!.indices) {
+
+            for (j in feelAtHome!!.get(i)?.listItems!!.indices) {
+
+                feelAtHome.get(i)?.listItems?.get(j)?.let { feelAtHomeList.add(it) }
+            }
+        }
+
+
+        val feelAtHomeAdapter = FeelAtHomeAdapter(this@HotelDetails, feelAtHomeList)
+
+        feel_at_home_recyclerView.apply {
+
+            adapter = feelAtHomeAdapter
+            layoutManager = LinearLayoutManager(this@HotelDetails, LinearLayoutManager.VERTICAL,false)
         }
     }
 
