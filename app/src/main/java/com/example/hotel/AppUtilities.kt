@@ -128,4 +128,14 @@ object AppUtilities {
 
         }
     }
+
+    fun weeklyRate(price: String): String {
+
+        // remove $ from the front of the number
+        val numberNoSpecialCharacter = price.substring(1,price.length)
+
+        val totalPrice = numberNoSpecialCharacter.toInt() * 6
+
+        return totalPrice.toString()
+    }
 }

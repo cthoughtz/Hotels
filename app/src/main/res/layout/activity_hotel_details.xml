@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hotel.view.Activities.HotelDetails"
-    >
+    tools:context="com.example.hotel.view.Activities.HotelDetails">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -127,5 +126,62 @@
         app:layout_constraintBottom_toBottomOf="@+id/five_star"
         app:layout_constraintLeft_toRightOf="@+id/five_star"
         app:layout_constraintTop_toTopOf="@+id/five_star"/>
+
+    <TextView
+        android:id="@+id/subTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="This is a test to make sure that its correct"
+        app:layout_constraintStart_toStartOf="@+id/one_star"
+        app:layout_constraintTop_toBottomOf="@+id/one_star"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/frWifi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Free Wifi"
+        android:textColor="@color/colorLightGreen"
+        android:textSize="15sp"
+        android:visibility="invisible"
+        android:drawableLeft="@drawable/ic_check_black_24dp"
+        app:layout_constraintStart_toStartOf="@+id/one_star"
+        app:layout_constraintTop_toBottomOf="@+id/subTitleText" />
+
+    <TextView
+        android:id="@+id/currentPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/frWifi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/frWifi"
+        tools:text="$36" />
+
+    <TextView
+        android:id="@+id/nightyStatement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible"
+        android:text="nightly price per unit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentPrice" />
+
+    <TextView
+        android:id="@+id/weeklyRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/nightyStatement"
+        app:layout_constraintTop_toBottomOf="@id/nightyStatement"
+        android:layout_marginTop="2dp"
+        tools:text="($214 for 6 nights)" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -2,11 +2,16 @@ package com.example.hotel.view.Activities
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
+import android.text.SpannableStringBuilder
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.core.text.bold
+import androidx.core.text.color
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -73,20 +78,65 @@ class HotelDetails : AppCompatActivity() {
             val locationName = it.data?.body?.pdpHeader?.hotelLocation?.locationName
             mainTitle = it.data?.body?.propertyDescription?.name.toString()
 
+            val freeWifiChecker = it?.data?.body?.overview?.overviewSections?.get(0)?.content
+            setUpWifiMessage(freeWifiChecker)
+
+            val subTitle = it?.data?.body?.overview?.overviewSections?.get(2)?.content
+            setUpSubTitle(subTitle)
 
             val stars = it.data?.body?.propertyDescription?.starRatingTitle
             setupRating(stars)
+
+            val currentPrice = it.data?.body?.propertyDescription?.featuredPrice?.currentPrice?.formatted
+            setUpPrice(currentPrice)
 
             //Set up Toolbar Title
             AppUtilities.setupToolbar(this,toolbarHotelDetails,locationName.toString())
         })
     }
 
+    private fun setUpPrice(cPrice: String?) {
+
+        cPrice?.let {
+            currentPrice.text = it
+
+            // Get Weekly rate
+            val week = AppUtilities.weeklyRate(it)
+            //Make weekly rate bold to display on screen
+            val typeStyledTextOutput = SpannableStringBuilder().append("($").bold{append(week)}.append(" for 6 nights)")
+
+            nightyStatement.visibility = View.VISIBLE
+            weeklyRate.text = typeStyledTextOutput
+
+        }
+    }
+
+    private fun setUpSubTitle(subTitle: List<String?>?) {
+
+        subTitle?.let {
+
+            val sub = Html.fromHtml(subTitle.get(0).toString())
+            subTitleText.text = sub
+        }
+    }
+
+    private fun setUpWifiMessage(freeWifiChecker: List<String?>?) {
+
+        // Only if the list is not null
+        freeWifiChecker?.let {
+
+            // Check to see if the list contains Free Wifi
+            if (it.contains("Free WiFi "))
+                // Make TextView Visible
+                frWifi.visibility = View.VISIBLE
+        }
+    }
+
     private fun setupRating(stars: String?) {
 
         // Set up stars rating
         when (stars) {
-            "1 stars" ->{
+            "1 star" ->{
                 one_star.visibility = View.VISIBLE
                 two_star.visibility = View.GONE
                 three_star.visibility = View.GONE
