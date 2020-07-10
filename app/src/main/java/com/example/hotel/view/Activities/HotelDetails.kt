@@ -90,9 +90,25 @@ class HotelDetails : AppCompatActivity() {
             val currentPrice = it.data?.body?.propertyDescription?.featuredPrice?.currentPrice?.formatted
             setUpPrice(currentPrice)
 
+            val totalGuestReviews = it.data?.body?.guestReviews?.brands?.total
+            setUpGuestReview(totalGuestReviews)
+
+            val amenities = it?.data?.body?.overview?.overviewSections?.get(0)?.title
+            setUpAmentities(amenities)
+
             //Set up Toolbar Title
             AppUtilities.setupToolbar(this,toolbarHotelDetails,locationName.toString())
         })
+    }
+
+    private fun setUpAmentities(amenities: String?) {
+
+        amentities_title.text = amenities
+    }
+
+    private fun setUpGuestReview(totalGuestReviews: Int?) {
+
+        guest_reviews.text = "${totalGuestReviews.toString()} Verified guest reviews"
     }
 
     private fun setUpPrice(cPrice: String?) {

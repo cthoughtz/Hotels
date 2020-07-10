@@ -182,6 +182,83 @@
         android:layout_marginTop="2dp"
         tools:text="($214 for 6 nights)" />
 
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/blue_outline"
+        android:text="ADD"
+        android:drawableLeft="@drawable/favorite_selection"
+        android:drawablePadding="-50dp"
+        android:paddingLeft="40dp"
+        android:textColor="@color/colorBlue"
+        app:layout_constraintStart_toStartOf="@+id/one_star"
+        app:layout_constraintTop_toBottomOf="@+id/nightyStatement" />
 
+    <Button
+        android:id="@+id/bookt_now_button"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blue_button"
+        android:text="BOOK NOW"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/add_button"
+        app:layout_constraintEnd_toEndOf="@+id/currentPrice"
+        app:layout_constraintTop_toTopOf="@+id/add_button" />
+
+    <View
+        android:id="@+id/divider_one"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorLightGrey"
+        app:layout_constraintEnd_toEndOf="@+id/bookt_now_button"
+        app:layout_constraintStart_toStartOf="@+id/add_button"
+        app:layout_constraintTop_toBottomOf="@id/bookt_now_button" />
+
+    <ImageView
+        android:id="@+id/hotels_logo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/hcom_logo_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider_one" />
+
+    <TextView
+        android:id="@+id/guest_reviews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorBlue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hotels_logo"
+        tools:text="379 Verified guest reviews" />
+
+    <View
+        android:id="@+id/divider_two"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorLightGrey"
+        app:layout_constraintEnd_toEndOf="@+id/bookt_now_button"
+        app:layout_constraintStart_toStartOf="@+id/add_button"
+        app:layout_constraintTop_toBottomOf="@id/guest_reviews" />
+
+    <TextView
+        android:id="@+id/amentities_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/divider_two"
+        app:layout_constraintTop_toBottomOf="@+id/divider_two"
+        tools:text="Main Amenities" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
