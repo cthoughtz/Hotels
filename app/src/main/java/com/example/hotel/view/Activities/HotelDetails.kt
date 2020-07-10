@@ -2,7 +2,6 @@ package com.example.hotel.view.Activities
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
@@ -11,7 +10,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.core.text.bold
-import androidx.core.text.color
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +18,7 @@ import com.example.hotel.R
 import com.example.hotel.model.HotelPhotosResponse
 import com.example.hotel.model.RecyclerViewDataClass.HotelDetailsPhotos
 import com.example.hotel.view.Adapters.HotelDetailsAdditionalImageAdapter
+import com.example.hotel.view.Adapters.MainAmenitiesAdapter
 import com.example.hotel.viewmodel.AppViewModel
 import kotlinx.android.synthetic.main.activity_hotel_details.*
 
@@ -93,17 +92,32 @@ class HotelDetails : AppCompatActivity() {
             val totalGuestReviews = it.data?.body?.guestReviews?.brands?.total
             setUpGuestReview(totalGuestReviews)
 
-            val amenities = it?.data?.body?.overview?.overviewSections?.get(0)?.title
-            setUpAmentities(amenities)
+            val amenitiesTitle = it?.data?.body?.overview?.overviewSections?.get(0)?.title
+            val amenitiesList = it?.data?.body?.overview?.overviewSections?.get(0)?.content
+            setUpAmentities(amenitiesTitle, amenitiesList)
 
             //Set up Toolbar Title
             AppUtilities.setupToolbar(this,toolbarHotelDetails,locationName.toString())
         })
     }
 
-    private fun setUpAmentities(amenities: String?) {
+    private fun setUpAmentities(
+        amenities: String?,
+        amenitiesList: List<String?>?
+    ) {
 
         amentities_title.text = amenities
+
+        // Setting up Adapter
+        val mainAmenAdapter = MainAmenitiesAdapter(this,amenitiesList as ArrayList<String>)
+
+        // set up recyclerview
+        main_amenities_recyclerView.apply {
+
+            adapter = mainAmenAdapter
+            layoutManager = LinearLayoutManager(this@HotelDetails, LinearLayoutManager.VERTICAL,false)
+
+        }
     }
 
     private fun setUpGuestReview(totalGuestReviews: Int?) {
